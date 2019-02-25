@@ -1,0 +1,62 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_header_title">
+My Account
+</%block>
+
+<%block name="page_title">&mdash; Account</%block>
+
+<%block name="left_content">
+
+</%block>
+
+
+<%block name="site_content">
+<div class="content">
+        <div></div>
+<table width="50%" style="text-align:left;">
+        <tr><td><img src="/static/homepage/media/UserImages/${request.user.username}.jpg" class="userimage"></td>
+                <th style="text-align:right; padding-right: 10px;" class="formlabel">
+                        Name:
+                    </th>
+            <td class="forminput" style="border-style:none">
+                    ${request.user.first_name} ${request.user.last_name} 
+            </td>
+        </tr>
+       <tr><td><hr></td><td><hr></td></tr>
+<tr>
+        <td></td>
+        <th style="text-align:right; padding-right: 10px;", class="formlabel">
+                Username:
+            </th>
+    <td class="forminput" style="border-style:none">
+        
+            ${request.user.username} 
+        
+    </td>
+</tr>
+<tr>
+        <td></td>
+        <th style="text-align:right; padding-right: 10px;" class="formlabel">
+                Email:
+            </th>
+    <td class="forminput" style="border-style:none">${request.user.email} 
+    </td>
+</tr>
+      
+<tr>
+        <td></td>
+                <th style="text-align:right; padding-right: 10px;" class="formlabel">
+                        
+                    </th>
+            <td class="forminput" style="border-style:none"><a href="/account/index/">Change Password</a>
+            </td>
+        </tr>
+</table>
+</div>
+<br><br>
+</%block>
+
+<%block name="right_content">
+
+</%block>

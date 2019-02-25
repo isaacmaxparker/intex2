@@ -1,0 +1,181 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #777788;
+  background-image: url("/static/homepage/media/Background.jpg");
+  background-size: 100%;
+}
+
+footer {
+  text-align: center;
+  color: #33ccff;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.site_icon {
+  width: 100px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+#maintenence {
+  position: fixed;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%);
+}
+
+.content {
+  background-color: white;
+  padding: 20px 30px;
+  align-content: center;
+  align-self: center;
+}
+
+header {
+  text-align: center;
+  padding: 15px 20px;
+}
+
+.active {
+  font-weight: bolder;
+}
+
+.mynav {
+  color: whitesmoke;
+  margin-left: 100px;
+}
+
+.mynav-item a {
+  color: white;
+  font-family: "Century Gothic";
+}
+
+header > .title {
+  display: inline-block;
+  color: white;
+  font-family: century gothic;
+  text-transform: uppercase;
+  font-size: 80px;
+  font-weight: 500px;
+  text-shadow: 2px 2px 3px rgba(240, 19, 221, 0.2);
+  vertical-align: middle;
+}
+
+header img {
+  width: 100px;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  margin-right: 24px;
+}
+
+header h1 {
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  color: #08a58e;
+}
+
+.formlabel {
+  color: #a33f4e;
+  font-weight: lighter;
+  font-size: 28px;
+  font-family: "Century Gothic";
+}
+
+.forminput {
+  font-style: italic;
+  font-weight: lighter;
+  font-family: "century gothic";
+  padding-left: 10px;
+  color: gray;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  font-size: 24px;
+}
+
+.mybtn {
+  font-size: 25px;
+  font-weight: 50;
+  border-radius: 10px;
+}
+
+main {
+  margin: 0;
+  padding: 15px;
+  position: relative;
+}
+main #site_left {
+  background-color: rgba(255, 255, 255, 0.315);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+}
+main #site_middle {
+  background-color: white;
+  border-color: whitesmoke;
+  border-width: 10px;
+  border-style: groove;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+main #site_right {
+  background-color: rgba(255, 255, 255, 0.315);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+}
+
+footer {
+  margin-top: 40px;
+  border-top: 1px solid #CCCCCC;
+  text-align: right;
+}
+
+footer a {
+  display: inline-block;
+  color: rgba(255, 255, 0, 0.815);
+  margin: 15px 10% 0 0;
+}
+
+.copy {
+  color: #a33f4e;
+  font-family: "Century Gothic";
+  text-align: center;
+}
+
+.mydropdown {
+  color: #0a8369;
+  background-color: #bcfcee;
+}
+
+.mydropdown a {
+  color: #085c49;
+}
+
+.mydropdown a:hover {
+  background-color: #99eedb00;
+  font-weight: bold;
+}
+
+.userimage {
+  width: 100px;
+  border-radius: 50px;
+}
+
+/*# sourceMappingURL=base.scss.css.map */

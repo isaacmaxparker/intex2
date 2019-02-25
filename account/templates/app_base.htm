@@ -1,0 +1,18 @@
+<%inherit file="/homepage/templates/base.htm" />
+
+
+
+<%block name="navbar_items">
+      <li class="mynav-item">
+        <a class="nav-link ${ 'active' if request.dmp.page =='index' else ' '}"  href="/">Home</a>
+      </li>
+      <li class="mynav-item">
+        <a class="nav-link ${ 'active' if request.dmp.page =='contact' else ' '}" href="/contact/">Contact</a>
+      </li>                 
+</%block>
+
+<%block name="left_content">
+
+
+
+</%block>

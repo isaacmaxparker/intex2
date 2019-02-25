@@ -1,0 +1,62 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_title">&mdash; Contact</%block>
+
+<%block name="left_content">
+
+</%block>
+
+<%block name="page_header_title">
+Contact Isaac
+</%block>
+
+<%block name="site_content">
+
+
+
+<div class="content">
+<p class="alert">
+    ${msg}
+</p>
+
+
+<form method="POST" id="contactform">
+    <table class="content" style="margin-left:25%; padding-right:25%; width: 50%">
+        <tr>
+            <td>
+                    <p class="formlabel"> Name: </p> 
+            </td>
+            <td>
+                    <input type="text" name="yourname" class="forminput"/> 
+                </td>
+        </tr>
+        <tr>
+                <td>
+                        <p class="formlabel"> Email:  </p>
+                </td>
+                <td>
+                        <input type = "email" name="youremail" class="forminput" />
+                    </td>
+            </tr>
+            <tr>
+                    <td>
+                            <p class="formlabel"> Message:  </p>
+                    </td>
+                    <td>
+                            <input type="text"  name="yourmessage" class="forminput" />
+                        </td>
+                </tr>
+                
+                
+    </table>
+  
+    <p style="margin-left:40%; margin-top:15px;"><input type="submit" class="btn btn-outline-secondary mybtn"/></p>
+    
+  
+</form>
+</div>
+</%block>
+
+<%block name="right_content">
+
+</%block>
