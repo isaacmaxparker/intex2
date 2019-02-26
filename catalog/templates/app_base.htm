@@ -1,20 +1,45 @@
 <%inherit file="/homepage/templates/base.htm" />
 
+<%block name="page_title">&mdash; Catalog</%block>
+
+
+<%block name="page_header_title">
+Catalog
+</%block>
 
 
 <%block name="navbar_items">
-      <li class="mynav-item">
-        <a class="nav-link ${ 'active' if request.dmp.page =='index' else ' '}"  href="/">Home</a>
-      </li>
-      <li class="mynav-item">
-        <a class="nav-link ${ 'active' if request.dmp.page =='contact' else ' '}" href="/contact/">Contact</a>
-      </li>                 
+<li class="mynav-item">
+  <a class="nav-link ${ 'active' if request.dmp.page =='' else ' '}"  href="/">Home</a>
+</li>
+<li class="mynav-item">
+    <a class="nav-link ${ 'active' if request.dmp.page =='contact' else ' '}" href="/contact/">Contact</a>
+  </li>
+  <li class="nav-item mynav-item">
+    <a class="nav-link ${ 'active' if request.dmp.page =='index' else ' '}"  href="/catalog/">Catalog</a>
+  </li>             
 </%block>
 
 <%block name="left_content">
+<div>
+<ul>
+<li class="catlist">
+     <a href="/catalog/index/">All Products</a>
+</li>
+<hr>
+<li class="catlist">
+  <a href="/catalog/index/<category id>/">Instruments</a>
+</li>
+<li class="catlist">
+  <a href="/catalog/index/<category id>/">Microphones</a>
+</li>
+<li class="catlist">
+  <a href="/catalog/index/<category id>/">Accessories</a>
+</li>
 
 
-
+</ul>
+</div>
 </%block>
 
 <%block name="right_content">

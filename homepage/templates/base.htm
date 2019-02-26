@@ -49,27 +49,39 @@
 
                             </%block>
                     
-                            %if request.user.is_authenticated: 
-                                <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0;">
+                            %if request.user.is_authenticated:
+                            
+                                
+                            
+                                <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">
+                                    
                                     <a class="nav-link dropdown-toggle" style="color:#085c49;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Welcome, ${request.user.username} 
+                                       Hello, ${request.user.username} 
                                     </a>
+                                    
                                     <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item mydropddownitem" href="/account/index">Account</a>
                                     <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/account/logout">Logout</a>
                                     </div>
                                 </li>
+                                
                             %else:
-                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link" href="/account/login" style="color:#085c49">Log In</a></li>
+                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ${ 'active' if request.dmp.page =='login' else ' '}"" href="/account/login" style="color:#085c49">Log In</a></li>
                             %endif
+
+                           
                                 
 
 
                  </ul>
         
             </nav>
-
+            %if request.user.is_authenticated:
+            
+                <img src="${STATIC_URL}homepage/media/UserImages/${request.user.username}.jpg" class="loginimg" >
+            
+            %endif
             
 
             <div class="title"><%block name="page_header_title">

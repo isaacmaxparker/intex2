@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1550965803.8165333
+_modified_time = 1551219505.7191627
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/account/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -30,12 +30,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
         def navbar_items():
             return render_navbar_items(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_items'):
@@ -56,16 +56,18 @@ def render_body(context,**pageargs):
 def render_navbar_items(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def navbar_items():
             return render_navbar_items(context)
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n      <li class="mynav-item">\r\n        <a class="nav-link ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='index' else ' '))
-        __M_writer('"  href="/">Home</a>\r\n      </li>\r\n      <li class="mynav-item">\r\n        <a class="nav-link ')
+        __M_writer('\r\n<li class="mynav-item">\r\n    <a class="nav-link ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='' else ' '))
+        __M_writer('"  href="/">Home</a>\r\n  </li>\r\n  <li class="mynav-item">\r\n      <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='contact' else ' '))
-        __M_writer('" href="/contact/">Contact</a>\r\n      </li>                 \r\n')
+        __M_writer('" href="/contact/">Contact</a>\r\n    </li>\r\n    <li class="nav-item mynav-item">\r\n      <a class="nav-link ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='' else ' '))
+        __M_writer('"  href="/catalog/">Catalog</a>\r\n    </li>             \r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -85,6 +87,6 @@ def render_left_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/account/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 12, "50": 18, "56": 5, "64": 5, "65": 7, "66": 7, "67": 10, "68": 10, "74": 14, "80": 14, "86": 80}}
+{"filename": "C:/Users/Isaac/mysite/account/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 15, "50": 21, "56": 5, "64": 5, "65": 7, "66": 7, "67": 10, "68": 10, "69": 13, "70": 13, "76": 17, "82": 17, "88": 82}}
 __M_END_METADATA
 """

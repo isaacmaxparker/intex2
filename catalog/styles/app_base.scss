@@ -1,0 +1,16 @@
+ul{
+    margin:0;
+    list-style-type: none;
+}
+
+.catlist a{
+    font-family: 'Gill Sans MT','Century Gothic';
+    color:#a33f4e;
+    font-size: 24px;
+
+}
+
+.catlist :hover{
+    color: #571e26;
+    text-decoration: none;
+}
