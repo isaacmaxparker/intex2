@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551219620.8430812
+_modified_time = 1551298189.2095222
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['page_title', 'navbar_items', 'page_header_title', 'left_content', 'site_content', 'right_content']
+_exports = ['page_title', 'bodclass', 'navbar_items', 'page_header_title', 'left_content', 'site_content', 'right_content']
 
 
 from datetime import datetime 
@@ -21,21 +21,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
         def navbar_items():
             return render_navbar_items(context._locals(__M_locals))
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
+        def bodclass():
+            return render_bodclass(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        Isaac\'s Hot\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -56,18 +58,23 @@ def render_body(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( django_mako_plus.links(self) ))
         __M_writer('\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-        __M_writer('homepage/media/favicon.ico">\r\n\r\n    </head>\r\n    <body>\r\n\r\n\r\n\r\n\r\n        <div id="maintenence" class = "alert alert-danger" style="position:absolute;">Our server will be down all the times I am not working on this project.</div>\r\n        <header>\r\n            <img src="')
+        __M_writer('homepage/media/favicon.ico">\r\n\r\n    </head>\r\n    <body ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'bodclass'):
+            context['self'].bodclass(**pageargs)
+        
+
+        __M_writer(' </body>\r\n\r\n\r\n\r\n\r\n        <div id="maintenence" class = "alert alert-danger" style="position:absolute;">Our server will be down all the times I am not working on this project.</div>\r\n        <header>\r\n            <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-        __M_writer('homepage/media/cd2.png" alt="python" />\r\n            <nav class="mynav navbar">\r\n                <ul class="nav nav-tabs">\r\n                    \r\n                    ')
+        __M_writer('homepage/media/hphones.png" alt="python" />\r\n            <nav class="mynav navbar">\r\n                <ul class="nav nav-tabs">\r\n                    \r\n                    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_items'):
             context['self'].navbar_items(**pageargs)
         
 
         __M_writer('\r\n                    \r\n')
         if request.user.is_authenticated:
-            __M_writer('                            \r\n                                \r\n                            \r\n                                <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">\r\n                                    \r\n                                    <a class="nav-link dropdown-toggle" style="color:#085c49;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                       Hello, ')
+            __M_writer('                            \r\n                                \r\n                            \r\n                                <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">\r\n                                    \r\n                                    <a class="nav-link dropdown-toggle" style="color:#085c49;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Hello, ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-            __M_writer(' \r\n                                    </a>\r\n                                    \r\n                                    <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">\r\n                                        <a class="dropdown-item mydropddownitem" href="/account/index">Account</a>\r\n                                    <div class="dropdown-divider"></div>\r\n                                        <a class="dropdown-item" href="/account/logout">Logout</a>\r\n                                    </div>\r\n                                </li>\r\n                                \r\n')
+            __M_writer(' \r\n                                    </a> \r\n                                    \r\n                                    <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">\r\n                                        <a class="dropdown-item mydropddownitem" href="/account/index">Account</a>\r\n                                    <div class="dropdown-divider"></div>\r\n                                        <a class="dropdown-item" href="/account/logout">Logout</a>\r\n                                    </div>\r\n                                </li>\r\n                                \r\n')
         else:
             __M_writer('                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='login' else ' '))
@@ -120,13 +127,24 @@ def render_page_title(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_bodclass(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def bodclass():
+            return render_bodclass(context)
+        __M_writer = context.writer()
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_navbar_items(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         def navbar_items():
             return render_navbar_items(context)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n                            \r\n                            <li class="nav-item mynav-item">\r\n                                    <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='index' else ' '))
@@ -186,6 +204,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 108, "20": 0, "40": 2, "45": 12, "46": 17, "47": 17, "48": 17, "49": 19, "50": 19, "51": 20, "52": 20, "53": 25, "54": 25, "55": 27, "56": 28, "57": 28, "58": 29, "59": 29, "60": 39, "61": 39, "66": 50, "67": 52, "68": 53, "69": 59, "70": 59, "71": 69, "72": 70, "73": 70, "74": 70, "75": 72, "76": 80, "77": 81, "78": 82, "79": 82, "80": 82, "81": 82, "82": 85, "87": 89, "92": 94, "97": 98, "102": 102, "103": 108, "104": 110, "105": 110, "111": 10, "117": 10, "123": 43, "131": 43, "132": 46, "133": 46, "139": 87, "145": 87, "151": 94, "157": 94, "163": 98, "169": 98, "175": 102, "181": 102, "187": 181}}
+{"filename": "C:/Users/Isaac/mysite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 108, "20": 0, "42": 2, "47": 12, "48": 17, "49": 17, "50": 17, "51": 19, "52": 19, "53": 20, "54": 20, "55": 25, "56": 25, "57": 27, "58": 28, "59": 28, "60": 29, "61": 29, "66": 32, "67": 39, "68": 39, "73": 50, "74": 52, "75": 53, "76": 59, "77": 59, "78": 69, "79": 70, "80": 70, "81": 70, "82": 72, "83": 80, "84": 81, "85": 82, "86": 82, "87": 82, "88": 82, "89": 85, "94": 89, "99": 94, "104": 98, "109": 102, "110": 108, "111": 110, "112": 110, "118": 10, "124": 10, "130": 32, "141": 43, "149": 43, "150": 46, "151": 46, "157": 87, "163": 87, "169": 94, "175": 94, "181": 98, "187": 98, "193": 102, "199": 102, "205": 199}}
 __M_END_METADATA
 """

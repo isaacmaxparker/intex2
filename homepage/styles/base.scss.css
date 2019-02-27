@@ -3,8 +3,19 @@ html, body {
   padding: 0;
   font-family: sans-serif;
   color: #777788;
-  background-image: url("/static/homepage/media/Background.jpg");
+  background-image: url("/static/homepage/media/head2.jpg");
   background-size: 100%;
+}
+
+.back2 {
+  margin: 0;
+  padding: 0;
+  background-image: url("/static/homepage/media/head2.jpg");
+  background-size: 100%;
+}
+
+.backtime {
+  background-image: url("/static/homepage/media/teal.jpg");
 }
 
 footer {
@@ -31,7 +42,7 @@ footer {
 }
 
 .content {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.425);
   padding: 20px 30px;
   align-content: center;
   align-self: center;
@@ -54,6 +65,7 @@ header {
 .mynav-item a {
   color: white;
   font-family: "Century Gothic";
+  text-shadow: 1px 0px rgba(0, 0, 0, 0.062);
 }
 
 header > .title {
@@ -83,6 +95,8 @@ header h1 {
 
 h3 {
   color: #08a58e;
+  text-align: right;
+  font-size: 24px;
 }
 
 .formlabel {
@@ -124,10 +138,10 @@ main #site_left {
   height: 100%;
 }
 main #site_middle {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   border-color: whitesmoke;
   border-width: 10px;
-  border-style: groove;
+  border-style: solid;
   margin-left: 200px;
   margin-right: 200px;
 }
@@ -167,7 +181,7 @@ footer a {
 }
 
 .mydropdown a:hover {
-  background-color: #99eedb00;
+  background-color: #99eedc00;
   font-weight: bold;
 }
 
@@ -179,7 +193,7 @@ footer a {
 .loginimg {
   float: right;
   top: -47px;
-  left: -150px;
+  left: -140px;
   position: relative;
   height: 35px;
   width: auto;

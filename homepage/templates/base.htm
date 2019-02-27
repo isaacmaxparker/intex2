@@ -29,14 +29,14 @@
         <link rel="icon" href="${ STATIC_URL }homepage/media/favicon.ico">
 
     </head>
-    <body>
+    <body <%block name="bodclass"></%block> </body>
 
 
 
 
         <div id="maintenence" class = "alert alert-danger" style="position:absolute;">Our server will be down all the times I am not working on this project.</div>
         <header>
-            <img src="${ STATIC_URL }homepage/media/cd2.png" alt="python" />
+            <img src="${ STATIC_URL }homepage/media/hphones.png" alt="python" />
             <nav class="mynav navbar">
                 <ul class="nav nav-tabs">
                     
@@ -56,8 +56,8 @@
                                 <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">
                                     
                                     <a class="nav-link dropdown-toggle" style="color:#085c49;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       Hello, ${request.user.username} 
-                                    </a>
+                                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Hello, ${request.user.username} 
+                                    </a> 
                                     
                                     <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item mydropddownitem" href="/account/index">Account</a>
