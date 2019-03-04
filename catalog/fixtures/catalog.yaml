@@ -1,0 +1,17 @@
+- model: catalog.category
+  pk: 1
+  fields: {last_modified: ! '2019-03-04 13:34:34.215808'}
+- model: catalog.product
+  pk: 1
+  fields: {category: 1, last_modified: ! '2019-03-04 13:40:23.262214', status: '',
+    name: Violin, description: Beautiful oak 3/4 violin. Made by Bernini, price: '699.99',
+    quantity: 3, reorder_trigger: 1, reorder_quantity: 1}
+- model: catalog.productimage
+  pk: 1
+  fields: {product: 1}
+- model: catalog.productimage
+  pk: 2
+  fields: {product: 1}
+- model: catalog.productimage
+  pk: 3
+  fields: {product: 1}
