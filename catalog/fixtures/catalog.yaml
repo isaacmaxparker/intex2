@@ -55,7 +55,7 @@
     fields: {filename: sax1.jpg, product: 4}
 -   model: catalog.productimage
     pk: 9
-    fields: {filename: sax2.jpg, product: 4}
+    fields: {filename: sax2.jpeg, product: 4}
 
 #Trumpet
 -   model: catalog.product
@@ -78,7 +78,7 @@
         quantity: 9, reorder_trigger: 1, reorder_quantity: 1}
 -   model: catalog.productimage
     pk: 12
-    fields: {filename: fulte1.jpg, product: 6}
+    fields: {filename: flute1.jpg, product: 6}
 -   model: catalog.productimage
     pk: 13
     fields: {filename: flute2.jpg, product: 6}
@@ -165,7 +165,7 @@
     fields: {filename: micstand1.jpg, product: 12}
 -   model: catalog.productimage
     pk: 25
-    fields: {filename: micstand2.jpg, product: 12}
+    fields: {filename: micstand2.jpeg, product: 12}
 
 #Round Stand -- Inactive
 -   model: catalog.product
@@ -219,10 +219,10 @@
         quantity: 5, reorder_trigger: 1, reorder_quantity: 3}
 -   model: catalog.productimage
     pk: 32
-    fields: {filename: wirelessmic1.jpg, product: 16}
+    fields: {filename: handmic1.jpg, product: 16}
 -   model: catalog.productimage
     pk: 33
-    fields: {filename: wirelessmic2.jpg, product: 16}
+    fields: {filename: handmic2.jpg, product: 16}
 
 #Condensor Mic
 -   model: catalog.product

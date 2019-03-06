@@ -19,6 +19,7 @@ def process_request(request, product:cmod.Product):
     return request.dmp.render('product.html', context)
 
 @view_function
-def tile(request):
-
-    return HttpResponse("Hey Hey Hey")
+def tile(request, product:cmod.Product):
+    return request.dmp.render('product.tile.html', {
+        'product':product
+    })
