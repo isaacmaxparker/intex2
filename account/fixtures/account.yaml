@@ -5,12 +5,12 @@
         last_login: null
         is_superuser: true
         username: isaacmcdgl
-        first_name: 'Master'
+        first_name: ''
         last_name: ''
         email: isaacmcdgl@gmail.com
         is_staff: true
         is_active: true
-        date_joined: 2019-02-18 19:00:45.643510+00:00
+        date_joined: 2019-02-18 19:00:45.643510
         birthdate: null
         groups: []
         user_permissions: []
@@ -18,7 +18,7 @@
     pk: 2
     fields:
         password: pbkdf2_sha256$120000$ABNSm9DbtJ1p$E2YTY7NSstCf5NzmXCNWJVDfBlBv34us7z5wv7dVMrQ=
-        last_login: null
+        last_login: 2019-02-27 12:44:53.286568
         is_superuser: false
         username: redvelvet
         first_name: Red
@@ -26,7 +26,7 @@
         email: red@velvet.com
         is_staff: false
         is_active: true
-        date_joined: 2019-02-18 19:11:14.585729+00:00
+        date_joined: 2019-02-18 19:11:14.585729
         birthdate: null
         groups: []
         user_permissions: []
@@ -34,7 +34,7 @@
     pk: 3
     fields:
         password: pbkdf2_sha256$120000$DJ85zbtSrIVE$MrlsiJLA27VEMMwlm9jFIgySG5TKe5jiW0Z6+TrpxPo=
-        last_login: null
+        last_login: 2019-02-27 14:39:21.936675
         is_superuser: false
         username: BlackPink
         first_name: Black
@@ -42,7 +42,7 @@
         email: blackpink@yourarea.com
         is_staff: false
         is_active: true
-        date_joined: 2019-02-18 19:13:33.576552+00:00
+        date_joined: 2019-02-18 19:13:33.576552
         birthdate: null
-        groups: []
-        user_permissions: []
+        groups: [2]
+        user_permissions: [21]

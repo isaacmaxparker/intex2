@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
-    name = models.TextField
+    name = models.TextField(default='')
 
 
 class Product(models.Model):
@@ -38,7 +38,7 @@ class Product(models.Model):
     
 class ProductImage(models.Model):
     'an image for a product'
-    filename = models.TextField
+    filename = models.TextField(default='noimage.png')
     product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='images')
 
     def image_url(self):
