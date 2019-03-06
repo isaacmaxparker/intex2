@@ -14,3 +14,49 @@ ul{
     color: #571e26;
     text-decoration: none;
 }
+
+
+.prodimg{
+    width:100%;
+    margin:0;
+    padding:0;
+    padding-right: 10px;
+    // border-style:solid;
+    // border-color:#1449406c;
+    // border-width: 8px;
+    box-shadow:5px 10px 5px 0px #9fafad83;
+}
+
+
+.prodinfo{
+padding-left: 20px;
+}
+
+.prodtitle{
+    font-family: 'Century Gothic';
+    color:#167061;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.proddesc{
+    font-family: 'Century Gothic';
+    color:#535353;
+    font-size: 20px;
+}
+
+.prodprice{
+    font-family: 'Century Gothic';
+    color:#a33f4e;
+    font-size: 40px;
+    font-style: italic;
+    margin:0;
+}
+
+.prodquant{
+    font-family: 'Century Gothic';
+    color:#535353;
+    font-size: 12px;
+    padding-top:0px;
+    margin-top:0px;
+}

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551219685.8563983
+_modified_time = 1551896908.6409516
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/catalog/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -32,16 +32,16 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def page_title():
             return render_page_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
         def navbar_items():
             return render_navbar_items(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -101,8 +101,8 @@ def render_page_header_title(context,**pageargs):
 def render_navbar_items(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
         request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def navbar_items():
             return render_navbar_items(context)
         __M_writer = context.writer()
@@ -124,7 +124,7 @@ def render_left_content(context,**pageargs):
         def left_content():
             return render_left_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n<div>\r\n<ul>\r\n<li class="catlist">\r\n     <a href="/catalog/index/">All Products</a>\r\n</li>\r\n<hr>\r\n<li class="catlist">\r\n  <a href="/catalog/index/<category id>/">Instruments</a>\r\n</li>\r\n<li class="catlist">\r\n  <a href="/catalog/index/<category id>/">Microphones</a>\r\n</li>\r\n<li class="catlist">\r\n  <a href="/catalog/index/<category id>/">Accessories</a>\r\n</li>\r\n\r\n\r\n</ul>\r\n</div>\r\n')
+        __M_writer('\r\n<div>\r\n<ul>\r\n<li class="catlist">\r\n     <a href="/catalog/index/">All Products</a>\r\n</li>\r\n<hr>\r\n<li class="catlist">\r\n  <a href="/catalog/index/1/">Instruments</a>\r\n</li>\r\n<li class="catlist">\r\n  <a href="/catalog/index/3/">Microphones</a>\r\n</li>\r\n<li class="catlist">\r\n  <a href="/catalog/index/2/">Accessories</a>\r\n</li>\r\n\r\n\r\n</ul>\r\n</div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -136,7 +136,7 @@ def render_right_content(context,**pageargs):
         def right_content():
             return render_right_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n\r\n\r\n')
+        __M_writer('\r\n\r\n<p class="quote">\r\n    Used to feel lonely and empty<br>\r\n    But December is no longer lonely<br>\r\n    The best thing I ever did<br>\r\n    Was meeting you<br>\r\n\r\n-TWICE "The Best Thing I Ever did"\r\n</p>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -144,6 +144,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/catalog/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 8, "61": 21, "66": 43, "71": 49, "77": 3, "83": 3, "89": 6, "95": 6, "101": 11, "109": 11, "110": 13, "111": 13, "112": 16, "113": 16, "114": 19, "115": 19, "121": 23, "127": 23, "133": 45, "139": 45, "145": 139}}
+{"filename": "C:/Users/Isaac/mysite/catalog/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 8, "61": 21, "66": 43, "71": 56, "77": 3, "83": 3, "89": 6, "95": 6, "101": 11, "109": 11, "110": 13, "111": 13, "112": 16, "113": 16, "114": 19, "115": 19, "121": 23, "127": 23, "133": 45, "139": 45, "145": 139}}
 __M_END_METADATA
 """

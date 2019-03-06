@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551297596.1164439
+_modified_time = 1551896756.845706
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/homepage/templates/contact.html'
 _template_uri = 'contact.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['page_title', 'left_content', 'page_header_title', 'site_content', 'bodclass', 'right_content']
+_exports = ['page_title', 'left_content', 'page_header_title', 'site_content', 'bodclass']
 
 
 def _mako_get_namespace(context, name):
@@ -30,18 +30,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         def bodclass():
             return render_bodclass(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
         msg = context.get('msg', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -66,11 +64,6 @@ def render_body(context,**pageargs):
         
 
         __M_writer('\r\n\r\n')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'right_content'):
-            context['self'].right_content(**pageargs)
-        
-
-        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -116,11 +109,11 @@ def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         msg = context.get('msg', UNDEFINED)
+        def site_content():
+            return render_site_content(context)
         def bodclass():
             return render_bodclass(context)
         self = context.get('self', UNDEFINED)
-        def site_content():
-            return render_site_content(context)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'bodclass'):
@@ -147,20 +140,8 @@ def render_bodclass(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_right_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def right_content():
-            return render_right_content(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/homepage/templates/contact.html", "uri": "contact.html", "source_encoding": "utf-8", "line_map": {"29": 0, "48": 1, "53": 3, "58": 7, "63": 11, "68": 63, "73": 67, "79": 3, "85": 3, "91": 5, "97": 5, "103": 9, "109": 9, "115": 13, "125": 13, "130": 17, "131": 21, "132": 21, "138": 15, "144": 15, "150": 65, "156": 65, "162": 156}}
+{"filename": "C:/Users/Isaac/mysite/homepage/templates/contact.html", "uri": "contact.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 7, "61": 11, "66": 63, "72": 3, "78": 3, "84": 5, "90": 5, "96": 9, "102": 9, "108": 13, "118": 13, "123": 17, "124": 21, "125": 21, "131": 15, "137": 15, "143": 137}}
 __M_END_METADATA
 """

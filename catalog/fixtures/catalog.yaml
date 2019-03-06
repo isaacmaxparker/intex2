@@ -15,10 +15,10 @@
     fields: {filename: violin1.jpg, product: 1}
 -   model: catalog.productimage
     pk: 2
-    fields: {filename: violin2.png, product: 1}
+    fields: {filename: violin2.jpg, product: 1}
 -   model: catalog.productimage
     pk: 3
-    fields: {filename: violin3.png, product: 1}
+    fields: {filename: violin3.jpg, product: 1}
 #Cello
 -   model: catalog.product
     pk: 2
@@ -30,7 +30,7 @@
     fields: {filename: cello1.jpg, product: 2}
 -   model: catalog.productimage
     pk: 5
-    fields: {filename: cello2.png, product: 2}
+    fields: {filename: cello2.jpg, product: 2}
 #Drum
 -   model: catalog.product
     pk: 3
@@ -42,7 +42,7 @@
     fields: {filename: drum1.jpg, product: 3}
 -   model: catalog.productimage
     pk: 7
-    fields: {filename: drum2.png, product: 3}
+    fields: {filename: drum2.jpg, product: 3}
 
 #Sax
 -   model: catalog.product
@@ -55,7 +55,7 @@
     fields: {filename: sax1.jpg, product: 4}
 -   model: catalog.productimage
     pk: 9
-    fields: {filename: sax2.png, product: 4}
+    fields: {filename: sax2.jpg, product: 4}
 
 #Trumpet
 -   model: catalog.product
@@ -68,7 +68,7 @@
     fields: {filename: trumpet1.jpg, product: 5}
 -   model: catalog.productimage
     pk: 11
-    fields: {filename: trumpet2.png, product: 5}
+    fields: {filename: trumpet2.jpg, product: 5}
 
 #Flute
 -   model: catalog.product
@@ -81,7 +81,7 @@
     fields: {filename: fulte1.jpg, product: 6}
 -   model: catalog.productimage
     pk: 13
-    fields: {filename: flute2.png, product: 6}
+    fields: {filename: flute2.jpg, product: 6}
 
 #Second category: Stands/Accessories
 
@@ -100,7 +100,7 @@
     fields: {filename: clip1.jpg, product: 7}
 -   model: catalog.productimage
     pk: 15
-    fields: {filename: clip2.png, product: 7}
+    fields: {filename: clip2.jpg, product: 7}
 
 #Mic Cord
 -   model: catalog.product
@@ -113,7 +113,7 @@
     fields: {filename: cord1.jpg, product: 8}
 -   model: catalog.productimage
     pk: 17
-    fields: {filename: cord2.png, product: 8}
+    fields: {filename: cord2.jpg, product: 8}
 
 #Desk Stand
 -   model: catalog.product
@@ -126,7 +126,7 @@
     fields: {filename: deskstand1.jpg, product: 9}
 -   model: catalog.productimage
     pk: 19
-    fields: {filename: deskstand2.png, product: 9}
+    fields: {filename: deskstand2.jpg, product: 9}
 
 #Flex Stand
 -   model: catalog.product
@@ -139,7 +139,7 @@
     fields: {filename: flexstand1.jpg, product: 10}
 -   model: catalog.productimage
     pk: 21
-    fields: {filename: flexstand2.png, product: 10}
+    fields: {filename: flexstand2.jpg, product: 10}
 
 #Keyboard Stand
 -   model: catalog.product
@@ -152,7 +152,7 @@
     fields: {filename: keystand1.jpg, product: 11}
 -   model: catalog.productimage
     pk: 23
-    fields: {filename: keystand2.png, product: 11}
+    fields: {filename: keystand2.jpg, product: 11}
 
 #Mic Stand
 -   model: catalog.product
@@ -165,7 +165,7 @@
     fields: {filename: micstand1.jpg, product: 12}
 -   model: catalog.productimage
     pk: 25
-    fields: {filename: micstand2.png, product: 12}
+    fields: {filename: micstand2.jpg, product: 12}
 
 #Round Stand -- Inactive
 -   model: catalog.product
@@ -178,7 +178,7 @@
     fields: {filename: deskstand1.jpg, product: 13}
 -   model: catalog.productimage
     pk: 27
-    fields: {filename: deskstand2.png, product: 13}
+    fields: {filename: deskstand2.jpg, product: 13}
 
 #Music Stand
 -   model: catalog.product
@@ -191,7 +191,7 @@
     fields: {filename: musicstand1.jpg, product: 14}
 -   model: catalog.productimage
     pk: 29
-    fields: {filename: musicstand2.png, product: 14}
+    fields: {filename: musicstand2.jpg, product: 14}
 
 #Second category: Stands/Accessories
 -   model: catalog.category
@@ -209,7 +209,7 @@
     fields: {filename: wirelessmic1.jpg, product: 15}
 -   model: catalog.productimage
     pk: 31
-    fields: {filename: wirelessmic2.png, product: 15}
+    fields: {filename: wirelessmic2.jpg, product: 15}
 
 #Handheld Mic
 -   model: catalog.product
@@ -222,7 +222,7 @@
     fields: {filename: wirelessmic1.jpg, product: 16}
 -   model: catalog.productimage
     pk: 33
-    fields: {filename: wirelessmic2.png, product: 16}
+    fields: {filename: wirelessmic2.jpg, product: 16}
 
 #Condensor Mic
 -   model: catalog.product
@@ -235,10 +235,10 @@
     fields: {filename: condensormic1.jpg, product: 17}
 -   model: catalog.productimage
     pk: 35
-    fields: {filename: condensormic2.png, product: 17}
+    fields: {filename: condensormic2.jpg, product: 17}
 -   model: catalog.productimage
     pk: 36
-    fields: {filename: condensormic3.png, product: 17}
+    fields: {filename: condensormic3.jpg, product: 17}
 
 #Acapella set
 -   model: catalog.product
@@ -251,7 +251,7 @@
     fields: {filename: acapella1.jpg, product: 18}
 -   model: catalog.productimage
     pk: 38
-    fields: {filename: acapella2.png, product: 18}
+    fields: {filename: acapella2.jpg, product: 18}
 
 #Face Mic
 -   model: catalog.product
@@ -261,10 +261,10 @@
         quantity: 5, reorder_trigger: 1, reorder_quantity: 3}
 -   model: catalog.productimage
     pk: 39
-    fields: {filename: wirelessmic1.jpg, product: 19}
+    fields: {filename: facemic1.jpg, product: 19}
 -   model: catalog.productimage
     pk: 40
-    fields: {filename: wirelessmic2.png, product: 19}
+    fields: {filename: facemic2.jpg, product: 19}
 
 #In Ear monitor
 -   model: catalog.product
@@ -277,7 +277,7 @@
     fields: {filename: inearmonitor1.jpg, product: 20}
 -   model: catalog.productimage
     pk: 42
-    fields: {filename: inearmonitor2.png, product: 20}
+    fields: {filename: inearmonitor2.jpg, product: 20}
 
 #Handheld Mic
 -   model: catalog.product
@@ -290,7 +290,7 @@
     fields: {filename: lapelmic1.jpg, product: 21}
 -   model: catalog.productimage
     pk: 44
-    fields: {filename: lapelmic2.png, product: 21}
+    fields: {filename: lapelmic2.jpg, product: 21}
 
 #Drum Mic
 -   model: catalog.product

@@ -42,4 +42,4 @@ class ProductImage(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='images')
 
     def image_url(self):
-        return '/static/catalog/media/product' + self.filename
+        return '/static/catalog/media/products/' + self.filename

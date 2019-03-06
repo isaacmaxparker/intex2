@@ -1,0 +1,45 @@
+<%inherit file="app_base.htm" />
+
+
+<%block name="page_header_title">
+Product Details
+</%block>
+
+<%block name="site_content">
+
+<div class="content">
+    <table>
+        <tr>
+            <td width="33%">
+                <img src="${imageurls[0]}" class="prodimg">
+            </td>
+            <td width="10px">
+                &nbsp;
+            </td>
+
+            <td width="33%">
+                <img src="${imageurls[1]}" class="prodimg">
+            </td>
+            <td width="34%">
+               <div class="prodinfo">
+                   <p class="prodtitle">
+                        ${name}
+                   </p>
+                   <p class="proddesc">
+                        ${desc}
+                   </p>
+                   <p class="prodprice">
+                        ${price}
+                   </p>
+                   <p class="prodquant">
+                       Only ${quant} left!
+                   </p>
+               </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</%block>
+

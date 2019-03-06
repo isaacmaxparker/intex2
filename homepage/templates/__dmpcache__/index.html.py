@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551298454.9313986
+_modified_time = 1551896755.5678403
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def bodclass():
-            return render_bodclass(context._locals(__M_locals))
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
         def page_title():
             return render_page_title(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        def bodclass():
+            return render_bodclass(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
         def site_content():
             return render_site_content(context._locals(__M_locals))
         __M_writer = context.writer()
