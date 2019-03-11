@@ -10,16 +10,18 @@ Product Details
 <div class="content">
     <table>
         <tr>
-            <td width="33%">
-                <img src="${imageurls[0]}" class="prodimg">
+            <td width="8%" height="auto">
+            %for img in imageurls:
+                <img src="${img}" class="prodimg">
+            %endfor
             </td>
             <td width="10px">
                 &nbsp;
             </td>
-            <td width="33%">
-                <img src="${imageurls[1]}" class="prodimg">
+            <td width="38%">
+                <img src="${imageurls[0]}" class="prodimgmain">
             </td>
-            <td width="34%">
+            <td width="55%">
                <div class="prodinfo">
                    <p class="prodtitle">
                         ${name}

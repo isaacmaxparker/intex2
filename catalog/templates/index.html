@@ -6,12 +6,23 @@ Catalog
 </%block>
 
 <%block name="site_content">
+<div id="catalog">
+
+    %for product in products:
+        <span class="product_container" data-product-id = "${product.id}"></span>
+    %end for
 
 <span class="product_container" data-product-id = "1"></span>
 <span class="product_container" data-product-id = "2"></span>
 <span class="product_container" data-product-id = "3"></span>
-
-
-
+</div>
 </%block>
 
+<%block name="right_content">
+
+<p class="quote">
+    "On Wednesdays we wear pink"<br>
+    - Karen Smith
+</p>
+
+</%block>

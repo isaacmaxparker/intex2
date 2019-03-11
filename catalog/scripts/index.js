@@ -1,16 +1,19 @@
+console.log("MADE IT");
+
 (function(context) {
     
     return function(){
         
-       var containers =  $('.product_container');
+       var containers =  $('.product_container')
 
-        containers.each(function(i,container){
+        containers.each(function(i,container){ //jquery for loop
             var pid = $(container).attr('data-product-id')
 
             $.ajax({
                 url:"/catalog/product.tile/"+ pid,
+            }).done(function(content){
+                $(container).html(content);
             });
-
         });
 
     }

@@ -16,7 +16,7 @@ ul{
 }
 
 
-.prodimg{
+.prodimgmain{
     width:100%;
     margin:0;
     padding:0;
@@ -27,6 +27,15 @@ ul{
     box-shadow:5px 10px 5px 0px #9fafad83;
 }
 
+.prodimg{
+    width:116px;
+    margin:0;
+    padding:0;
+    margin:10px;
+     border-style:solid;
+     border-color:#98e6d96c;
+     border-width: 3px;
+}
 
 .prodinfo{
 padding-left: 20px;

@@ -32,8 +32,7 @@ class Product(models.Model):
         for pi in ProductImage.objects.filter(product=self):
             urls.append(pi.image_url())
         # if list is empty append no iimage available
-        if urls.count(urls) == 0:
-            urls.append('/static/catalog/media/products/noimage.png')
+        if len(urls) == 0:
             urls.append('/static/catalog/media/products/noimage.png')
         return urls
     

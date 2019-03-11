@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551903920.3814645
+_modified_time = 1552336014.0099247
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/catalog/templates/product.html'
 _template_uri = 'product.html'
@@ -30,16 +30,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        name = context.get('name', UNDEFINED)
-        desc = context.get('desc', UNDEFINED)
-        price = context.get('price', UNDEFINED)
-        imageurls = context.get('imageurls', UNDEFINED)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         quant = context.get('quant', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
+        desc = context.get('desc', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        name = context.get('name', UNDEFINED)
+        price = context.get('price', UNDEFINED)
+        imageurls = context.get('imageurls', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_header_title'):
@@ -72,20 +72,23 @@ def render_page_header_title(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        name = context.get('name', UNDEFINED)
+        quant = context.get('quant', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        desc = context.get('desc', UNDEFINED)
         def site_content():
             return render_site_content(context)
-        desc = context.get('desc', UNDEFINED)
-        self = context.get('self', UNDEFINED)
+        name = context.get('name', UNDEFINED)
         price = context.get('price', UNDEFINED)
-        quant = context.get('quant', UNDEFINED)
         imageurls = context.get('imageurls', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<div class="content">\r\n    <table>\r\n        <tr>\r\n            <td width="33%">\r\n                <img src="')
+        __M_writer('\r\n\r\n<div class="content">\r\n    <table>\r\n        <tr>\r\n            <td width="8%" height="auto">\r\n')
+        for img in imageurls:
+            __M_writer('                <img src="')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(img))
+            __M_writer('" class="prodimg">\r\n')
+        __M_writer('            </td>\r\n            <td width="10px">\r\n                &nbsp;\r\n            </td>\r\n            <td width="38%">\r\n                <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(imageurls[0]))
-        __M_writer('" class="prodimg">\r\n            </td>\r\n            <td width="10px">\r\n                &nbsp;\r\n            </td>\r\n            <td width="33%">\r\n                <img src="')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(imageurls[1]))
-        __M_writer('" class="prodimg">\r\n            </td>\r\n            <td width="34%">\r\n               <div class="prodinfo">\r\n                   <p class="prodtitle">\r\n                        ')
+        __M_writer('" class="prodimgmain">\r\n            </td>\r\n            <td width="55%">\r\n               <div class="prodinfo">\r\n                   <p class="prodtitle">\r\n                        ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(name))
         __M_writer('\r\n                   </p>\r\n                   <p class="proddesc">\r\n                        ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(desc))
@@ -101,6 +104,6 @@ def render_site_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/catalog/templates/product.html", "uri": "product.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 6, "54": 43, "60": 4, "66": 4, "72": 8, "84": 8, "85": 14, "86": 14, "87": 20, "88": 20, "89": 25, "90": 25, "91": 28, "92": 28, "93": 31, "94": 31, "95": 34, "96": 34, "102": 96}}
+{"filename": "C:/Users/Isaac/mysite/catalog/templates/product.html", "uri": "product.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 6, "54": 45, "60": 4, "66": 4, "72": 8, "84": 8, "85": 14, "86": 15, "87": 15, "88": 15, "89": 17, "90": 22, "91": 22, "92": 27, "93": 27, "94": 30, "95": 30, "96": 33, "97": 33, "98": 36, "99": 36, "105": 99}}
 __M_END_METADATA
 """
