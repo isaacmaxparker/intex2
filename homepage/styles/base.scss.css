@@ -203,12 +203,11 @@ footer a {
 }
 
 .quote {
-  color: #4e5352a9;
+  color: #4e53526e;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-style: italic;
   padding: 5px;
   vertical-align: middle;
-  padding-top: 50%;
 }
 
 /*# sourceMappingURL=base.scss.css.map */

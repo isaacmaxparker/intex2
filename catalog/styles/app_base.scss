@@ -103,3 +103,19 @@ padding-left: 20px;
     color:#7e383800;
     font-size: 24px;
 }
+
+.parent:hover > span {
+    opacity: .85;
+  }
+
+  .parent:hover > span:hover {
+    opacity: 1;
+  }
+
+  .parent:hover > .prodimg {
+    opacity: 0.7;
+  }
+
+  .parent:hover > .prodimg:hover {
+    opacity: 1;
+  }

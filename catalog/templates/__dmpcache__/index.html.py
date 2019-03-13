@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552438486.1379445
+_modified_time = 1552447971.2209425
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/catalog/templates/index.html'
 _template_uri = 'index.html'
@@ -33,16 +33,16 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         category = context.get('category', UNDEFINED)
-        products = context.get('products', UNDEFINED)
         page = context.get('page', UNDEFINED)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        numpages = context.get('numpages', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def right_content():
             return render_right_content(context._locals(__M_locals))
         def site_content():
             return render_site_content(context._locals(__M_locals))
+        products = context.get('products', UNDEFINED)
+        numpages = context.get('numpages', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n')
@@ -68,10 +68,10 @@ def render_body(context,**pageargs):
 def render_page_header_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def page_header_title():
-            return render_page_header_title(context)
         category = context.get('category', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'Catalog' if category is None else category.name))
@@ -85,19 +85,19 @@ def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         category = context.get('category', UNDEFINED)
-        products = context.get('products', UNDEFINED)
         page = context.get('page', UNDEFINED)
-        numpages = context.get('numpages', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def site_content():
             return render_site_content(context)
+        products = context.get('products', UNDEFINED)
+        numpages = context.get('numpages', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n<div id="content" style="margin:0 0px;">\r\n')
+        __M_writer('\r\n<div id="content" style="margin:0 0px;">\r\n    <div class="parent">\r\n')
         for product in products:
             __M_writer('        <span class="product_container" data-product-id="')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(product.id))
             __M_writer('"></span>\r\n')
-        __M_writer('\r\n    <table class="nextprev" width=100%>\r\n        <tr>\r\n            <td style="float:right; margin-right: 0;">\r\n')
+        __M_writer('   </div>\r\n    <table class="nextprev" width=100%>\r\n        <tr>\r\n            <td style="float:right; margin-right: 0;">\r\n')
         if page-1 != 0:
             __M_writer('                    <a class="btn btn-lg mybtn" href="/catalog/index/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(category if category is not None else '-'))
@@ -123,7 +123,7 @@ def render_right_content(context,**pageargs):
         def right_content():
             return render_right_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<p class="quote">\r\n    "On Wednesdays we wear pink"<br>\r\n    - Karen Smith\r\n\r\n    \r\n</p>\r\n\r\n')
+        __M_writer('\r\n<p class="formlabel" style="font-size:18px; text-align: center; padding-top:20%; color: #2e92779f;">Quote of the day</h1>\r\n<p class="quote">\r\n    "On Wednesdays we wear pink"<br>\r\n    - Karen Smith\r\n\r\n    \r\n</p>\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -131,6 +131,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/catalog/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "47": 1, "48": 2, "53": 6, "58": 30, "68": 4, "76": 4, "77": 5, "78": 5, "84": 8, "95": 8, "96": 10, "97": 11, "98": 11, "99": 11, "100": 13, "101": 17, "102": 18, "103": 18, "104": 18, "105": 18, "106": 18, "107": 20, "108": 23, "109": 24, "110": 24, "111": 24, "112": 24, "113": 24, "114": 26, "120": 32, "126": 32, "132": 126}}
+{"filename": "C:/Users/Isaac/mysite/catalog/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "47": 1, "48": 2, "53": 6, "58": 31, "68": 4, "76": 4, "77": 5, "78": 5, "84": 8, "95": 8, "96": 11, "97": 12, "98": 12, "99": 12, "100": 14, "101": 18, "102": 19, "103": 19, "104": 19, "105": 19, "106": 19, "107": 21, "108": 24, "109": 25, "110": 25, "111": 25, "112": 25, "113": 25, "114": 27, "120": 33, "126": 33, "132": 126}}
 __M_END_METADATA
 """
