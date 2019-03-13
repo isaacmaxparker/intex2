@@ -3,6 +3,10 @@ ul {
   list-style-type: none;
 }
 
+.catlist :active {
+  font-weight: bold;
+}
+
 .catlist a {
   font-family: "Gill Sans MT", "Century Gothic";
   color: #a33f4e;
@@ -63,6 +67,36 @@ ul {
   font-size: 12px;
   padding-top: 0px;
   margin-top: 0px;
+}
+
+.content {
+  align-content: center;
+  padding: 20px;
+}
+
+.nextprev {
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  box-align: center;
+}
+
+.mybtn {
+  font-family: "Century Gothic";
+  color: #c45a5aa8;
+}
+
+.mybtn:hover {
+  border-style: solid;
+  border-width: 1px;
+  color: #7e3838ce;
+  border-color: #fdbdbd5e;
+}
+
+.prev {
+  font-family: "Century Gothic";
+  color: #7e383800;
+  font-size: 24px;
 }
 
 /*# sourceMappingURL=app_base.scss.css.map */

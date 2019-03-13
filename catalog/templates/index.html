@@ -1,20 +1,31 @@
 <%inherit file="app_base.htm" />
-
+<%! from catalog import models as cmod %>
 
 <%block name="page_header_title">
-Catalog
+${ 'Catalog' if category is None else category.name}
 </%block>
 
 <%block name="site_content">
-<div id="catalog">
-
+<div id="content" style="margin:0 0px;">
     %for product in products:
-        <span class="product_container" data-product-id = "${product.id}"></span>
-    %end for
+        <span class="product_container" data-product-id="${product.id}"></span>
+    %endfor
 
-<span class="product_container" data-product-id = "1"></span>
-<span class="product_container" data-product-id = "2"></span>
-<span class="product_container" data-product-id = "3"></span>
+    <table class="nextprev" width=100%>
+        <tr>
+            <td style="float:right; margin-right: 0;">
+                    %if page-1 != 0:
+                    <a class="btn btn-lg mybtn" href="/catalog/index/${category if category is not None else '-'}/${page-1}">Previous</a>
+                    %endif
+            </td>
+        
+            <td width=50%>       
+                %if page != numpages:
+                <a class="btn mybtn btn-lg" href="/catalog/index/${category if category is not None else '-'}/${page+1}">Next</a>
+                %endif
+            </td>
+        </tr>
+    </table>
 </div>
 </%block>
 
@@ -23,6 +34,8 @@ Catalog
 <p class="quote">
     "On Wednesdays we wear pink"<br>
     - Karen Smith
+
+    
 </p>
 
 </%block>

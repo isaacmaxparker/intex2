@@ -1,4 +1,6 @@
 <%inherit file="/homepage/templates/base.htm" />
+<%! from catalog import models as cmod %>
+
 
 <%block name="page_title">&mdash; Catalog</%block>
 
@@ -21,25 +23,18 @@ Catalog
 </%block>
 
 <%block name="left_content">
-<div>
+<div style="margin-top:10%; margin-right:10px;">
 <ul>
   <!-- //////////////DONT HARD CODE THIS ////////////////// -->
-  
-
-
-<li class="catlist">
+ <li class="catlist ${'active' if category is None else ' '}">
      <a href="/catalog/index/">All Products</a>
 </li>
 <hr>
-<li class="catlist">
-  <a href="/catalog/index/1/">Instruments</a>
+%for cat in cmod.Category.objects.order_by('name'):
+<li class="catlist ${'active' if category == cat else ' '}">
+  <a href="/catalog/index/${cat.id}">${cat.name}</a>
 </li>
-<li class="catlist">
-  <a href="/catalog/index/3/">Microphones</a>
-</li>
-<li class="catlist">
-  <a href="/catalog/index/2/">Accessories</a>
-</li>
+%endfor
 
 
 </ul>
