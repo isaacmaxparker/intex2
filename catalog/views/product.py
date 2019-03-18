@@ -12,7 +12,7 @@ def process_request(request, product:cmod.Product):
         'name':product.name,
         'price':product.price,
         'desc':product.description,
-        'imageurls':product.images_url(),
+        'imageurls':product.image_urls(),
         'quant':product.quantity
 
     }

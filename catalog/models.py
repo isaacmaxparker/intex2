@@ -25,9 +25,9 @@ class Product(models.Model):
 
     def image_url(self):
         ''
-        return self.images_url()[0]
+        return self.image_urls()[0]
 
-    def images_url(self):
+    def image_urls(self):
         urls = []
         for pi in ProductImage.objects.filter(product=self):
             urls.append(pi.image_url())
