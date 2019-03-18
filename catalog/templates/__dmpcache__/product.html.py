@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552447765.745767
+_modified_time = 1552936848.2685082
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/catalog/templates/product.html'
 _template_uri = 'product.html'
@@ -30,16 +30,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        imageurls = context.get('imageurls', UNDEFINED)
-        price = context.get('price', UNDEFINED)
-        name = context.get('name', UNDEFINED)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        desc = context.get('desc', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        name = context.get('name', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
+        desc = context.get('desc', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        price = context.get('price', UNDEFINED)
         quant = context.get('quant', UNDEFINED)
+        imageurls = context.get('imageurls', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_header_title'):
@@ -72,14 +72,14 @@ def render_page_header_title(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        imageurls = context.get('imageurls', UNDEFINED)
-        price = context.get('price', UNDEFINED)
-        desc = context.get('desc', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         name = context.get('name', UNDEFINED)
+        desc = context.get('desc', UNDEFINED)
         def site_content():
             return render_site_content(context)
-        self = context.get('self', UNDEFINED)
+        price = context.get('price', UNDEFINED)
         quant = context.get('quant', UNDEFINED)
+        imageurls = context.get('imageurls', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="content">\r\n    <table>\r\n        <tr>\r\n            <td width="8%" height="auto" class="parent">\r\n')
         for img in imageurls:
@@ -96,7 +96,7 @@ def render_site_content(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(price))
         __M_writer('\r\n                   </p>\r\n                   <p class="prodquant">\r\n                       Only ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(quant))
-        __M_writer(' left!\r\n                   </p>\r\n                   <a class="btn mybtn btn-lg" href="/catalog/index/-/1">Back to products</a>\r\n               </div>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n\r\n\r\n')
+        __M_writer(' left!\r\n                   </p>\r\n\r\n                   <form style="vertical-align:middle;">\r\n\r\n                   \r\n                    <label class="formlabel" style="font-size:18px;">Quantity:</label>\r\n                    <input type="number" value="0" class="forminput col-sm-2" step="1" style="margin:10px;" name="QuantOrd">\r\n                    \r\n                    <input type="submit" class="btn btn-lg buybtn" value="Buy Now">\r\n\r\n                   </form>\r\n\r\n                   <div style="padding-top:20px;">\r\n                   <a class="btn mybtn btn-sm" href="/catalog/index/-/1">Back to products</a>\r\n                </div>\r\n               </div>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -104,6 +104,6 @@ def render_site_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/catalog/templates/product.html", "uri": "product.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 6, "54": 46, "60": 4, "66": 4, "72": 8, "84": 8, "85": 14, "86": 15, "87": 15, "88": 15, "89": 17, "90": 22, "91": 22, "92": 27, "93": 27, "94": 30, "95": 30, "96": 33, "97": 33, "98": 36, "99": 36, "105": 99}}
+{"filename": "C:/Users/Isaac/mysite/catalog/templates/product.html", "uri": "product.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 6, "54": 59, "60": 4, "66": 4, "72": 8, "84": 8, "85": 14, "86": 15, "87": 15, "88": 15, "89": 17, "90": 22, "91": 22, "92": 27, "93": 27, "94": 30, "95": 30, "96": 33, "97": 33, "98": 36, "99": 36, "105": 99}}
 __M_END_METADATA
 """
