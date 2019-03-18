@@ -1,0 +1,102 @@
+<%inherit file="app_base.htm" />
+<%! from catalog import models as cmod %>
+
+<%block name="page_header_title">
+Cart
+</%block>
+
+<%block name="site_content">
+<div id="content">
+    <table class="carttab" width=100%; style="text-align:center;">
+        <tr>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Extended
+            </th>
+            <th>Actions</th>
+        </tr>
+        <!-- %for product in : -->
+        <tr>
+            <td>
+                <img src="/static/catalog/media/products/acapella1.jpg" class="cartimg">
+            </td>
+            <td>
+                NAME
+            </td>
+            <td>
+                QUANT
+            </td>
+            <td>
+                PRICE
+            </td>
+            <td>
+                PRICE*QUANT
+            </td>
+            <td>
+                <a class="rmv" href="/catalog/cart.remove">Remove</a>
+            </td>
+        </tr>
+        <!-- %endfor -->
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                Tax
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                $$$
+            </td>
+            <td>
+                 &nbsp;
+            </td>
+
+        </tr>
+        <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    Total
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    $$$
+                </td>
+                <td>
+                     &nbsp;
+                </td>
+    
+            </tr>
+    </table>
+<div style="align-content:center;"></div>
+<a class="btn btn-lg buybtn" style="margin-left:42%;" href="/catalog/checkout">Checkout Now</a>
+</div>
+</div>
+</%block>
+
+<%block name="right_content">
+
+</%block>

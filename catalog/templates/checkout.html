@@ -1,0 +1,24 @@
+<%inherit file="app_base.htm" />
+<%! from catalog import models as cmod %>
+
+<%block name="page_header_title">
+Checkout
+</%block>
+
+<%block name="site_content">
+<div class="content" style="margin-left:25%; padding-right:25%; width: 50%">
+
+        <form action="" method="post">
+            
+            <table class="formlabel">
+            ${ form }
+            </table>
+            <p class="btn btn-lg buybtn" style="margin-left:80%; margin-top:20px;" href="/catalog/checkout">Checkout</p>
+          </form>
+
+      </div>
+</%block>
+
+<%block name="right_content">
+
+</%block>

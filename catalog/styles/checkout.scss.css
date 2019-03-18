@@ -1,0 +1,23 @@
+input {
+  border-radius: 10px;
+  font-style: italic;
+  color: #a5a5a5;
+  border-style: solid;
+  border-color: #99224a5e;
+  border-width: 1px;
+  margin: 5px 0px;
+  margin-left: 20px;
+}
+
+.buybtn {
+  background-color: #a5a5a500;
+  border-style: solid;
+  border-color: #1c8051;
+  border-width: 1px;
+}
+
+.buybtn:hover {
+  background-color: #aae4d285;
+}
+
+/*# sourceMappingURL=checkout.scss.css.map */

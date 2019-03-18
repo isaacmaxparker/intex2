@@ -106,6 +106,10 @@ padding-left: 20px;
 
 }
 
+.buybtn:hover{
+    color: rgb(13, 148, 92);
+}
+
 .formlabel{
     color: rgb(13, 148, 92);
   
@@ -135,4 +139,31 @@ padding-left: 20px;
 
   .parent:hover > .prodimg:hover {
     opacity: 1;
+  }
+
+  .carttab{
+      padding:20px;
+      margin:20px;
+      font-size: 18px;
+      font-family: Century Gothic;
+      color:#7e3838ce;
+  }
+
+  .carttab td{
+      padding: 0px 20px;
+  }
+
+  .rmv{
+    color:#079268;
+  }
+  
+  .rmv:hover{
+    color:#003d2b;
+    text-decoration: none;
+
+  }
+
+  .cartimg{
+      width:50px;
+      border-radius: 10px;
   }

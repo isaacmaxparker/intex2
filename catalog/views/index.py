@@ -16,8 +16,6 @@ def process_request(request, category:cmod.Category=None, page:int=1):
         products = products.filter(category=category)
 
     pgproducts= products[(page - 1) * ITEMS_PAGE_PAGE: page * ITEMS_PAGE_PAGE]
-    print('-------------------')
-    print(products.count())
     context = {
         'category':category,
         'products':pgproducts,
