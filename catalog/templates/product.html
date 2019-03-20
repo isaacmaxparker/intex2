@@ -36,7 +36,7 @@ Product Details
                        Only ${quant} left!
                    </p>
 
-                   <form style="vertical-align:middle;">
+                   <form style="vertical-align:middle;" method="POST" id="productform">
 
                    
                     <label class="formlabel" style="font-size:18px;">Quantity:</label>
@@ -45,7 +45,9 @@ Product Details
                     <input type="submit" class="btn btn-lg buybtn" value="Buy Now">
 
                    </form>
-
+                    %if message != '':
+                    <div id="maintenence" class = "alert alert-danger" style="">${message}</div>
+                    %endif
                    <div style="padding-top:20px;">
                    <a class="btn mybtn btn-sm" href="/catalog/index/-/1">Back to products</a>
                 </div>

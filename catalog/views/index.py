@@ -21,6 +21,6 @@ def process_request(request, category:cmod.Category=None, page:int=1):
         'products':pgproducts,
         'page':page,
         'numpages': ceil(products.count() / ITEMS_PAGE_PAGE),
-       
+        
     }
     return request.dmp.render('index.html', context)

@@ -26,7 +26,7 @@ Cart
             </th>
             <th>Actions</th>
         </tr>
-        <!-- %for product in : -->
+        %for item in saleItems :
         <tr>
             <td>
                 <img src="/static/catalog/media/products/acapella1.jpg" class="cartimg">
@@ -47,7 +47,7 @@ Cart
                 <a class="rmv" href="/catalog/cart.remove">Remove</a>
             </td>
         </tr>
-        <!-- %endfor -->
+        %endfor
         <tr>
             <td>
                 &nbsp;
@@ -62,7 +62,7 @@ Cart
                 &nbsp;
             </td>
             <td>
-                $$$
+                ${tax}
             </td>
             <td>
                  &nbsp;
@@ -83,7 +83,7 @@ Cart
                     &nbsp;
                 </td>
                 <td>
-                    $$$
+                   ${total}
                 </td>
                 <td>
                      &nbsp;

@@ -2,10 +2,34 @@ from django.conf import settings
 from django_mako_plus import view_function, jscontext
 from datetime import datetime, timezone
 from catalog import models as cmod
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 @view_function
 def process_request(request, product:cmod.Product):
+
+    if request.method == 'POST': 
+        if request.user.is_authenticated == False:
+            return HttpResponseRedirect('/account/login/')
+        
+        quantwant = int(request.POST['QuantOrd'])
+
+        if quantwant > product.quantity:
+            context = {
+                'name':product.name,
+                'price':product.price,
+                'desc':product.description,
+                'imageurls':product.image_urls(),
+                'quant':product.quantity,
+                'message':'Not Enough in stock'
+            }
+            return request.dmp.render('product.html', context)
+
+        sale5 = request.user.get_shopping_cart()
+        thisSale = cmod.SaleItem()
+        thisSale.sale = sale5
+        print('I MADE IT')
+        
+        return HttpResponseRedirect('/catalog/cart/')
 
     context = {
         
@@ -13,7 +37,8 @@ def process_request(request, product:cmod.Product):
         'price':product.price,
         'desc':product.description,
         'imageurls':product.image_urls(),
-        'quant':product.quantity
+        'quant':product.quantity,
+        'message':''
 
     }
     return request.dmp.render('product.html', context)

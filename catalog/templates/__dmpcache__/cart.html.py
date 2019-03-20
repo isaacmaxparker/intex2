@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1552939202.3851383
+_modified_time = 1553111950.1345065
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/catalog/templates/cart.html'
 _template_uri = 'cart.html'
@@ -32,12 +32,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
+        saleItems = context.get('saleItems', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        total = context.get('total', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        tax = context.get('tax', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n')
@@ -75,10 +79,21 @@ def render_page_header_title(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        saleItems = context.get('saleItems', UNDEFINED)
         def site_content():
             return render_site_content(context)
+        total = context.get('total', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        tax = context.get('tax', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n<div id="content">\r\n    <table class="carttab" width=100%; style="text-align:center;">\r\n        <tr>\r\n            <th>\r\n                &nbsp;\r\n            </th>\r\n            <th>\r\n                Product Name\r\n            </th>\r\n            <th>\r\n                Quantity\r\n            </th>\r\n            <th>\r\n                Price\r\n            </th>\r\n            <th>\r\n                Extended\r\n            </th>\r\n            <th>Actions</th>\r\n        </tr>\r\n        <!-- %for product in : -->\r\n        <tr>\r\n            <td>\r\n                <img src="/static/catalog/media/products/acapella1.jpg" class="cartimg">\r\n            </td>\r\n            <td>\r\n                NAME\r\n            </td>\r\n            <td>\r\n                QUANT\r\n            </td>\r\n            <td>\r\n                PRICE\r\n            </td>\r\n            <td>\r\n                PRICE*QUANT\r\n            </td>\r\n            <td>\r\n                <a class="rmv" href="/catalog/cart.remove">Remove</a>\r\n            </td>\r\n        </tr>\r\n        <!-- %endfor -->\r\n        <tr>\r\n            <td>\r\n                &nbsp;\r\n            </td>\r\n            <td>\r\n                Tax\r\n            </td>\r\n            <td>\r\n                &nbsp;\r\n            </td>\r\n            <td>\r\n                &nbsp;\r\n            </td>\r\n            <td>\r\n                $$$\r\n            </td>\r\n            <td>\r\n                 &nbsp;\r\n            </td>\r\n\r\n        </tr>\r\n        <tr>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                    Total\r\n                </td>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                    $$$\r\n                </td>\r\n                <td>\r\n                     &nbsp;\r\n                </td>\r\n    \r\n            </tr>\r\n    </table>\r\n<div style="align-content:center;"></div>\r\n<a class="btn btn-lg buybtn" style="margin-left:42%;" href="/catalog/checkout">Checkout Now</a>\r\n</div>\r\n</div>\r\n')
+        __M_writer('\r\n<div id="content">\r\n    <table class="carttab" width=100%; style="text-align:center;">\r\n        <tr>\r\n            <th>\r\n                &nbsp;\r\n            </th>\r\n            <th>\r\n                Product Name\r\n            </th>\r\n            <th>\r\n                Quantity\r\n            </th>\r\n            <th>\r\n                Price\r\n            </th>\r\n            <th>\r\n                Extended\r\n            </th>\r\n            <th>Actions</th>\r\n        </tr>\r\n')
+        for item in saleItems :
+            __M_writer('        <tr>\r\n            <td>\r\n                <img src="/static/catalog/media/products/acapella1.jpg" class="cartimg">\r\n            </td>\r\n            <td>\r\n                NAME\r\n            </td>\r\n            <td>\r\n                QUANT\r\n            </td>\r\n            <td>\r\n                PRICE\r\n            </td>\r\n            <td>\r\n                PRICE*QUANT\r\n            </td>\r\n            <td>\r\n                <a class="rmv" href="/catalog/cart.remove">Remove</a>\r\n            </td>\r\n        </tr>\r\n')
+        __M_writer('        <tr>\r\n            <td>\r\n                &nbsp;\r\n            </td>\r\n            <td>\r\n                Tax\r\n            </td>\r\n            <td>\r\n                &nbsp;\r\n            </td>\r\n            <td>\r\n                &nbsp;\r\n            </td>\r\n            <td>\r\n                ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(tax))
+        __M_writer('\r\n            </td>\r\n            <td>\r\n                 &nbsp;\r\n            </td>\r\n\r\n        </tr>\r\n        <tr>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                    Total\r\n                </td>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                   ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(total))
+        __M_writer('\r\n                </td>\r\n                <td>\r\n                     &nbsp;\r\n                </td>\r\n    \r\n            </tr>\r\n    </table>\r\n<div style="align-content:center;"></div>\r\n<a class="btn btn-lg buybtn" style="margin-left:42%;" href="/catalog/checkout">Checkout Now</a>\r\n</div>\r\n</div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -98,6 +113,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/catalog/templates/cart.html", "uri": "cart.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "42": 1, "43": 2, "48": 6, "53": 98, "63": 4, "69": 4, "75": 8, "81": 8, "87": 100, "93": 100, "99": 93}}
+{"filename": "C:/Users/Isaac/mysite/catalog/templates/cart.html", "uri": "cart.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "46": 1, "47": 2, "52": 6, "57": 98, "67": 4, "73": 4, "79": 8, "89": 8, "90": 29, "91": 30, "92": 51, "93": 65, "94": 65, "95": 86, "96": 86, "102": 100, "108": 100, "114": 108}}
 __M_END_METADATA
 """
