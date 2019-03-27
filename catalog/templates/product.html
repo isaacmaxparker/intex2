@@ -32,8 +32,9 @@ Product Details
                    <p class="prodprice">
                         $${price}
                    </p>
+                   
                    <p class="prodquant">
-                       Only ${quant} left!
+                        ${ 'Only ' + str(quant) + ' left!' if quant != 0 else ' OUT OF STOCK '} 
                    </p>
 
                    <form style="vertical-align:middle;" method="POST" id="productform">
@@ -43,11 +44,11 @@ Product Details
                     <input type="number" value="0" class="forminput col-sm-2" step="1" style="margin:10px;" name="QuantOrd">
                     
                     <input type="submit" class="btn btn-lg buybtn" value="Buy Now">
-
-                   </form>
                     %if message != '':
-                    <div id="maintenence" class = "alert alert-danger" style="">${message}</div>
+                    <p class = "alert alert-danger" style="text-align: center;">${message}</p>
                     %endif
+                   </form>
+                    
                    <div style="padding-top:20px;">
                    <a class="btn mybtn btn-sm" href="/catalog/index/-/1">Back to products</a>
                 </div>

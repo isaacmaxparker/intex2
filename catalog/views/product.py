@@ -6,6 +6,12 @@ from django.http import HttpResponseRedirect
 
 @view_function
 def process_request(request, product:cmod.Product):
+    sale5 = request.user.get_shopping_cart()
+    try:
+        saleitem = cmod.SaleItem.objects.get(sale = sale5, product = product)
+        quantincart = saleitem.quantity
+    except:
+        quantincart = 0
 
     if request.method == 'POST': 
         if request.user.is_authenticated == False:
@@ -13,7 +19,7 @@ def process_request(request, product:cmod.Product):
         
         quantwant = int(request.POST['QuantOrd'])
 
-        if quantwant > product.quantity:
+        if quantwant > (product.quantity - quantincart):
             context = {
                 'name':product.name,
                 'price':product.price,
@@ -23,12 +29,33 @@ def process_request(request, product:cmod.Product):
                 'message':'Not Enough in stock'
             }
             return request.dmp.render('product.html', context)
+        print(quantwant)
+        if quantwant == 0:
+            context = {
+                'name':product.name,
+                'price':product.price,
+                'desc':product.description,
+                'imageurls':product.image_urls(),
+                'quant':product.quantity,
+                'message':'Select at least one item'
+            }
+            return request.dmp.render('product.html', context)
 
         sale5 = request.user.get_shopping_cart()
-        thisSale = cmod.SaleItem()
-        thisSale.sale = sale5
-        print('I MADE IT')
         
+        try:
+             saleitem = cmod.SaleItem.objects.get(sale = sale5, product = product)
+             saleitem.quantity += quantwant
+             saleitem.save()
+        except:
+            print('=---------------else')
+            thisSale = cmod.SaleItem()
+            thisSale.sale = sale5
+            thisSale.product = product
+            thisSale.quantity = quantwant
+            thisSale.price = product.price * quantwant
+            thisSale.save()
+                
         return HttpResponseRedirect('/catalog/cart/')
 
     context = {

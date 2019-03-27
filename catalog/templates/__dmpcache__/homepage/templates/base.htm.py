@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551303538.8926404
+_modified_time = 1553721211.8372893
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
@@ -23,19 +23,19 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def page_title():
             return render_page_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
         def navbar_items():
             return render_navbar_items(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
         def bodclass():
             return render_bodclass(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -74,7 +74,7 @@ def render_body(context,**pageargs):
         if request.user.is_authenticated:
             __M_writer('                            \r\n                                \r\n                            \r\n                                <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">\r\n                                    \r\n                                    <a class="nav-link dropdown-toggle" style="color:#085c49;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Hello, ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-            __M_writer(' \r\n                                    </a> \r\n                                    \r\n                                    <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">\r\n                                        <a class="dropdown-item mydropddownitem" href="/account/index">Account</a>\r\n                                    <div class="dropdown-divider"></div>\r\n                                        <a class="dropdown-item" href="/account/logout">Logout</a>\r\n                                    </div>\r\n                                </li>\r\n                                \r\n')
+            __M_writer(' \r\n                                    </a> \r\n                                    \r\n                                    <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">\r\n                                        <a class="dropdown-item mydropddownitem" href="/account/index">Account</a>\r\n                                    <div class="dropdown-divider"></div>\r\n                                        <a class="dropdown-item mydropddownitem" href="/catalog/cart">My Cart</a>\r\n                                    <div class="dropdown-divider"></div>\r\n                                        <a class="dropdown-item" href="/account/logout">Logout</a>\r\n                                    </div>\r\n                                </li>\r\n                                \r\n')
         else:
             __M_writer('                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='login' else ' '))
@@ -141,10 +141,10 @@ def render_bodclass(context,**pageargs):
 def render_navbar_items(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def navbar_items():
             return render_navbar_items(context)
-        self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n                            \r\n                            <li class="nav-item mynav-item">\r\n                                    <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='index' else ' '))
@@ -204,6 +204,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 108, "20": 0, "42": 2, "47": 12, "48": 17, "49": 17, "50": 17, "51": 19, "52": 19, "53": 20, "54": 20, "55": 25, "56": 25, "57": 27, "58": 28, "59": 28, "60": 29, "61": 29, "66": 32, "67": 39, "68": 39, "73": 50, "74": 52, "75": 53, "76": 59, "77": 59, "78": 69, "79": 70, "80": 70, "81": 70, "82": 72, "83": 80, "84": 81, "85": 82, "86": 82, "87": 82, "88": 82, "89": 85, "94": 89, "99": 94, "104": 98, "109": 102, "110": 108, "111": 110, "112": 110, "118": 10, "124": 10, "130": 32, "141": 43, "149": 43, "150": 46, "151": 46, "157": 87, "163": 87, "169": 94, "175": 94, "181": 98, "187": 98, "193": 102, "199": 102, "205": 199}}
+{"filename": "C:/Users/Isaac/mysite/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 110, "20": 0, "42": 2, "47": 12, "48": 17, "49": 17, "50": 17, "51": 19, "52": 19, "53": 20, "54": 20, "55": 25, "56": 25, "57": 27, "58": 28, "59": 28, "60": 29, "61": 29, "66": 32, "67": 39, "68": 39, "73": 50, "74": 52, "75": 53, "76": 59, "77": 59, "78": 71, "79": 72, "80": 72, "81": 72, "82": 74, "83": 82, "84": 83, "85": 84, "86": 84, "87": 84, "88": 84, "89": 87, "94": 91, "99": 96, "104": 100, "109": 104, "110": 110, "111": 112, "112": 112, "118": 10, "124": 10, "130": 32, "141": 43, "149": 43, "150": 46, "151": 46, "157": 89, "163": 89, "169": 96, "175": 96, "181": 100, "187": 100, "193": 104, "199": 104, "205": 199}}
 __M_END_METADATA
 """

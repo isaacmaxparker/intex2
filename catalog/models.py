@@ -1,6 +1,8 @@
 from django.db import models
 from decimal import Decimal
-
+from django.conf import settings
+import stripe
+from datetime import datetime
 # Create your models here.
 class Category(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
@@ -46,6 +48,8 @@ class ProductImage(models.Model):
         return '/static/catalog/media/products/' + self.filename
 
 
+TAX_RATE = Decimal(".05")
+
 class Sale(models.Model):
         user = models.ForeignKey("account.User", on_delete=models.PROTECT)
         created = models.DateTimeField(auto_now_add=True)
@@ -56,12 +60,13 @@ class Sale(models.Model):
         charge_id = models.TextField(null=True, default=None)   # successful charge id from stripe
 
         def recalculate(self):
-            '''Recalculates the subtotal, tax, and total fields. Does not save the object.'''
-            sales = SaleItem.objects.filter(product=self, status='A')
+            sales = SaleItem.objects.filter(sale=self, status='A')    
+            print(sales)        
+            sub = Decimal("0")
             for sale in sales:
                 sub += sale.price
             self.subtotal = sub
-            self.tax = self.subtotal * .05
+            self.tax = self.subtotal * TAX_RATE
             self.total = self.subtotal + self.tax
 
         def finalize(self, stripeToken):
@@ -72,15 +77,23 @@ class Sale(models.Model):
                 raise ValueError("This sale has already been finalized")
             
             # Check product quantities one more time
-            # if self.quantity <= self.product.quantity
-            #     raise ValueError("Not enough in stock!")
+            #if self.quantity <= Product.quantity
+                 #raise ValueError("Not enough in stock!")
             # Call recalculate one more time
             self.recalculate()
             # Create a charge using the `stripeToken` (https://stripe.com/docs/charges)
                 # be sure to pip install stripe and import stripe into this file
+            stripe.api_key = settings.STRIPE_SECRET_KEY
+            charge = stripe.Charge.create(
+                    amount=int(self.total * Decimal("100.0")),
+                    currency='usd',
+                    description='Example charge',
+                    source = stripeToken,
+            )
             # Set purchased=now and charge_id=the id from Stripe
-            self.purchased = now
-            # self.charge_id=
+            self.purchased = datetime.now()
+            self.charge_id = charge["id"]
+            self.save()
             # Save
 
 class SaleItem(models.Model):

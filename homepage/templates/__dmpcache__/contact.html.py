@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551896756.845706
+_modified_time = 1553720828.9994826
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/homepage/templates/contact.html'
 _template_uri = 'contact.html'
@@ -30,18 +30,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        def bodclass():
-            return render_bodclass(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        msg = context.get('msg', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
         def site_content():
             return render_site_content(context._locals(__M_locals))
+        def bodclass():
+            return render_bodclass(context._locals(__M_locals))
+        msg = context.get('msg', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -99,7 +99,7 @@ def render_page_header_title(context,**pageargs):
         def page_header_title():
             return render_page_header_title(context)
         __M_writer = context.writer()
-        __M_writer('\r\nContact Isaac\r\n')
+        __M_writer('\r\nContact FOMO\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -108,12 +108,12 @@ def render_page_header_title(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        msg = context.get('msg', UNDEFINED)
-        def site_content():
-            return render_site_content(context)
         def bodclass():
             return render_bodclass(context)
         self = context.get('self', UNDEFINED)
+        msg = context.get('msg', UNDEFINED)
+        def site_content():
+            return render_site_content(context)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'bodclass'):

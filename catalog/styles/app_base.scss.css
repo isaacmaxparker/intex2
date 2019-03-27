@@ -155,8 +155,21 @@ ul {
 }
 
 .cartimg {
-  width: 50px;
+  width: 80px;
   border-radius: 10px;
+  padding: 10px;
+}
+
+.paragraph {
+  font-family: "Trebuchet MS", "Century Gothic", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  font-size: 24px;
+}
+
+.link :hover {
+  color: #065c49;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=app_base.scss.css.map */

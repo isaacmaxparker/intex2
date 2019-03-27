@@ -13,6 +13,19 @@ Checkout
             <table class="formlabel">
             ${ form }
             </table>
+
+            <form action="your-server-side-code" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_I0f4wjbR61osQqPe45eNor2900WD9dImww"
+                data-amount="999"
+                data-name="FOMO Rentals"
+                data-description="Checkout"
+                data-image="${ STATIC_URL }homepage/media/hphones.png"
+                data-locale="auto">
+              </script>
+            </form>
+
             <p class="btn btn-lg buybtn" style="margin-left:80%; margin-top:20px;" href="/catalog/checkout">Checkout</p>
           </form>
 
