@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553720797.0980754
+_modified_time = 1553884993.1963887
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/catalog/templates/receipt.html'
 _template_uri = 'receipt.html'
@@ -32,17 +32,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        saleItems = context.get('saleItems', UNDEFINED)
+        round = context.get('round', UNDEFINED)
+        total = context.get('total', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
         subtotal = context.get('subtotal', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
         tax = context.get('tax', UNDEFINED)
-        total = context.get('total', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        saleItems = context.get('saleItems', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n')
@@ -80,13 +81,14 @@ def render_page_header_title(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        round = context.get('round', UNDEFINED)
+        total = context.get('total', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        subtotal = context.get('subtotal', UNDEFINED)
         def site_content():
             return render_site_content(context)
         saleItems = context.get('saleItems', UNDEFINED)
-        subtotal = context.get('subtotal', UNDEFINED)
         tax = context.get('tax', UNDEFINED)
-        total = context.get('total', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n<div id="content">\r\n    <p class="paragraph">\r\n        Thank you for shopping with FOMO! \r\n        <a href="/homepage/contact/" class="link">Let us know how we did!</a>\r\n        <hr>\r\n    </p>\r\n    <table class="carttab" width=100%; style="text-align:center;">\r\n        <tr>\r\n            <th>\r\n                &nbsp;\r\n            </th>\r\n            <th>\r\n                Product Name\r\n            </th>\r\n            <th>\r\n                Quantity\r\n            </th>\r\n            <th>\r\n                Price\r\n            </th>\r\n            <th>\r\n                Extended\r\n            </th>\r\n        </tr>\r\n')
         for item in saleItems :
@@ -96,10 +98,10 @@ def render_site_content(context,**pageargs):
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.product.name))
             __M_writer('\r\n            </td>\r\n            <td>\r\n                ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.quantity))
-            __M_writer('\r\n            </td>\r\n            <td>\r\n               $')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.price / item.quantity))
-            __M_writer('\r\n            </td>\r\n            <td>\r\n               $')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.price))
+            __M_writer('\r\n            </td>\r\n            <td>\r\n                    $')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(round(item.price,2)))
+            __M_writer('\r\n            </td>\r\n            <td>\r\n                    $')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(round(item.price * item.quantity,2)))
             __M_writer('\r\n            </td>\r\n        </tr>\r\n')
         __M_writer('        \r\n        <tr>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                        &nbsp;\r\n                </td>\r\n                <td>\r\n                    &nbsp;\r\n                </td>\r\n                <td>\r\n                    <b>Subtotal</b>\r\n                </td>\r\n                <td>\r\n                    $')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(subtotal))
@@ -127,6 +129,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/catalog/templates/receipt.html", "uri": "receipt.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "47": 1, "48": 2, "53": 6, "58": 129, "68": 4, "74": 4, "80": 8, "91": 8, "92": 33, "93": 34, "94": 36, "95": 36, "96": 39, "97": 39, "98": 42, "99": 42, "100": 45, "101": 45, "102": 48, "103": 48, "104": 52, "105": 67, "106": 67, "107": 89, "108": 89, "109": 120, "110": 120, "116": 131, "122": 131, "128": 122}}
+{"filename": "C:/Users/Isaac/mysite/catalog/templates/receipt.html", "uri": "receipt.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "48": 1, "49": 2, "54": 6, "59": 129, "69": 4, "75": 4, "81": 8, "93": 8, "94": 33, "95": 34, "96": 36, "97": 36, "98": 39, "99": 39, "100": 42, "101": 42, "102": 45, "103": 45, "104": 48, "105": 48, "106": 52, "107": 67, "108": 67, "109": 89, "110": 89, "111": 120, "112": 120, "118": 131, "124": 131, "130": 124}}
 __M_END_METADATA
 """

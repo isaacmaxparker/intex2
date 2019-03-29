@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553719750.531263
+_modified_time = 1553884949.9470675
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/catalog/templates/cart.html'
 _template_uri = 'cart.html'
@@ -32,17 +32,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        tax = context.get('tax', UNDEFINED)
+        round = context.get('round', UNDEFINED)
         total = context.get('total', UNDEFINED)
-        cart = context.get('cart', UNDEFINED)
-        saleItems = context.get('saleItems', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
+        cart = context.get('cart', UNDEFINED)
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        tax = context.get('tax', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        saleItems = context.get('saleItems', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n')
@@ -80,11 +81,12 @@ def render_page_header_title(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        round = context.get('round', UNDEFINED)
+        total = context.get('total', UNDEFINED)
+        cart = context.get('cart', UNDEFINED)
+        tax = context.get('tax', UNDEFINED)
         def site_content():
             return render_site_content(context)
-        tax = context.get('tax', UNDEFINED)
-        cart = context.get('cart', UNDEFINED)
-        total = context.get('total', UNDEFINED)
         saleItems = context.get('saleItems', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
@@ -92,14 +94,16 @@ def render_site_content(context,**pageargs):
         for item in saleItems :
             __M_writer('        <tr>\r\n            <td>\r\n                <img src="')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.product.image_url()))
-            __M_writer('" class="cartimg">\r\n            </td>\r\n            <td>\r\n                ')
+            __M_writer('" class="cartimg">\r\n            </td>\r\n            <td>\r\n                <a href="/catalog/product/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.product.id))
+            __M_writer('"><p class="link">')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.product.name))
-            __M_writer('\r\n            </td>\r\n            <td>\r\n                ')
+            __M_writer('</p></a>\r\n            </td>\r\n            <td>\r\n                ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.quantity))
-            __M_writer('\r\n            </td>\r\n            <td>\r\n               $')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.price / item.quantity))
-            __M_writer('\r\n            </td>\r\n            <td>\r\n               $')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.price))
+            __M_writer('\r\n            </td>\r\n            <td>\r\n              $')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(round(item.price,2)))
+            __M_writer('\r\n            </td>\r\n            <td>\r\n                    $')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.price * item.quantity))
             __M_writer('\r\n            </td>\r\n            <td>\r\n                <a class="rmv" href="/catalog/cart.remove/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.product.id))
             __M_writer('/">Remove</a>\r\n            </td>\r\n        </tr>\r\n')
@@ -129,6 +133,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/catalog/templates/cart.html", "uri": "cart.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "47": 1, "48": 2, "53": 6, "58": 98, "68": 4, "74": 4, "80": 8, "91": 8, "92": 29, "93": 30, "94": 32, "95": 32, "96": 35, "97": 35, "98": 38, "99": 38, "100": 41, "101": 41, "102": 44, "103": 44, "104": 47, "105": 47, "106": 51, "107": 65, "108": 65, "109": 86, "110": 86, "111": 95, "112": 95, "118": 100, "124": 100, "130": 124}}
+{"filename": "C:/Users/Isaac/mysite/catalog/templates/cart.html", "uri": "cart.html", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "48": 1, "49": 2, "54": 6, "59": 98, "69": 4, "75": 4, "81": 8, "93": 8, "94": 29, "95": 30, "96": 32, "97": 32, "98": 35, "99": 35, "100": 35, "101": 35, "102": 38, "103": 38, "104": 41, "105": 41, "106": 44, "107": 44, "108": 47, "109": 47, "110": 51, "111": 65, "112": 65, "113": 86, "114": 86, "115": 95, "116": 95, "122": 100, "128": 100, "134": 128}}
 __M_END_METADATA
 """

@@ -44,16 +44,15 @@ def process_request(request, product:cmod.Product):
         sale5 = request.user.get_shopping_cart()
         
         try:
-             saleitem = cmod.SaleItem.objects.get(sale = sale5, product = product)
+             saleitem = cmod.SaleItem.objects.get(sale = sale5, product = product, status = 'A')
              saleitem.quantity += quantwant
              saleitem.save()
         except:
-            print('=---------------else')
             thisSale = cmod.SaleItem()
             thisSale.sale = sale5
             thisSale.product = product
             thisSale.quantity = quantwant
-            thisSale.price = product.price * quantwant
+            thisSale.price = product.price
             thisSale.save()
                 
         return HttpResponseRedirect('/catalog/cart/')

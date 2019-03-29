@@ -32,16 +32,16 @@ Cart
                 <img src="${item.product.image_url()}" class="cartimg">
             </td>
             <td>
-                ${item.product.name}
+                <a href="/catalog/product/${item.product.id}"><p class="link">${item.product.name}</p></a>
             </td>
             <td>
                 ${item.quantity}
             </td>
             <td>
-               $${item.price / item.quantity}
+              $${round(item.price,2)}
             </td>
             <td>
-               $${item.price}
+                    $${item.price * item.quantity}
             </td>
             <td>
                 <a class="rmv" href="/catalog/cart.remove/${item.product.id}/">Remove</a>

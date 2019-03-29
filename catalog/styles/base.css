@@ -44,3 +44,8 @@ footer a {
     color: #777788;
     margin: 15px 10% 0 0;
 }
+
+.link :hover{
+    color:#065c49 !important;
+    text-decoration: none !important;
+}

@@ -60,11 +60,10 @@ class Sale(models.Model):
         charge_id = models.TextField(null=True, default=None)   # successful charge id from stripe
 
         def recalculate(self):
-            sales = SaleItem.objects.filter(sale=self, status='A')    
-            print(sales)        
+            sales = SaleItem.objects.filter(sale=self, status='A')          
             sub = Decimal("0")
             for sale in sales:
-                sub += sale.price
+                sub += sale.price * sale.quantity
             self.subtotal = sub
             self.tax = self.subtotal * TAX_RATE
             self.total = self.subtotal + self.tax

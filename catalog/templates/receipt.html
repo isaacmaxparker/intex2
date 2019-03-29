@@ -42,10 +42,10 @@ Reciept
                 ${item.quantity}
             </td>
             <td>
-               $${item.price / item.quantity}
+                    $${round(item.price,2)}
             </td>
             <td>
-               $${item.price}
+                    $${round(item.price * item.quantity,2)}
             </td>
         </tr>
         %endfor
