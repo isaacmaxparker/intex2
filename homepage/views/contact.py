@@ -11,9 +11,6 @@ def process_request(request):
         print("Email is " + request.POST['youremail'])
         print("Message: " + request.POST['yourmessage'])
         #if user does it right
-        #do the work
-        #return HTTPResponseRedirect('/somewhere/else/')
-        
         context = {
             'msg': "Thank you for submitting your form",
         }

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1551896755.5678403
+_modified_time = 1554158068.939814
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -30,16 +30,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
         def bodclass():
             return render_bodclass(context._locals(__M_locals))
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
         def site_content():
             return render_site_content(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -56,7 +56,7 @@ def render_body(context,**pageargs):
             context['self'].left_content(**pageargs)
         
 
-        __M_writer('\r\n\r\n\r\n')
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_content'):
             context['self'].site_content(**pageargs)
         
@@ -133,6 +133,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 3, "54": 7, "59": 11, "64": 29, "74": 3, "80": 3, "86": 5, "92": 5, "98": 9, "104": 9, "110": 14, "116": 14, "122": 31, "128": 31, "134": 128}}
+{"filename": "C:/Users/Isaac/mysite/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 3, "54": 7, "59": 11, "64": 28, "74": 3, "80": 3, "86": 5, "92": 5, "98": 9, "104": 9, "110": 13, "116": 13, "122": 30, "128": 30, "134": 128}}
 __M_END_METADATA
 """

@@ -61,7 +61,7 @@ class Sale(models.Model):
 
         def recalculate(self):
             sales = SaleItem.objects.filter(sale=self, status='A')          
-            sub = Decimal("0")
+            sub = Decimal("0.0")
             for sale in sales:
                 sub += sale.price * sale.quantity
             self.subtotal = sub
@@ -84,7 +84,7 @@ class Sale(models.Model):
                 # be sure to pip install stripe and import stripe into this file
             stripe.api_key = settings.STRIPE_SECRET_KEY
             charge = stripe.Charge.create(
-                    amount=int(self.total * Decimal("100.0")),
+                    amount=round(self.total * Decimal("100.0")),
                     currency='usd',
                     description='Example charge',
                     source = stripeToken,

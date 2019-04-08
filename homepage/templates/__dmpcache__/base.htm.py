@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553750729.9102688
+_modified_time = 1554156596.19043
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/mysite/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -21,23 +21,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        self = context.get('self', UNDEFINED)
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        def bodclass():
+            return render_bodclass(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        def bodclass():
-            return render_bodclass(context._locals(__M_locals))
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        Isaac\'s Hot\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -108,8 +108,8 @@ def render_body(context,**pageargs):
 
         __M_writer('\r\n</div>\r\n        </main>\r\n\r\n        <footer>\r\n            \r\n            ')
         __M_writer('\r\n\r\n           <p class="copy"> &copy; ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( datetime.now().strftime("%Y") ))
-        __M_writer(' Isaac McDougal</p>\r\n\r\n        </footer>\r\n\r\n        </body>\r\n\r\n</html>')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(datetime.now().strftime("%Y")))
+        __M_writer(' Isaac the McDougal</p>\r\n\r\n        </footer>\r\n\r\n        </body>\r\n\r\n</html>')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -141,14 +141,14 @@ def render_bodclass(context,**pageargs):
 def render_navbar_items(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def navbar_items():
             return render_navbar_items(context)
         self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n                            \r\n                            <li class="nav-item mynav-item">\r\n                                    <a class="nav-link ')
+        __M_writer('\r\n                            <li class="nav-item mynav-item">\r\n                                    <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='index' else ' '))
-        __M_writer('" data-toggle="tab" href="/">Home</a>\r\n                                  </li>\r\n                                \r\n\r\n                            ')
+        __M_writer('" data-toggle="tab" href="/">Home</a>\r\n                                  </li>\r\n                            ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -204,6 +204,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 110, "20": 0, "42": 2, "47": 12, "48": 17, "49": 17, "50": 17, "51": 19, "52": 19, "53": 20, "54": 20, "55": 25, "56": 25, "57": 27, "58": 28, "59": 28, "60": 29, "61": 29, "66": 32, "67": 39, "68": 39, "73": 50, "74": 52, "75": 53, "76": 59, "77": 59, "78": 71, "79": 72, "80": 72, "81": 72, "82": 74, "83": 82, "84": 83, "85": 84, "86": 84, "87": 84, "88": 84, "89": 87, "94": 91, "99": 96, "104": 100, "109": 104, "110": 110, "111": 112, "112": 112, "118": 10, "124": 10, "130": 32, "141": 43, "149": 43, "150": 46, "151": 46, "157": 89, "163": 89, "169": 96, "175": 96, "181": 100, "187": 100, "193": 104, "199": 104, "205": 199}}
+{"filename": "C:/Users/Isaac/mysite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 107, "20": 0, "42": 2, "47": 12, "48": 17, "49": 17, "50": 17, "51": 19, "52": 19, "53": 20, "54": 20, "55": 25, "56": 25, "57": 27, "58": 28, "59": 28, "60": 29, "61": 29, "66": 32, "67": 39, "68": 39, "73": 47, "74": 49, "75": 50, "76": 56, "77": 56, "78": 68, "79": 69, "80": 69, "81": 69, "82": 71, "83": 79, "84": 80, "85": 81, "86": 81, "87": 81, "88": 81, "89": 84, "94": 88, "99": 93, "104": 97, "109": 101, "110": 107, "111": 109, "112": 109, "118": 10, "124": 10, "130": 32, "141": 43, "149": 43, "150": 45, "151": 45, "157": 86, "163": 86, "169": 93, "175": 93, "181": 97, "187": 97, "193": 101, "199": 101, "205": 199}}
 __M_END_METADATA
 """

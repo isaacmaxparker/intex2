@@ -41,18 +41,12 @@
                 <ul class="nav nav-tabs">
                     
                     <%block name="navbar_items">
-                            
                             <li class="nav-item mynav-item">
                                     <a class="nav-link ${ 'active' if request.dmp.page =='index' else ' '}" data-toggle="tab" href="/">Home</a>
                                   </li>
-                                
-
                             </%block>
                     
                             %if request.user.is_authenticated:
-                            
-                                
-                            
                                 <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">
                                     
                                     <a class="nav-link dropdown-toggle" style="color:#085c49;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,8 +60,7 @@
                                     <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/account/logout">Logout</a>
                                     </div>
-                                </li>
-                                
+                                </li>        
                             %else:
                                 <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ${ 'active' if request.dmp.page =='login' else ' '}"" href="/account/login" style="color:#085c49">Log In</a></li>
                             %endif
@@ -109,7 +102,7 @@
             
             <%! from datetime import datetime %>
 
-           <p class="copy"> &copy; ${ datetime.now().strftime("%Y") } Isaac McDougal</p>
+           <p class="copy"> &copy; ${datetime.now().strftime("%Y")} Isaac the McDougal</p>
 
         </footer>
 

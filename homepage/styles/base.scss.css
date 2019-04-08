@@ -41,13 +41,6 @@ footer {
   transform: translate(-50%);
 }
 
-.content {
-  background-color: rgba(255, 255, 255, 0.425);
-  padding: 20px 30px;
-  align-content: center;
-  align-self: center;
-}
-
 header {
   text-align: center;
   padding: 15px 20px;
@@ -151,6 +144,13 @@ main #site_right {
   top: 0;
   width: 200px;
   height: 100%;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, 0.425);
+  padding: 20px 30px;
+  align-content: center;
+  align-self: center;
 }
 
 footer {
