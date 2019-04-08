@@ -1,120 +1,85 @@
-$defaultfont: 'Century Gothic';
-$defaultfont2:'Georgia';
+$defaultfont: 'Trebuchet MS';
+$defaultfont2:'Century Gothic';
+$defaultfont3:'Helvetica', 'Arial', 'sans-serif';
+$lightblue: #4B93FF;
+$darkteal:	rgb(9, 167, 179);
+$greenteal:#38E1D0;
+$govblue:#273B7A;
+$govred:#FF314F;
+$hhayellow:	#EFC849;
+$providerblue:#71E3EE;
 
 html, body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     color: #777788;
-    //background-color: #00ffff;
-   background-image: url("/static/homepage/media/background1.png");
+    background-image: url("/static/homepage/media/back2.png");
     background-size: 100%;
 }
 
-
-.back2{
-    margin: 0;
-    padding: 0;
-    background-image: url("/static/homepage/media/head2.jpg");
-    background-size: 100%;
+a:hover{
+    text-decoration: none;
 }
-
-.backtime{
-    background-image: url("/static/homepage/media/teal.jpg");
-}
-
 footer{
     text-align: center;
     color:#33ccff;
 }
-
 .clearfix {
     clear: both;
 }
-
 .site_icon{
     width: 100px;
     position: fixed;
     top:10px;
     left: 10px;
 }
-
-#maintenence{
-   position: fixed;
-   left: 50%;
-text-align: center;
-transform: translate(-50%);
-
-}
-
-
-
 header {
     text-align: center;
     padding: 15px 20px;
 }
-
 .active{
     font-weight: bolder;
+    background-color: #33ccff;
 }
-
 .mynav{
-    color:whitesmoke;
-    margin-left: 100px;
-   
+    color:$darkteal;
+    margin-left: 100px;   
 }
-
 .mynav-item a {
-    color: white;
-    font-family: 'Century Gothic';
+    color: #0a8369;
+    font-family: $defaultfont2;
+    font-size: 20px;
     text-shadow:1px 0px rgba(0, 0, 0, 0.062);
-   
-    // font-size: 18px;
-    // background-color: rgba(0, 0, 0, 0.024);
 }
-
 header > .title {
     display: inline-block;
-    color : white;
-    font-family: century gothic;
+    color : $darkteal;
+    background-color: none;
+    font-family: $defaultfont2;
+    font-weight: 800;
     text-transform: uppercase;
-    font-size: 80px;
+    font-size: 100px;
     font-weight: 500px;
-    text-shadow: 2px 2px 3px rgba(240, 19, 221, 0.2);
     vertical-align: middle;
 }
 
 header img {
-    width: 100px;
+    width: 60px;
     top:10px;
     left:10px;
     position: absolute;
     margin-right: 24px;
 }
-
-header h1 {
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
-}
-
-h3 {
-    color:#08a58e;
-  text-align: right;
-    font-size: 24px;
-}
-
 .formlabel{
-    color:#a33f4e;
+    color:$darkteal;
     font-weight: lighter;
     font-size: 28px;
     font-family: $defaultfont;
 }
-
-.forminput{
-    font-style: italic;
+.formlabel input{
     font-weight: lighter;
-    font-family: 'century gothic';
+    font-family: $defaultfont2;
     padding-left: 10px;
     color:gray;
     border-radius: 10px;
@@ -124,40 +89,51 @@ h3 {
     font-size: 24px;
 }
 
+.formlabel li{
+    color:red;
+    list-style: none;
+    font-style: italic;
+    font-family: 'Century Gothic';
+}
 .mybtn{
     font-size: 25px;
     font-weight: 50;
     border-radius: 10px;
+    font-family: $defaultfont2;
+    background-color:#00000000;
+    border-color: rgba(75, 147, 255, 0.575);
+    color:$lightblue;
 }
 
-$sidecolwidth:200px;
+.mybtn:hover{
+    background-color:rgba(75, 147, 255, 0.575);
+    color:white;
 
+}
+$sidecolwidth:200px;
 main {
     margin: 0;
     padding: 15px;
-
     position: relative;
-
     #site_left{
-       // background-color: rgba(255, 255, 255, 0.315);
+        // background-color: rgba(255, 255, 255, 0.315);
         position: absolute; 
         left: 0; 
         top: 0; 
-        width: $sidecolwidth;
+        width: 50%;
+        max-width:$sidecolwidth;
         height: 100% ;
     }
-
     #site_middle{
-        background-color:rgba(255, 255, 255, 0.8);
-        border-color: whitesmoke;
+        background-color:white;
+        border-color: rgba(56, 225, 208, 0.432);
         border-width: 10px;
         border-style: solid;
         margin-left: $sidecolwidth;
         margin-right:$sidecolwidth;
+        min-width: 700px;
     }
-
     #site_right{
-        //background-color: rgba(255, 255, 255, 0.315);
         position: absolute;
         right:0;
         top:0;
@@ -165,80 +141,132 @@ main {
         height:100%;
     }
 }
-
 .content{
-    background-color: rgba(255, 255, 255, 0.425);
+    background-color: rgba(255, 255, 255, 0.534);
     padding:20px 30px;
     align-content: center;
     align-self: center;
+    margin: 20px 0px;
 }
 
 footer {
     margin-top: 40px;
     border-top: 1px solid #CCCCCC;
-    text-align: right;
 }
 
 footer a {
     display: inline-block;
-    color:  rgba(255, 255, 0, 0.815);
-    
     margin: 15px 10% 0 0;
 }
 
 .copy{
-  color:#a33f4e;
+  color:$darkteal;
   font-family: $defaultfont;
   text-align: center;
+  text-transform: uppercase;
 }
-
 .mydropdown{
-    color:#0a8369;
-    background-color: #bcfcee;
+    color:$lightblue;
+    background-color: white;
 }
-
 .mydropdown a{
-    color:#085c49;
-   
+    color:#4B93FF; 
+    margin-left:20px;
+    right:0;
 }
-
 .mydropdown a:hover{
     background-color:#99eedc00;
-   
+    color:$lightblue;
     font-weight: bold;
 }
-
 .userimage{
     width: 100px;
     border-radius: 50px;
 }
-
 .loginimg{
-    float:right;
-    top:-47px;
-    left: -140px;
-    position: relative;
+    display: inline-block;
      height: 35px;
-     width: auto;
+     width:auto;
      border-radius: 20px;
      padding-top:0;
      margin-top:0;
 }
-
-.quote{
-    color:#4e53526e;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style:italic;
-    padding:5px;
-    vertical-align: middle;
-  
-}
-
 .link{
-    color:#0a8369;
+    color:$greenteal;
+}
+.link :hover{
+    color:$darkteal;
+    text-decoration: none;
+}
+.linkbox{
+    display: block;
+    border: 1px solid lightgrey;
+    border-radius: 34px;
+    padding:10px;
+    width: 60%;
+    min-width: 600px;
+    max-width: 500px;
+    margin:20px 10%;
+}
+.alinkbox :hover {
+    box-shadow: 2px 2px 1px grey;
+}
+.linkbox > img{
+    width:100px;
+    display:inline-block;
+    margin:10px;
+    margin-right:30px;
+    vertical-align: middle;
+    box-shadow: none !important;
 }
 
-.link :hover{
-    color:#065c49;
-    text-decoration: none;
+.linkbox > p{
+    display:inline-block;
+    font-family: $defaultfont2;
+    font-size:60px;
+    vertical-align: middle;
+    text-align: center;
+    box-shadow: none !important;
+}
+
+.linkbox > .gov{
+    color:$govblue;
+    border-color:$govblue;
+}
+.linkbox > .prov{
+    color:$providerblue;
+    border-color:$providerblue;
+}
+.linkbox > .hha{
+    color:$hhayellow;
+    border-color:$hhayellow ;
+}
+.linkbox > p :hover{
+    font-weight: bold;
+}
+.homeparg{
+    font-family: $defaultfont3;
+    font-size:24px;
+    color:#525252;
+    padding-bottom: 20px;
+}
+
+/* mobile friendly stuff*/
+@media (min-width: 1400px) { 
+    .hometitle{
+        font-size:140px;
+    }
+    .linkbox{
+        margin-left:20%;
+        margin-right:20%;
+    }
+@media (max-width: 1399px){
+#site_left{
+display:none;
+}
+#site_content{
+    margin:0;
+}
+}
+
 }

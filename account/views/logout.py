@@ -7,4 +7,4 @@ def process_request(request):
 #log the user our
     logout(request)
 
-    return HttpResponseRedirect('/account/login/')
+    return HttpResponseRedirect('/account/login/4/')

@@ -5,8 +5,8 @@ from datetime import datetime
 from django.http import HttpResponseRedirect
 
 @view_function
-def process_request(request):
-
+def process_request(request,kind=4):
+  
     # If this is a POST request then process the Form data
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -25,6 +25,7 @@ def process_request(request):
 
     return request.dmp.render('login.html', {
         'form': form,
+        'type': kind,
     })
 
 class LoginForm(forms.Form):

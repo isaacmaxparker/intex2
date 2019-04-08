@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import shutil
-import stripe
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -88,7 +86,7 @@ AUTH_USER_MODEL = 'account.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Fomo413',
+        'NAME': 'intex2',
         'USER': 'postgres',
         'PASSWORD': 'imcd4017',
         'HOST': 'localhost',
@@ -166,7 +164,3 @@ LOGGING = {
         },
     },
 }
-
-STRIPE_PUBLIC_KEY = 'pk_test_I0f4wjbR61osQqPe45eNor2900WD9dImww'
-STRIPE_SECRET_KEY = 'sk_test_oBAXmq3WywtKTK51TMGHGoUO00fVWefv3a'
-stripe.api_key = 'sk_test_oBAXmq3WywtKTK51TMGHGoUO00fVWefv3a'

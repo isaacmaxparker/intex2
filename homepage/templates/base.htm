@@ -6,7 +6,7 @@
 <head>
 
     <title>
-        Isaac's Hot
+        STOP &mdash;
         <%block name="page_title">
                 My Project!
             </%block>
@@ -30,13 +30,8 @@
 
     </head>
     <body <%block name="bodclass"></%block> </body>
-
-
-
-
-        <div id="maintenence" class = "alert alert-danger" style="position:absolute;">Our server will be down all the times I am not working on this project.</div>
         <header>
-            <img src="${ STATIC_URL }homepage/media/hphones.png" alt="python" />
+            <a href="/"><%block name="logo"><img src="${ STATIC_URL }homepage/media/logo2.png" alt="python" /></%block></a>
             <nav class="mynav navbar">
                 <ul class="nav nav-tabs">
                     
@@ -48,21 +43,17 @@
                     
                             %if request.user.is_authenticated:
                                 <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">
-                                    
-                                    <a class="nav-link dropdown-toggle" style="color:#085c49;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Hello, ${request.user.username} 
+                                    <img src="${STATIC_URL}homepage/media/UserImages/${request.user.username}.png" class="loginimg">
+                                    <a class="nav-link dropdown-toggle" style="color:#4B93FF;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello, ${request.user.username} 
                                     </a> 
-                                    
                                     <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item mydropddownitem" href="/account/index">Account</a>
-                                    <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item mydropddownitem" href="/catalog/cart">My Cart</a>
-                                    <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/account/logout">Logout</a>
                                     </div>
                                 </li>        
                             %else:
-                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ${ 'active' if request.dmp.page =='login' else ' '}"" href="/account/login" style="color:#085c49">Log In</a></li>
+                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ${ 'active' if request.dmp.page =='login' else ' '}"" href="/account/login/4/" style="color:#085c49">Log In</a></li>
                             %endif
 
                            
@@ -72,15 +63,8 @@
                  </ul>
         
             </nav>
-            %if request.user.is_authenticated:
-            
-                <img src="${STATIC_URL}homepage/media/UserImages/${request.user.username}.jpg" class="loginimg" >
-            
-            %endif
-            
-
             <div class="title"><%block name="page_header_title">
-                Welcome to Isaac's Project
+                <p class = "hometitle">Stop the epidemic</p>
                 </%block></div>
         </header>
 
@@ -90,7 +74,7 @@
 </div>
 
 <div id="site_middle">
-    <%block name="site_content">Error Page Content not found</%block>
+    <%block name="site_content">404 Error Page Content not found</%block>
 </div>
 
 <div id="site_right">
@@ -102,7 +86,7 @@
             
             <%! from datetime import datetime %>
 
-           <p class="copy"> &copy; ${datetime.now().strftime("%Y")} Isaac the McDougal</p>
+           <p class="copy"> &copy; ${datetime.now().strftime("%Y")} Group 2-9</p>
 
         </footer>
 

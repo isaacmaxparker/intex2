@@ -1,9 +1,22 @@
 <%inherit file="app_base.htm" />
 
 <%block name="page_header_title">
-Login
+        %if type == '1':
+        <p>Prescriber Login</p>
+        %endif
+        %if type == '2':
+        <p>Health Official Login</p>
+        %endif
+        %if type == '3':
+        <p>HHA Clerk Login</p>
+        %endif
+        %if type == '4':
+        <p>Login</p>
+        %endif
 </%block>
-
+<%block name="logo">
+<img src="${ STATIC_URL }homepage/media/logo.png" alt="python" />
+</%block>
 <%block name="page_title">&mdash; Login</%block>
 
 <%block name="left_content">
@@ -13,13 +26,12 @@ Login
 
 <%block name="site_content">
     <div class="content" style="margin-left:25%; padding-right:25%; width: 50%">
-
+        
         <form action="" method="post">
-            
             <table class="formlabel">
             ${ form }
             </table>
-            <p style="margin-left:80%; margin-top:15px;"><input type="submit" class="btn btn-outline-secondary mybtn"/></p>
+            <p style="margin-left:80%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>
           </form>
 
       </div>

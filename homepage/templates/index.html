@@ -12,19 +12,32 @@ class="back2"
 
 <%block name="site_content">
     <div class="content">
-      <h3><span style="color:#a33f4e; text-transform: uppercase; font-size: 50px; font-weight: bold; text-align: left;">Welcome to my site.</span> <br>I make cool things. here is an example:</h3>
-      <p>
+     <p class="homeparg"><span style="font-size:40px; font-weight: bold;">Welcome to STOP.gov! </span>This online portal will help government agencies and providers work together to decrease America's opiod epidemic. Login to start today!</p>
+     <br><hr><br>
+     <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>
+     <a href="$/account/login/1/" class="alinkbox">
+     <div class="linkbox prov">
+        <img src="${STATIC_URL}homepage/media/avatar.png">
+        <p class="prov">Prescriber</p>
+     </div>
+    </a>
+    <a href="/account/login/2/" class="alinkbox">
+     <div class="linkbox gov">
+        <img src="${STATIC_URL}homepage/media/heart.png">
+        <p class="gov">Health Official</p>
+     </div>
+    </a>
+     <a href="/account/login/3/" class="alinkbox">
+     <div class="linkbox hha">
+        <img src="${STATIC_URL}homepage/media/HHA.png">
+        <p class="hha">HHA Clerk</p>
+     </div>
+    </a>
+   
+<br>
+<hr>
 
-          <iframe width="1000" height="600" src="https://www.youtube.com/embed/qIh-JV3RuSY?rel=0&amp;autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      </p>
-      <h3 style="text-align:left"><span style="color:#a33f4e; text-transform: uppercase; font-size: 50px; font-weight: bold; text-align: left;">Here is another example</span> <br>Here is another example</h3>
-      <p>
-
-        <iframe width="1000" height="600" src="https://www.youtube.com/embed/oKuAq4B4jZg?rel=0&amp;autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      </p>
-      </div>
+    </div>
 </%block>
 
 <%block name="right_content">

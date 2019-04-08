@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554158068.939814
+_modified_time = 1554763918.6981897
 _enable_loop = True
-_template_filename = 'C:/Users/Isaac/mysite/homepage/templates/index.html'
+_template_filename = 'C:/Users/Isaac/intexsite/homepage/templates/index.html'
 _template_uri = 'index.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -38,6 +38,8 @@ def render_body(context,**pageargs):
             return render_site_content(context._locals(__M_locals))
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def left_content():
             return render_left_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -112,8 +114,16 @@ def render_site_content(context,**pageargs):
     try:
         def site_content():
             return render_site_content(context)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="content">\r\n      <h3><span style="color:#a33f4e; text-transform: uppercase; font-size: 50px; font-weight: bold; text-align: left;">Welcome to my site.</span> <br>I make cool things. here is an example:</h3>\r\n      <p>\r\n\r\n          <iframe width="1000" height="600" src="https://www.youtube.com/embed/qIh-JV3RuSY?rel=0&amp;autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\r\n\r\n      </p>\r\n      <h3 style="text-align:left"><span style="color:#a33f4e; text-transform: uppercase; font-size: 50px; font-weight: bold; text-align: left;">Here is another example</span> <br>Here is another example</h3>\r\n      <p>\r\n\r\n        <iframe width="1000" height="600" src="https://www.youtube.com/embed/oKuAq4B4jZg?rel=0&amp;autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\r\n\r\n      </p>\r\n      </div>\r\n')
+        __M_writer('\r\n    <div class="content">\r\n     <p class="homeparg"><span style="font-size:40px; font-weight: bold;">Welcome to STOP.gov! </span>This online portal will help government agencies and providers work together to decrease America\'s opiod epidemic. Login to start today!</p>\r\n     <br><hr><br>\r\n     <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>\r\n     <a href="$/account/login/1/" class="alinkbox">\r\n     <div class="linkbox prov">\r\n        <img src="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
+        __M_writer('homepage/media/avatar.png">\r\n        <p class="prov">Prescriber</p>\r\n     </div>\r\n    </a>\r\n    <a href="/account/login/2/" class="alinkbox">\r\n     <div class="linkbox gov">\r\n        <img src="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
+        __M_writer('homepage/media/heart.png">\r\n        <p class="gov">Health Official</p>\r\n     </div>\r\n    </a>\r\n     <a href="/account/login/3/" class="alinkbox">\r\n     <div class="linkbox hha">\r\n        <img src="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
+        __M_writer('homepage/media/HHA.png">\r\n        <p class="hha">HHA Clerk</p>\r\n     </div>\r\n    </a>\r\n   \r\n<br>\r\n<hr>\r\n\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -133,6 +143,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/mysite/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "44": 1, "49": 3, "54": 7, "59": 11, "64": 28, "74": 3, "80": 3, "86": 5, "92": 5, "98": 9, "104": 9, "110": 13, "116": 13, "122": 30, "128": 30, "134": 128}}
+{"filename": "C:/Users/Isaac/intexsite/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 7, "61": 11, "66": 41, "76": 3, "82": 3, "88": 5, "94": 5, "100": 9, "106": 9, "112": 13, "120": 13, "121": 20, "122": 20, "123": 26, "124": 26, "125": 32, "126": 32, "132": 43, "138": 43, "144": 138}}
 __M_END_METADATA
 """

@@ -5,9 +5,11 @@
 <%block name="left_content">
 
 </%block>
-
+<%block name="logo">
+<img src="${ STATIC_URL }homepage/media/logo.png" alt="python" />
+</%block>
 <%block name="page_header_title">
-Contact FOMO
+Contact STOP
 </%block>
 
 <%block name="site_content">
@@ -23,7 +25,7 @@ class="backtimef"
 
 
 <form method="POST" id="contactform">
-    <table class="content" style="margin-left:25%; padding-right:25%; width: 50%">
+    <table class="content formlabel" style="margin-left:25%; padding-right:25%; width: 50%">
         <tr>
             <td>
                     <p class="formlabel"> Name: </p> 
