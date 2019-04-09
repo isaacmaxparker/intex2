@@ -13,15 +13,7 @@ def process_request(request,kind=4):
         if form.is_valid():
             user = authenticate(username=form.cleaned_data.get('username'), password=form.cleaned_data.get('password'))     
             login(request, user)
-
-            if request.user.groups.filter(name='Prescribers').exists():
-                return HttpResponseRedirect('/prescriber/')
-            if request.user.groups.filter(name='Prescribers').exists():
-                return HttpResponseRedirect('/prescriber/')
-            if request.user.groups.filter(name='Prescribers').exists():
-                return HttpResponseRedirect('/prescriber/')
-            else:
-                return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/')
             
            # return request.dmp.render('/account/templates/login.html')
 

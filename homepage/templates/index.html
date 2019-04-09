@@ -14,6 +14,7 @@ class="back2"
 %if request.user.is_authenticated:
    <div class="content">
          <p class="homeparg"><span style="font-size:40px; font-weight: bold;">Welcome to STOP.gov! </span>This online portal will help government agencies and providers work together to decrease America's opiod epidemic. Let's start fixing today!</p>  
+         <br><hr><br>
          %if request.user.has_perm('account.search'):
          <a href="/account/login/3/" class="alinkbox">
             <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
@@ -35,29 +36,30 @@ class="back2"
                <p class="hha">Search Drugs</p>
             </div>
            </a>
-         <a href="/account/login/3/" class="alinkbox">
+           <a href="/account/login/3/" class="alinkbox">
             <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
-               <img src="${STATIC_URL}homepage/media/HHA.png">
-               <p class="hha" style="color:#33BDA6">Search Providers</p>
+               <img src="${STATIC_URL}homepage/media/people.png">
+               <p style="color:#33BDA6">Search Providers</p>
             </div>
            </a>
          %endif
          %if request.user.has_perm('account.analytics'):
          <a href="/account/login/3/" class="alinkbox">
             <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
-               <img src="${STATIC_URL}homepage/media/HHA.png">
-               <p class="hha">View Analytics</p>
+               <img src="${STATIC_URL}homepage/media/analytics.png">
+               <p style="color:#8BD6F6">View Analytics</p>
             </div>
            </a>
          %endif
          %if request.user.has_perm('account.CRUD'):
          <a href="/account/login/3/" class="alinkbox">
             <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
-               <img src="${STATIC_URL}homepage/media/HHA.png">
-               <p class="hha">Edit Listings</p>
+               <img src="${STATIC_URL}homepage/media/listing.png">
+               <p style="color:#FC5936">Edit Listings</p>
             </div>
            </a>
          %endif
+         <br><hr><br>
    </div>
 %else:
     <div class="content">

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554771409.075599
+_modified_time = 1554825611.1559362
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -21,26 +21,26 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def logo():
-            return render_logo(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def logo():
+            return render_logo(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
         __M_writer = context.writer()
-        __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        STOP &mdash;\r\n        ')
+        __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        STOP.GOV\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
             context['self'].page_title(**pageargs)
         
@@ -154,11 +154,11 @@ def render_page_title(context,**pageargs):
 def render_logo(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def logo():
-            return render_logo(context)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         user = context.get('user', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def logo():
+            return render_logo(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if user.groups.filter(name='Prescribers').exists():
