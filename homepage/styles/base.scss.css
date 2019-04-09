@@ -3,8 +3,15 @@ html, body {
   padding: 0;
   font-family: sans-serif;
   color: #777788;
-  background-image: url("/static/homepage/media/back2.png");
   background-size: 100%;
+}
+
+.body {
+  background-image: url("/static/homepage/media/back2.png");
+}
+
+.bodofficial {
+  background-image: url("/static/homepage/media/yellowback.png");
 }
 
 a:hover {
@@ -21,7 +28,8 @@ footer {
 }
 
 .site_icon {
-  width: 100px;
+  height: 100px;
+  width: auto;
   position: fixed;
   top: 10px;
   left: 10px;
@@ -62,11 +70,12 @@ header > .title {
 }
 
 header img {
-  width: 60px;
+  height: 60px;
+  width: auto;
   top: 10px;
   left: 10px;
-  position: absolute;
   margin-right: 24px;
+  position: absolute;
 }
 
 .formlabel {
@@ -123,7 +132,7 @@ main #site_left {
   max-width: 200px;
   height: 100%;
 }
-main #site_middle {
+main .site_middle {
   background-color: white;
   border-color: rgba(56, 225, 208, 0.432);
   border-width: 10px;
@@ -264,6 +273,61 @@ footer a {
   padding-bottom: 20px;
 }
 
+.official {
+  border-color: rgba(239, 200, 73, 0.397) !important;
+}
+
+.officials > .content {
+  border-color: rgba(239, 200, 73, 0.397);
+}
+
+.presnav {
+  color: #273B7A !important;
+  background-color: rgba(113, 228, 238, 0.61) !important;
+  opacity: 80%;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.navtitle {
+  border-style: none;
+  display: block;
+  padding: 0.5rem 1rem;
+  cursor: default;
+}
+
+.prestext {
+  color: #273B7A !important;
+}
+
+.offtext {
+  color: #750818 !important;
+}
+
+.hhatext {
+  color: #917005 !important;
+}
+
+.navtitle :hover {
+  border-style: none !important;
+}
+
+.offnav {
+  color: #750818 !important;
+  background-color: rgba(255, 49, 80, 0.603) !important;
+  opacity: 80%;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
+.hhanav {
+  color: #917005 !important;
+  background-color: rgba(239, 200, 73, 0.616) !important;
+  opacity: 80%;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+
 /* mobile friendly stuff*/
 @media (min-width: 1400px) {
   .hometitle {
@@ -273,15 +337,6 @@ footer a {
   .linkbox {
     margin-left: 20%;
     margin-right: 20%;
-  }
-}
-@media (min-width: 1400px) and (max-width: 1399px) {
-  #site_left {
-    display: none;
-  }
-
-  #site_content {
-    margin: 0;
   }
 }
 

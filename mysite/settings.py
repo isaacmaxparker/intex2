@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'homepage',
     'account',
     'catalog',
+    'prescriber',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,48 @@
+-   model: account.user
+    pk: 1
+    fields:
+        password: pbkdf2_sha256$120000$f10ATBY9qnTy$9ZWLTX0hg2sKsOunATQavYlkgopVZ1jPpaepaYG1erk=
+        last_login: 2019-04-08 16:52:44.238765
+        is_superuser: false
+        username: drdavis
+        first_name: Doctor
+        last_name: Davis
+        email: drdavis@provider.com
+        is_staff: false
+        is_active: true
+        date_joined: 2019-04-08 15:45:25.227143
+        birthdate: null
+        groups: [1]
+        user_permissions: []
+-   model: account.user
+    pk: 3
+    fields:
+        password: pbkdf2_sha256$120000$fhYr3UWzkt4Q$ybn/4Gicy0hLZgLC10Fsy9croxnzcBkmsPtR9QZw8nU=
+        last_login: 2019-04-08 16:53:10.770871
+        is_superuser: false
+        username: agentlarsen
+        first_name: Mrs.
+        last_name: Larsen
+        email: agentlarsen@government.com
+        is_staff: false
+        is_active: true
+        date_joined: 2019-04-08 15:46:54.637607
+        birthdate: null
+        groups: [2, 4]
+        user_permissions: []
+-   model: account.user
+    pk: 4
+    fields:
+        password: pbkdf2_sha256$120000$uQLNtMmW0HsX$6KaK4hFdPOAcNUcqQlMx9ksr+OtEUZ0It5TLDPOUXp8=
+        last_login: 2019-04-08 17:11:12.484991
+        is_superuser: false
+        username: clerkki
+        first_name: Clerk
+        last_name: Ki
+        email: clerkki@hhs.com
+        is_staff: false
+        is_active: true
+        date_joined: 2019-04-08 16:24:04.306951
+        birthdate: null
+        groups: [3]
+        user_permissions: []

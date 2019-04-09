@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554764998.4059677
+_modified_time = 1554767122.3537717
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/account/templates/index.html'
 _template_uri = 'index.html'
@@ -30,18 +30,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
         def left_content():
             return render_left_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
         def site_content():
             return render_site_content(context._locals(__M_locals))
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_header_title'):
@@ -112,12 +112,12 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
         def site_content():
             return render_site_content(context)
+        self = context.get('self', UNDEFINED)
         request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n<div class="content">\r\n        <div></div>\r\n<table width="50%" style="text-align:left;">\r\n        <tr><td><img src="/static/homepage/media/UserImages/')
+        __M_writer('\r\n<div class="content official">\r\n<table width="50%" style="text-align:left;">\r\n        <tr><td><img src="/static/homepage/media/UserImages/')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
         __M_writer('.png" class="userimage"></td>\r\n                <th style="text-align:right; padding-right: 10px;" class="formlabel">\r\n                        Name:\r\n                    </th>\r\n            <td class="forminput" style="border-style:none">\r\n                    ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.first_name))
@@ -147,6 +147,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/account/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 5, "56": 7, "61": 11, "66": 58, "76": 3, "82": 3, "88": 7, "94": 7, "100": 9, "106": 9, "112": 14, "120": 14, "121": 18, "122": 18, "123": 23, "124": 23, "125": 23, "126": 23, "127": 34, "128": 34, "129": 43, "130": 43, "136": 60, "142": 60, "148": 142}}
+{"filename": "C:/Users/Isaac/intexsite/account/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 5, "56": 7, "61": 11, "66": 57, "76": 3, "82": 3, "88": 7, "94": 7, "100": 9, "106": 9, "112": 14, "120": 14, "121": 17, "122": 17, "123": 22, "124": 22, "125": 22, "126": 22, "127": 33, "128": 33, "129": 42, "130": 42, "136": 59, "142": 59, "148": 142}}
 __M_END_METADATA
 """

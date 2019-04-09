@@ -14,8 +14,14 @@ html, body {
     padding: 0;
     font-family: sans-serif;
     color: #777788;
-    background-image: url("/static/homepage/media/back2.png");
+    
     background-size: 100%;
+}
+.body{
+    background-image: url("/static/homepage/media/back2.png");
+}
+.bodofficial{
+    background-image: url("/static/homepage/media/yellowback.png");
 }
 
 a:hover{
@@ -29,7 +35,8 @@ footer{
     clear: both;
 }
 .site_icon{
-    width: 100px;
+    height: 100px;
+    width:auto;
     position: fixed;
     top:10px;
     left: 10px;
@@ -65,11 +72,12 @@ header > .title {
 }
 
 header img {
-    width: 60px;
+    height:60px;
+    width: auto;
     top:10px;
     left:10px;
-    position: absolute;
     margin-right: 24px;
+    position: absolute;
 }
 .formlabel{
     color:$darkteal;
@@ -124,7 +132,7 @@ main {
         max-width:$sidecolwidth;
         height: 100% ;
     }
-    #site_middle{
+    .site_middle{
         background-color:white;
         border-color: rgba(56, 225, 208, 0.432);
         border-width: 10px;
@@ -250,6 +258,51 @@ footer a {
     color:#525252;
     padding-bottom: 20px;
 }
+.official{
+    border-color: rgba(239, 200, 73, 0.397) !important;
+}
+.officials >.content{
+    border-color: rgba(239, 200, 73, 0.397);
+}
+.presnav{
+    color:$govblue !important;
+    background-color:rgba(113, 228, 238, 0.61) !important;
+    opacity: 80%;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+.navtitle{
+    border-style:none;
+    display: block;
+  padding: 0.5rem 1rem;
+  cursor: default;
+}
+.prestext{
+    color:$govblue !important;
+}
+.offtext{
+    color:rgb(117, 8, 24)!important;
+}
+.hhatext{
+    color:rgb(145, 112, 5) !important;
+}
+.navtitle :hover{
+    border-style:none !important;
+}
+.offnav{
+    color:rgb(117, 8, 24)!important;
+    background-color:rgba(255, 49, 80, 0.603) !important;
+    opacity: 80%;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+.hhanav{
+    color:rgb(145, 112, 5) !important;
+    background-color: rgba(239, 200, 73, 0.616) !important;
+    opacity: 80%;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
 
 /* mobile friendly stuff*/
 @media (min-width: 1400px) { 
@@ -260,13 +313,4 @@ footer a {
         margin-left:20%;
         margin-right:20%;
     }
-@media (max-width: 1399px){
-#site_left{
-display:none;
-}
-#site_content{
-    margin:0;
-}
-}
-
 }

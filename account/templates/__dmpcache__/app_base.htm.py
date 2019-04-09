@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554758219.4987283
+_modified_time = 1554769724.6359885
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/account/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -30,16 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def left_content():
             return render_left_content(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n\r\n\r\n')
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_items'):
             context['self'].navbar_items(**pageargs)
         
@@ -64,14 +62,8 @@ def render_navbar_items(context,**pageargs):
     try:
         def navbar_items():
             return render_navbar_items(context)
-        self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n<li class="mynav-item">\r\n    <a class="nav-link ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='' else ' '))
-        __M_writer('"  href="/">Home</a>\r\n  </li>\r\n  <li class="mynav-item">\r\n      <a class="nav-link ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='contact' else ' '))
-        __M_writer('" href="/contact/">Contact</a>\r\n    </li>           \r\n')
+        __M_writer('\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -83,7 +75,7 @@ def render_left_content(context,**pageargs):
         def left_content():
             return render_left_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n\r\n\r\n')
+        __M_writer('\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -95,7 +87,7 @@ def render_right_content(context,**pageargs):
         def right_content():
             return render_right_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<p class="quote">\r\n  Don’t go just stay<br>\r\nLet’s stop time now<br>\r\nIf I’m with you<br>\r\nI could die in this moment<Br>\r\nForever young<br>\r\n\r\n-Blackpink "Forever Young"\r\n</p>\r\n\r\n')
+        __M_writer('\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -103,6 +95,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/account/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 12, "52": 18, "62": 5, "70": 5, "71": 7, "72": 7, "73": 10, "74": 10, "80": 14, "86": 14, "92": 20, "98": 20, "104": 98}}
+{"filename": "C:/Users/Isaac/intexsite/account/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 5, "50": 9, "60": 3, "66": 3, "72": 7, "78": 7, "84": 11, "90": 11, "96": 90}}
 __M_END_METADATA
 """

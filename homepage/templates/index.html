@@ -11,11 +11,60 @@ class="back2"
 </%block>
 
 <%block name="site_content">
+%if request.user.is_authenticated:
+   <div class="content">
+         <p class="homeparg"><span style="font-size:40px; font-weight: bold;">Welcome to STOP.gov! </span>This online portal will help government agencies and providers work together to decrease America's opiod epidemic. Let's start fixing today!</p>  
+         %if request.user.has_perm('account.search'):
+         <a href="/account/login/3/" class="alinkbox">
+            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
+               <img src="${STATIC_URL}homepage/media/pill3.png">
+               <p class="hha">Search Drugs</p>
+            </div>
+           </a>
+           <a href="/account/login/3/" class="alinkbox">
+            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
+               <img src="${STATIC_URL}homepage/media/people.png">
+               <p style="color:#33BDA6">Search Providers</p>
+            </div>
+           </a>
+         %endif
+         %if request.user.has_perm('account.safesearch'):
+         <a href="/account/login/3/" class="alinkbox">
+            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
+               <img src="${STATIC_URL}homepage/media/pill3.png">
+               <p class="hha">Search Drugs</p>
+            </div>
+           </a>
+         <a href="/account/login/3/" class="alinkbox">
+            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
+               <img src="${STATIC_URL}homepage/media/HHA.png">
+               <p class="hha" style="color:#33BDA6">Search Providers</p>
+            </div>
+           </a>
+         %endif
+         %if request.user.has_perm('account.analytics'):
+         <a href="/account/login/3/" class="alinkbox">
+            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
+               <img src="${STATIC_URL}homepage/media/HHA.png">
+               <p class="hha">View Analytics</p>
+            </div>
+           </a>
+         %endif
+         %if request.user.has_perm('account.CRUD'):
+         <a href="/account/login/3/" class="alinkbox">
+            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
+               <img src="${STATIC_URL}homepage/media/HHA.png">
+               <p class="hha">Edit Listings</p>
+            </div>
+           </a>
+         %endif
+   </div>
+%else:
     <div class="content">
      <p class="homeparg"><span style="font-size:40px; font-weight: bold;">Welcome to STOP.gov! </span>This online portal will help government agencies and providers work together to decrease America's opiod epidemic. Login to start today!</p>
      <br><hr><br>
      <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>
-     <a href="$/account/login/1/" class="alinkbox">
+     <a href="/account/login/1/" class="alinkbox">
      <div class="linkbox prov">
         <img src="${STATIC_URL}homepage/media/avatar.png">
         <p class="prov">Prescriber</p>
@@ -38,6 +87,7 @@ class="back2"
 <hr>
 
     </div>
+%endif
 </%block>
 
 <%block name="right_content">

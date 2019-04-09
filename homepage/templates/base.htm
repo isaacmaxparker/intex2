@@ -29,18 +29,80 @@
         <link rel="icon" href="${ STATIC_URL }homepage/media/favicon.ico">
 
     </head>
-    <body <%block name="bodclass"></%block> </body>
+    <body class="body">
         <header>
-            <a href="/"><%block name="logo"><img src="${ STATIC_URL }homepage/media/logo2.png" alt="python" /></%block></a>
+            <a href="/">
+                <%block name="logo">
+                %if user.groups.filter(name='Prescribers').exists():
+                <img src="${ STATIC_URL }homepage/media/avatar.png" alt="python" />
+                %else:
+                    %if user.groups.filter(name='HealthOfficials').exists():
+                    <img src="${ STATIC_URL }homepage/media/heart.png" alt="python" />
+                    %else:
+                        %if user.groups.filter(name='HHS').exists():
+                        <img src="${ STATIC_URL }homepage/media/hha.png" alt="python" />
+                        %else:
+                        <img src="${ STATIC_URL }homepage/media/logo2.png" alt="python" />
+                        %endif
+                        
+                    %endif
+                %endif
+                
+                
+                </%block>
+            </a>
             <nav class="mynav navbar">
                 <ul class="nav nav-tabs">
-                    
-                    <%block name="navbar_items">
-                            <li class="nav-item mynav-item">
-                                    <a class="nav-link ${ 'active' if request.dmp.page =='index' else ' '}" data-toggle="tab" href="/">Home</a>
-                                  </li>
+                        <li class="mynav-item">
+                                <a class="nav-link ${ 'active' if request.dmp.page =='' else ' '}"  href="/">Home</a>
+                        </li>
+                        <li class="mynav-item">
+                                <a class="nav-link ${ 'active' if request.dmp.page =='contact' else ' '}" href="/contact/">Contact</a>
+                        </li> 
+                            %if request.user.is_authenticated:
+                                %if user.groups.filter(name='Prescribers').exists():
+                                <li class="mynav-item">
+                                        <a class="navtitle prestext">Prescriber Tools:</a>
+                                </li>
+                                <li class="nav-item mynav-item">
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} presnav" data-toggle="tab" href="/prescriber/search">Search</a>
+                                </li>    
+                                %endif
+                                %if user.groups.filter(name='HealthOfficials').exists():
+                                <li class="mynav-item">
+                                        <a class="navtitle offtext">Health Official Tools:</a>
+                                </li>
+                                <li class="nav-item mynav-item">
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} offnav" data-toggle="tab" href="/prescriber/search">Search</a>
+                                </li>  
+                                <li class="nav-item mynav-item">
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='analytics' else ' '} offnav" data-toggle="tab" href="/prescriber/search">Analytics</a>
+                                </li> 
+                                %endif
+                                %if user.groups.filter(name='HHS').exists():
+                                <li class="mynav-item">
+                                        <a class="navtitle hhatext">Data Clerk Tools:</a>
+                                </li>
+                                <li class="nav-item mynav-item">
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} hhanav" data-toggle="tab" href="/prescriber/search">Search</a>
+                                </li> 
+                                <li class="nav-item mynav-item">
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} hhanav" data-toggle="tab" href="/prescriber/search">Edit Listings</a>
+                                </li>   
+                                %endif
+                            %else:
+                            <li class="mynav-item">
+                                    <a class="nav-link ${ 'active' if request.dmp.page =='' else ' '}"  href="/">Home</a>
+                            </li>
+                            <li class="mynav-item">
+                                    <a class="nav-link ${ 'active' if request.dmp.page =='contact' else ' '}" href="/contact/">Contact</a>
+                            </li> 
+                            %endif
+                           
+                            <%block name="navbar_items">
+                                         
                             </%block>
-                    
+                            
                             %if request.user.is_authenticated:
                                 <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">
                                     <img src="${STATIC_URL}homepage/media/UserImages/${request.user.username}.png" class="loginimg">
@@ -73,7 +135,7 @@
     <%block name="left_content">Left Side</%block>
 </div>
 
-<div id="site_middle">
+<div class="site_middle">
     <%block name="site_content">404 Error Page Content not found</%block>
 </div>
 

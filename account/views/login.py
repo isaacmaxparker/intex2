@@ -6,7 +6,6 @@ from django.http import HttpResponseRedirect
 
 @view_function
 def process_request(request,kind=4):
-  
     # If this is a POST request then process the Form data
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -14,8 +13,16 @@ def process_request(request,kind=4):
         if form.is_valid():
             user = authenticate(username=form.cleaned_data.get('username'), password=form.cleaned_data.get('password'))     
             login(request, user)
-            return HttpResponseRedirect('/')
 
+            if request.user.groups.filter(name='Prescribers').exists():
+                return HttpResponseRedirect('/prescriber/')
+            if request.user.groups.filter(name='Prescribers').exists():
+                return HttpResponseRedirect('/prescriber/')
+            if request.user.groups.filter(name='Prescribers').exists():
+                return HttpResponseRedirect('/prescriber/')
+            else:
+                return HttpResponseRedirect('/')
+            
            # return request.dmp.render('/account/templates/login.html')
 
     # If this is a GET (or any other method) create the default form.

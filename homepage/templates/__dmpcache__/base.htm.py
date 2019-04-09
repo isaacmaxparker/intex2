@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554764489.6412446
+_modified_time = 1554771409.075599
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['page_title', 'bodclass', 'logo', 'navbar_items', 'page_header_title', 'left_content', 'site_content', 'right_content']
+_exports = ['page_title', 'logo', 'navbar_items', 'page_header_title', 'left_content', 'site_content', 'right_content']
 
 
 from datetime import datetime 
@@ -21,25 +21,24 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def bodclass():
-            return render_bodclass(context._locals(__M_locals))
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def logo():
-            return render_logo(context._locals(__M_locals))
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
+        def logo():
+            return render_logo(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        STOP &mdash;\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -60,22 +59,45 @@ def render_body(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( django_mako_plus.links(self) ))
         __M_writer('\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-        __M_writer('homepage/media/favicon.ico">\r\n\r\n    </head>\r\n    <body ')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'bodclass'):
-            context['self'].bodclass(**pageargs)
-        
-
-        __M_writer(' </body>\r\n        <header>\r\n            <a href="/">')
+        __M_writer('homepage/media/favicon.ico">\r\n\r\n    </head>\r\n    <body class="body">\r\n        <header>\r\n            <a href="/">\r\n                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'logo'):
             context['self'].logo(**pageargs)
         
 
-        __M_writer('</a>\r\n            <nav class="mynav navbar">\r\n                <ul class="nav nav-tabs">\r\n                    \r\n                    ')
+        __M_writer('\r\n            </a>\r\n            <nav class="mynav navbar">\r\n                <ul class="nav nav-tabs">\r\n                        <li class="mynav-item">\r\n                                <a class="nav-link ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='' else ' '))
+        __M_writer('"  href="/">Home</a>\r\n                        </li>\r\n                        <li class="mynav-item">\r\n                                <a class="nav-link ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='contact' else ' '))
+        __M_writer('" href="/contact/">Contact</a>\r\n                        </li> \r\n')
+        if request.user.is_authenticated:
+            if user.groups.filter(name='Prescribers').exists():
+                __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle prestext">Prescriber Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
+                __M_writer(' presnav" data-toggle="tab" href="/prescriber/search">Search</a>\r\n                                </li>    \r\n')
+            if user.groups.filter(name='HealthOfficials').exists():
+                __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle offtext">Health Official Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
+                __M_writer(' offnav" data-toggle="tab" href="/prescriber/search">Search</a>\r\n                                </li>  \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='analytics' else ' '))
+                __M_writer(' offnav" data-toggle="tab" href="/prescriber/search">Analytics</a>\r\n                                </li> \r\n')
+            if user.groups.filter(name='HHS').exists():
+                __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle hhatext">Data Clerk Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
+                __M_writer(' hhanav" data-toggle="tab" href="/prescriber/search">Search</a>\r\n                                </li> \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
+                __M_writer(' hhanav" data-toggle="tab" href="/prescriber/search">Edit Listings</a>\r\n                                </li>   \r\n')
+        else:
+            __M_writer('                            <li class="mynav-item">\r\n                                    <a class="nav-link ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='' else ' '))
+            __M_writer('"  href="/">Home</a>\r\n                            </li>\r\n                            <li class="mynav-item">\r\n                                    <a class="nav-link ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='contact' else ' '))
+            __M_writer('" href="/contact/">Contact</a>\r\n                            </li> \r\n')
+        __M_writer('                           \r\n                            ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_items'):
             context['self'].navbar_items(**pageargs)
         
 
-        __M_writer('\r\n                    \r\n')
+        __M_writer('\r\n                            \r\n')
         if request.user.is_authenticated:
             __M_writer('                                <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">\r\n                                    <img src="')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -98,7 +120,7 @@ def render_body(context,**pageargs):
             context['self'].left_content(**pageargs)
         
 
-        __M_writer('\r\n</div>\r\n\r\n<div id="site_middle">\r\n    ')
+        __M_writer('\r\n</div>\r\n\r\n<div class="site_middle">\r\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_content'):
             context['self'].site_content(**pageargs)
         
@@ -129,28 +151,36 @@ def render_page_title(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_bodclass(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def bodclass():
-            return render_bodclass(context)
-        __M_writer = context.writer()
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_logo(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def logo():
             return render_logo(context)
+        user = context.get('user', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('<img src="')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-        __M_writer('homepage/media/logo2.png" alt="python" />')
+        __M_writer('\r\n')
+        if user.groups.filter(name='Prescribers').exists():
+            __M_writer('                <img src="')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
+            __M_writer('homepage/media/avatar.png" alt="python" />\r\n')
+        else:
+            if user.groups.filter(name='HealthOfficials').exists():
+                __M_writer('                    <img src="')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
+                __M_writer('homepage/media/heart.png" alt="python" />\r\n')
+            else:
+                if user.groups.filter(name='HHS').exists():
+                    __M_writer('                        <img src="')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
+                    __M_writer('homepage/media/hha.png" alt="python" />\r\n')
+                else:
+                    __M_writer('                        <img src="')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
+                    __M_writer('homepage/media/logo2.png" alt="python" />\r\n')
+                __M_writer('                        \r\n')
+        __M_writer('                \r\n                \r\n                ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -161,12 +191,8 @@ def render_navbar_items(context,**pageargs):
     try:
         def navbar_items():
             return render_navbar_items(context)
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n                            <li class="nav-item mynav-item">\r\n                                    <a class="nav-link ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='index' else ' '))
-        __M_writer('" data-toggle="tab" href="/">Home</a>\r\n                                  </li>\r\n                            ')
+        __M_writer('\r\n                                         \r\n                            ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -222,6 +248,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 87, "20": 0, "44": 2, "49": 12, "50": 17, "51": 17, "52": 17, "53": 19, "54": 19, "55": 20, "56": 20, "57": 25, "58": 25, "59": 27, "60": 28, "61": 28, "62": 29, "63": 29, "68": 32, "73": 34, "78": 42, "79": 44, "80": 45, "81": 46, "82": 46, "83": 46, "84": 46, "85": 48, "86": 48, "87": 55, "88": 56, "89": 56, "90": 56, "91": 58, "96": 68, "101": 73, "106": 77, "111": 81, "112": 87, "113": 89, "114": 89, "120": 10, "126": 10, "132": 32, "143": 34, "151": 34, "152": 34, "153": 34, "159": 38, "167": 38, "168": 40, "169": 40, "175": 66, "181": 66, "187": 73, "193": 73, "199": 77, "205": 77, "211": 81, "217": 81, "223": 217}}
+{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 149, "20": 0, "43": 2, "48": 12, "49": 17, "50": 17, "51": 17, "52": 19, "53": 19, "54": 20, "55": 20, "56": 25, "57": 25, "58": 27, "59": 28, "60": 28, "61": 29, "62": 29, "67": 52, "68": 57, "69": 57, "70": 60, "71": 60, "72": 62, "73": 63, "74": 64, "75": 68, "76": 68, "77": 71, "78": 72, "79": 76, "80": 76, "81": 79, "82": 79, "83": 82, "84": 83, "85": 87, "86": 87, "87": 90, "88": 90, "89": 93, "90": 94, "91": 95, "92": 95, "93": 98, "94": 98, "95": 101, "100": 104, "101": 106, "102": 107, "103": 108, "104": 108, "105": 108, "106": 108, "107": 110, "108": 110, "109": 117, "110": 118, "111": 118, "112": 118, "113": 120, "118": 130, "123": 135, "128": 139, "133": 143, "134": 149, "135": 151, "136": 151, "142": 10, "148": 10, "154": 35, "163": 35, "164": 36, "165": 37, "166": 37, "167": 37, "168": 38, "169": 39, "170": 40, "171": 40, "172": 40, "173": 41, "174": 42, "175": 43, "176": 43, "177": 43, "178": 44, "179": 45, "180": 45, "181": 45, "182": 47, "183": 50, "189": 102, "195": 102, "201": 128, "207": 128, "213": 135, "219": 135, "225": 139, "231": 139, "237": 143, "243": 143, "249": 243}}
 __M_END_METADATA
 """
