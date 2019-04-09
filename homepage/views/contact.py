@@ -12,7 +12,7 @@ def process_request(request):
         print("Message: " + request.POST['yourmessage'])
         #if user does it right
         context = {
-            'msg': "Thank you for submitting your form",
+            'msg': "Thank you for submitting your message. We will respond within 5-7 business days",
         }
 
         return request.dmp.render('contact.html', context)

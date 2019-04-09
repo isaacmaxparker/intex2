@@ -6,6 +6,10 @@ from django.http import HttpResponseRedirect
 
 @view_function
 def process_request(request,kind=4):
+
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('/')
+
     # If this is a POST request then process the Form data
     if request.method == 'POST':
         form = LoginForm(request.POST)

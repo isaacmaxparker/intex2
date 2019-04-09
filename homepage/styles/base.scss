@@ -83,20 +83,37 @@ header img {
     color:$darkteal;
     font-weight: lighter;
     font-size: 28px;
-    font-family: $defaultfont;
+    font-family: $defaultfont2;
 }
 .formlabel input{
     font-weight: lighter;
-    font-family: $defaultfont2;
-    padding-left: 10px;
+    font-family: $defaultfont;
+    margin-left: 20px;
+    padding-left:10px;
     color:gray;
     border-radius: 10px;
     border-style: solid;
     border-width: 1px;
     border-color: lightgrey;
     font-size: 24px;
+    
 }
-
+.forminput{
+    font-weight: lighter;
+    font-family: $defaultfont;
+    margin-left: 20px;
+    padding-left:10px;
+    color:rgb(51, 51, 51);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+    font-size: 14px;
+    width:600px;
+    height:200px;
+    margin-top:10px;
+    
+}
 .formlabel li{
     color:red;
     list-style: none;

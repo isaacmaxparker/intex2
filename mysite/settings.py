@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'homepage',
     'account',
     'catalog',
-    'prescriber',
+    'portal',
 ]
 
 MIDDLEWARE = [

@@ -82,12 +82,13 @@ header img {
   color: #09a7b3;
   font-weight: lighter;
   font-size: 28px;
-  font-family: "Trebuchet MS";
+  font-family: "Century Gothic";
 }
 
 .formlabel input {
   font-weight: lighter;
-  font-family: "Century Gothic";
+  font-family: "Trebuchet MS";
+  margin-left: 20px;
   padding-left: 10px;
   color: gray;
   border-radius: 10px;
@@ -95,6 +96,22 @@ header img {
   border-width: 1px;
   border-color: lightgrey;
   font-size: 24px;
+}
+
+.forminput {
+  font-weight: lighter;
+  font-family: "Trebuchet MS";
+  margin-left: 20px;
+  padding-left: 10px;
+  color: #333333;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  font-size: 14px;
+  width: 600px;
+  height: 200px;
+  margin-top: 10px;
 }
 
 .formlabel li {

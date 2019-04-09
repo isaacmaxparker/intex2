@@ -5,18 +5,12 @@
 <%block name="left_content">
 
 </%block>
-<%block name="logo">
-<img src="${ STATIC_URL }homepage/media/logo.png" alt="python" />
-</%block>
+
 <%block name="page_header_title">
-Contact STOP
+Contact STOP.GOV
 </%block>
 
 <%block name="site_content">
-
-<%block name="bodclass">
-class="backtimef"
-</%block>
 
 <div class="content">
 <p class="alert">
@@ -25,13 +19,13 @@ class="backtimef"
 
 
 <form method="POST" id="contactform">
-    <table class="content formlabel" style="margin-left:25%; padding-right:25%; width: 50%">
+    <table class="content formlabel" style="margin-left:15%; padding-right:25%; width: 50%">
         <tr>
             <td>
                     <p class="formlabel"> Name: </p> 
             </td>
             <td>
-                    <input type="text" name="yourname" class="forminput"/> 
+                    <input type="text" name="yourname" value="${request.user.first_name + ' ' + request.user.last_name if request.user.is_authenticated else ''}"/> 
                 </td>
         </tr>
         <tr>
@@ -39,15 +33,15 @@ class="backtimef"
                         <p class="formlabel"> Email:  </p>
                 </td>
                 <td>
-                        <input type = "email" name="youremail" class="forminput" />
+                        <input type = "email" name="youremail" value="${request.user.email if request.user.is_authenticated else ''}" />
                     </td>
             </tr>
             <tr>
                     <td>
                             <p class="formlabel"> Message:  </p>
                     </td>
-                    <td>
-                            <input type="text"  name="yourmessage" class="forminput" />
+                    <td><textarea name="yourmessage" class="forminput"></textarea>
+                            
                         </td>
                 </tr>     
     </table>

@@ -1,0 +1,18 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_title">&mdash; Home</%block>
+
+<%block name="left_content">
+
+</%block>
+
+<%block name="site_content">
+%if request.user.is_authenticated:
+   <div class="content">
+</div>
+%endif
+</%block>
+
+<%block name="right_content">
+
+</%block>
