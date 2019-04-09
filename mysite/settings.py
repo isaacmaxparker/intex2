@@ -95,6 +95,7 @@ DATABASES = {
     }
 }
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -139,7 +140,6 @@ STATICFILES_DIRS = (
     BASE_DIR,
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
 # A logger for DMP
 DEBUG_PROPAGATE_EXCEPTIONS = DEBUG  # SECURITY WARNING: never set this True on a live site

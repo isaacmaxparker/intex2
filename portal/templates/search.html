@@ -1,7 +1,6 @@
 <%inherit file="app_base.htm" />
 
-<%block name="page_title">&mdash; Home</%block>
-
+<%block name="page_title">&mdash; Search</%block>
 <%block name="left_content">
 
 </%block>
@@ -9,7 +8,15 @@
 <%block name="site_content">
 %if request.user.is_authenticated:
    <div class="content">
-</div>
+      <p class="portaltitle">Search</p>
+
+      <form action="" method="post">
+            <table class="formlabel">
+            ${ form }
+            </table>
+            <p style="margin-left:80%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>
+          </form>
+   </div>
 %endif
 </%block>
 

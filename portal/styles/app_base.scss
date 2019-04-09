@@ -5,6 +5,15 @@ $providerblue:#71E3EE;
 $sidecolwidth:200px;
 $darkteal:	rgb(9, 167, 179);
 
+.portaltitle{
+    color:grey;
+    font-family: 'Century Gothic';
+    font-size: 50px;
+    text-align: left;
+    padding-left:10px;
+}
+
+
 .doccontent{
     background-color:white;
         border-color: rgba(39, 58, 122, 0.644);
@@ -17,6 +26,9 @@ $darkteal:	rgb(9, 167, 179);
 
 .doctitle {
     color : $govblue !important;
+    font-size: 40px;
+    padding:0;
+    margin:0;
 }
 .docbod{
     background-image: url("/static/homepage/media/backgrounds/providerback.png");
@@ -53,6 +65,7 @@ $darkteal:	rgb(9, 167, 179);
 
 .hhstitle {
     color : $darkteal !important;
+    
 }
 .hhsbod{
     background-image: url("/static/homepage/media/backgrounds/hhaback.png");

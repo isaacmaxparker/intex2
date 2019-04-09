@@ -59,6 +59,9 @@
                                 <a class="nav-link ${ 'active' if request.dmp.page =='' else ' '}"  href="/">Home</a>
                         </li>
                         <li class="mynav-item">
+                                <a class="nav-link ${ 'active' if request.dmp.page =='about' else ' '}" href="/about/">About</a>
+                        </li> 
+                        <li class="mynav-item">
                                 <a class="nav-link ${ 'active' if request.dmp.page =='contact' else ' '}" href="/contact/">Contact</a>
                         </li> 
                             %if request.user.is_authenticated:
@@ -67,7 +70,7 @@
                                         <a class="navtitle prestext">Prescriber Tools:</a>
                                 </li>
                                 <li class="nav-item mynav-item">
-                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} presnav" data-toggle="tab" href="/portal/search/">Search</a>
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} presnav"  href="/portal/search/">Search</a>
                                 </li>    
                                 %endif
                                 %if user.groups.filter(name='HealthOfficials').exists():

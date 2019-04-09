@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554834526.216767
+_modified_time = 1554844315.517572
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -21,28 +21,28 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
+        def logo():
+            return render_logo(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        def middleclass():
+            return render_middleclass(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def bodyclass():
             return render_bodyclass(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        def logo():
-            return render_logo(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def middleclass():
-            return render_middleclass(context._locals(__M_locals))
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        STOP.GOV\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -76,13 +76,15 @@ def render_body(context,**pageargs):
         __M_writer('\r\n            </a>\r\n            <nav class="mynav navbar">\r\n                <ul class="nav nav-tabs">\r\n                        <li class="mynav-item">\r\n                                <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='' else ' '))
         __M_writer('"  href="/">Home</a>\r\n                        </li>\r\n                        <li class="mynav-item">\r\n                                <a class="nav-link ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='about' else ' '))
+        __M_writer('" href="/about/">About</a>\r\n                        </li> \r\n                        <li class="mynav-item">\r\n                                <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='contact' else ' '))
         __M_writer('" href="/contact/">Contact</a>\r\n                        </li> \r\n')
         if request.user.is_authenticated:
             if user.groups.filter(name='Prescribers').exists():
                 __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle prestext">Prescriber Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
-                __M_writer(' presnav" data-toggle="tab" href="/portal/search/">Search</a>\r\n                                </li>    \r\n')
+                __M_writer(' presnav"  href="/portal/search/">Search</a>\r\n                                </li>    \r\n')
             if user.groups.filter(name='HealthOfficials').exists():
                 __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle offtext">Health Official Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
@@ -201,11 +203,11 @@ def render_bodyclass(context,**pageargs):
 def render_logo(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        user = context.get('user', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def logo():
             return render_logo(context)
-        user = context.get('user', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if user.groups.filter(name='Prescribers').exists():
@@ -307,6 +309,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 183, "20": 0, "47": 2, "52": 12, "53": 17, "54": 17, "55": 17, "56": 19, "57": 19, "58": 20, "59": 20, "60": 25, "61": 25, "62": 27, "63": 28, "64": 28, "65": 29, "66": 29, "71": 34, "76": 54, "77": 59, "78": 59, "79": 62, "80": 62, "81": 64, "82": 65, "83": 66, "84": 70, "85": 70, "86": 73, "87": 74, "88": 78, "89": 78, "90": 81, "91": 81, "92": 84, "93": 85, "94": 89, "95": 89, "96": 92, "97": 92, "98": 96, "103": 99, "104": 101, "105": 102, "106": 103, "107": 104, "108": 104, "109": 104, "110": 104, "111": 106, "112": 106, "113": 113, "114": 114, "115": 115, "116": 116, "117": 116, "118": 116, "119": 116, "120": 118, "121": 118, "122": 125, "123": 126, "124": 127, "125": 128, "126": 128, "127": 128, "128": 128, "129": 130, "130": 130, "131": 137, "132": 138, "133": 139, "134": 139, "135": 139, "136": 139, "137": 141, "138": 141, "139": 151, "140": 152, "141": 152, "142": 152, "143": 154, "148": 164, "153": 169, "158": 172, "163": 173, "168": 177, "169": 183, "170": 185, "171": 185, "177": 10, "183": 10, "189": 32, "195": 32, "201": 37, "210": 37, "211": 38, "212": 39, "213": 39, "214": 39, "215": 40, "216": 41, "217": 42, "218": 42, "219": 42, "220": 43, "221": 44, "222": 45, "223": 45, "224": 45, "225": 46, "226": 47, "227": 47, "228": 47, "229": 49, "230": 52, "236": 97, "242": 97, "248": 162, "254": 162, "260": 169, "266": 169, "272": 171, "278": 171, "284": 173, "290": 173, "296": 177, "302": 177, "308": 302}}
+{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 186, "20": 0, "47": 2, "52": 12, "53": 17, "54": 17, "55": 17, "56": 19, "57": 19, "58": 20, "59": 20, "60": 25, "61": 25, "62": 27, "63": 28, "64": 28, "65": 29, "66": 29, "71": 34, "76": 54, "77": 59, "78": 59, "79": 62, "80": 62, "81": 65, "82": 65, "83": 67, "84": 68, "85": 69, "86": 73, "87": 73, "88": 76, "89": 77, "90": 81, "91": 81, "92": 84, "93": 84, "94": 87, "95": 88, "96": 92, "97": 92, "98": 95, "99": 95, "100": 99, "105": 102, "106": 104, "107": 105, "108": 106, "109": 107, "110": 107, "111": 107, "112": 107, "113": 109, "114": 109, "115": 116, "116": 117, "117": 118, "118": 119, "119": 119, "120": 119, "121": 119, "122": 121, "123": 121, "124": 128, "125": 129, "126": 130, "127": 131, "128": 131, "129": 131, "130": 131, "131": 133, "132": 133, "133": 140, "134": 141, "135": 142, "136": 142, "137": 142, "138": 142, "139": 144, "140": 144, "141": 154, "142": 155, "143": 155, "144": 155, "145": 157, "150": 167, "155": 172, "160": 175, "165": 176, "170": 180, "171": 186, "172": 188, "173": 188, "179": 10, "185": 10, "191": 32, "197": 32, "203": 37, "212": 37, "213": 38, "214": 39, "215": 39, "216": 39, "217": 40, "218": 41, "219": 42, "220": 42, "221": 42, "222": 43, "223": 44, "224": 45, "225": 45, "226": 45, "227": 46, "228": 47, "229": 47, "230": 47, "231": 49, "232": 52, "238": 100, "244": 100, "250": 165, "256": 165, "262": 172, "268": 172, "274": 174, "280": 174, "286": 176, "292": 176, "298": 180, "304": 180, "310": 304}}
 __M_END_METADATA
 """

@@ -1,3 +1,11 @@
+.portaltitle {
+  color: grey;
+  font-family: "Century Gothic";
+  font-size: 50px;
+  text-align: left;
+  padding-left: 10px;
+}
+
 .doccontent {
   background-color: white;
   border-color: rgba(39, 58, 122, 0.644);
@@ -10,6 +18,9 @@
 
 .doctitle {
   color: #273B7A !important;
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
 }
 
 .docbod {

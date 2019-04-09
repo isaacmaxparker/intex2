@@ -1,0 +1,29 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_title">&mdash; Search</%block>
+<%block name="left_content">
+
+</%block>
+
+<%block name="site_content">
+%if request.user.is_authenticated:
+   <div class="content">
+      <p class="portaltitle">Results</p>
+    <table>
+        
+    </table>
+%for item in providers:
+    <tr>
+        <td>
+            <p>${item.username}</p>
+        </td>        
+    </tr>
+%endfor
+%endif
+</div>
+
+</%block>
+
+<%block name="right_content">
+
+</%block>

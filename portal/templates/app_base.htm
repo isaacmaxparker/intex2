@@ -8,13 +8,13 @@
 <%block name="page_header_title">
 
 %if user.groups.filter(name='Prescribers').exists():
-<p class = "doctitle">Portal</p>
+<p class = "doctitle">Prescriber Portal</p>
 %else:
     %if user.groups.filter(name='HealthOfficials').exists():
-    <p class = "offtitle">Portal</p>
+    <p class = "offtitle">Health Official Portal</p>
     %else:
         %if user.groups.filter(name='HHS').exists():
-        <p class = "hhstitle">Portal</p>
+        <p class = "hhstitle">Data Clerk Portal</p>
         %else:
         <p class = "portaltitle">Portal</p>
         %endif

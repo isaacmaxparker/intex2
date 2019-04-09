@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554842985.2584536
+_modified_time = 1554836267.213268
 _enable_loop = True
-_template_filename = 'C:/Users/Isaac/intexsite/portal/templates/search.html'
-_template_uri = 'search.html'
+_template_filename = 'C:/Users/Isaac/intexsite/homepage/templates/about.html'
+_template_uri = 'about.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['page_title', 'left_content', 'site_content', 'right_content']
+_exports = ['page_title', 'left_content', 'page_header_title', 'site_content']
 
 
 def _mako_get_namespace(context, name):
@@ -30,26 +30,28 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        form = context.get('form', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
             context['self'].page_title(**pageargs)
         
 
-        __M_writer('\r\n')
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'left_content'):
             context['self'].left_content(**pageargs)
+        
+
+        __M_writer('\r\n\r\n')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_header_title'):
+            context['self'].page_header_title(**pageargs)
         
 
         __M_writer('\r\n\r\n')
@@ -58,10 +60,6 @@ def render_body(context,**pageargs):
         
 
         __M_writer('\r\n\r\n')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'right_content'):
-            context['self'].right_content(**pageargs)
-        
-
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -73,7 +71,7 @@ def render_page_title(context,**pageargs):
         def page_title():
             return render_page_title(context)
         __M_writer = context.writer()
-        __M_writer('&mdash; Search')
+        __M_writer('&mdash; About')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -91,32 +89,25 @@ def render_left_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_site_content(context,**pageargs):
+def render_page_header_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def site_content():
-            return render_site_content(context)
-        self = context.get('self', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        form = context.get('form', UNDEFINED)
+        def page_header_title():
+            return render_page_header_title(context)
         __M_writer = context.writer()
-        __M_writer('\r\n')
-        if request.user.is_authenticated:
-            __M_writer('   <div class="content">\r\n      <p class="portaltitle">Search</p>\r\n\r\n      <form action="" method="post">\r\n            <table class="formlabel">\r\n            ')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form ))
-            __M_writer('\r\n            </table>\r\n            <p style="margin-left:80%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>\r\n          </form>\r\n   </div>\r\n')
+        __M_writer('\r\nAbout STOP.GOV\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
 
 
-def render_right_content(context,**pageargs):
+def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def right_content():
-            return render_right_content(context)
+        def site_content():
+            return render_site_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n')
+        __M_writer('\r\n\r\n<div class="content">\r\n<p class="homeparg">\r\n        <span style="font-size:40px; font-weight: bold;">The opioid crisis is devastating America.</span><br> The latest statistics indicate that the total yearly overdose deaths due to opioids reached a new high of 70,237 in 2017. In that same year, President Trump declared the opioid crisis a public health emergency. \r\nThis web portal aims to mitigate the availabilty of opiods by monitoring prescriptions and identifying potential problems before they happen.\r\n</p>\r\n<a href="/account/login/" style="color:grey;font-family:century gothic;text-align:center;width:100%;font-size:34px;padding-left:40%">I want to help</a>\r\n</div>\r\n\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -124,6 +115,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/search.html", "uri": "search.html", "source_encoding": "utf-8", "line_map": {"29": 0, "45": 1, "50": 3, "55": 6, "60": 21, "70": 3, "76": 3, "82": 4, "88": 4, "94": 8, "103": 8, "104": 9, "105": 10, "106": 15, "107": 15, "113": 23, "119": 23, "125": 119}}
+{"filename": "C:/Users/Isaac/intexsite/homepage/templates/about.html", "uri": "about.html", "source_encoding": "utf-8", "line_map": {"29": 0, "42": 1, "47": 3, "52": 7, "57": 11, "62": 24, "68": 3, "74": 3, "80": 5, "86": 5, "92": 9, "98": 9, "104": 13, "110": 13, "116": 110}}
 __M_END_METADATA
 """
