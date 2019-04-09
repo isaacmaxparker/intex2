@@ -1,0 +1,62 @@
+.doccontent {
+  background-color: white;
+  border-color: rgba(39, 58, 122, 0.644);
+  border-width: 10px;
+  border-style: solid;
+  margin-left: 200px;
+  margin-right: 200px;
+  min-width: 700px;
+}
+
+.doctitle {
+  color: #273B7A !important;
+}
+
+.docbod {
+  background-image: url("/static/homepage/media/backgrounds/providerback.png");
+  background-size: 100%;
+}
+
+.offcontent {
+  background-color: white;
+  border-color: rgba(9, 167, 179, 0.64);
+  border-width: 10px;
+  border-style: solid;
+  margin-left: 200px;
+  margin-right: 200px;
+  min-width: 700px;
+}
+
+.offtitle {
+  color: #09a7b3 !important;
+}
+
+.offbod {
+  background-image: url("/static/homepage/media/backgrounds/offback.png");
+  background-size: 100%;
+}
+
+.hhscontent {
+  background-color: white;
+  border-color: rgba(9, 167, 179, 0.64);
+  border-width: 10px;
+  border-style: solid;
+  margin-left: 200px;
+  margin-right: 200px;
+  min-width: 700px;
+}
+
+.hhstitle {
+  color: #09a7b3 !important;
+}
+
+.hhsbod {
+  background-image: url("/static/homepage/media/backgrounds/hhaback.png");
+  background-size: 100%;
+}
+
+.copy {
+  color: #09a7b3;
+}
+
+/*# sourceMappingURL=app_base.scss.css.map */

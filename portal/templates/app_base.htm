@@ -6,11 +6,60 @@
 
 
 <%block name="page_header_title">
-Catalog
+
+%if user.groups.filter(name='Prescribers').exists():
+<p class = "doctitle">Portal</p>
+%else:
+    %if user.groups.filter(name='HealthOfficials').exists():
+    <p class = "offtitle">Portal</p>
+    %else:
+        %if user.groups.filter(name='HHS').exists():
+        <p class = "hhstitle">Portal</p>
+        %else:
+        <p class = "portaltitle">Portal</p>
+        %endif
+    %endif
+%endif
 </%block>
+
+<%block name="bodyclass">
+%if user.groups.filter(name='Prescribers').exists():
+<body class="docbod">
+%else:
+    %if user.groups.filter(name='HealthOfficials').exists():
+    <body class="offbod">
+    %else:
+        %if user.groups.filter(name='HHS').exists():
+        <body class="hhsbod">
+        %else:
+        <body class="site_middle">
+        %endif
+    %endif
+%endif
+</%block>
+
 
 <%block name="left_content">
 </%block>
+
+<%block name="middleclass">
+%if user.groups.filter(name='Prescribers').exists():
+<div class="doccontent">
+%else:
+    %if user.groups.filter(name='HealthOfficials').exists():
+    <div class="offcontent">
+    %else:
+        %if user.groups.filter(name='HHS').exists():
+        <div class="hhscontent">
+        %else:
+        <div class="site_middle">
+        %endif
+    %endif
+%endif
+
+
+
+<div class=""></%block>
 
 <%block name="right_content">
 </%block>

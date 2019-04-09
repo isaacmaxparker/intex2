@@ -51,7 +51,7 @@ header {
 }
 
 .mynav-item a {
-  color: #0a8369;
+  color: grey;
   font-family: "Century Gothic";
   font-size: 20px;
   text-shadow: 1px 0px rgba(0, 0, 0, 0.062);
@@ -191,20 +191,42 @@ footer a {
   text-transform: uppercase;
 }
 
-.mydropdown {
-  color: #4B93FF;
-  background-color: white;
+.hhadropdown {
+  color: white;
+  background-color: rgba(252, 222, 124, 0.926);
 }
 
-.mydropdown a {
-  color: #4B93FF;
-  margin-left: 20px;
-  right: 0;
+.hhadropdown a:hover {
+  background-color: #99eedc00;
+  font-weight: bold;
+}
+
+.docdropdown {
+  color: white;
+  background-color: #71E3EE;
+}
+
+.docdropdown a:hover {
+  background-color: #99eedc00;
+  font-weight: bold;
+}
+
+.offdropdown {
+  color: white;
+  background-color: rgba(255, 102, 125, 0.965);
+}
+
+.offdropdown a:hover {
+  background-color: #99eedc00;
+  font-weight: bold;
+}
+
+.mydropdown {
+  background-color: rgba(255, 255, 255, 0.926);
 }
 
 .mydropdown a:hover {
   background-color: #99eedc00;
-  color: #4B93FF;
   font-weight: bold;
 }
 

@@ -1,46 +1,63 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    color: #777788;
+$govblue:#273B7A;
+$govred:#FF314F;
+$hhayellow:	#EFC849;
+$providerblue:#71E3EE;
+$sidecolwidth:200px;
+$darkteal:	rgb(9, 167, 179);
+
+.doccontent{
+    background-color:white;
+        border-color: rgba(39, 58, 122, 0.644);
+        border-width: 10px;
+        border-style: solid;
+        margin-left: $sidecolwidth;
+        margin-right:$sidecolwidth;
+        min-width: 700px;
+    }
+
+.doctitle {
+    color : $govblue !important;
+}
+.docbod{
+    background-image: url("/static/homepage/media/backgrounds/providerback.png");
+    background-size: 100%;
 }
 
-.clearfix {
-    clear: both;
+.offcontent{
+    background-color:white;
+        border-color:rgba(9, 167, 179, .64);
+        border-width: 10px;
+        border-style: solid;
+        margin-left: $sidecolwidth;
+        margin-right:$sidecolwidth;
+        min-width: 700px;
+    }
+
+.offtitle {
+    color : $darkteal !important;
+}
+.offbod{
+    background-image: url("/static/homepage/media/backgrounds/offback.png");
+    background-size: 100%;
 }
 
-header {
-    padding: 50px 20px;
-    text-align: center;
-}
+.hhscontent{
+    background-color:white;
+        border-color: rgba(9, 167, 179, .64);
+        border-width: 10px;
+        border-style: solid;
+        margin-left: $sidecolwidth;
+        margin-right:$sidecolwidth;
+        min-width: 700px;
+    }
 
-header > .title {
-    display: inline-block;
-    color: #3771A1;
-    font-size: 40px;
-    font-weight: bold;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-    vertical-align: middle;
+.hhstitle {
+    color : $darkteal !important;
 }
-
-header img {
-    vertical-align: middle;
-    margin-right: 24px;
+.hhsbod{
+    background-image: url("/static/homepage/media/backgrounds/hhaback.png");
+    background-size: 100%;
 }
-
-main {
-    margin: 0;
-    padding: 15px;
-}
-
-footer {
-    margin-top: 40px;
-    border-top: 1px solid #CCCCCC;
-    text-align: right;
-}
-
-footer a {
-    display: inline-block;
-    color: #777788;
-    margin: 15px 10% 0 0;
+.copy{
+    color:$darkteal;
 }

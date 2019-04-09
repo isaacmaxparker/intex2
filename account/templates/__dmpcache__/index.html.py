@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554767122.3537717
+_modified_time = 1554830133.0758843
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/account/templates/index.html'
 _template_uri = 'index.html'
@@ -30,18 +30,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_header_title'):
@@ -114,18 +114,18 @@ def render_site_content(context,**pageargs):
     try:
         def site_content():
             return render_site_content(context)
-        self = context.get('self', UNDEFINED)
         request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n<div class="content official">\r\n<table width="50%" style="text-align:left;">\r\n        <tr><td><img src="/static/homepage/media/UserImages/')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-        __M_writer('.png" class="userimage"></td>\r\n                <th style="text-align:right; padding-right: 10px;" class="formlabel">\r\n                        Name:\r\n                    </th>\r\n            <td class="forminput" style="border-style:none">\r\n                    ')
+        __M_writer('.png" class="userimage"></td>\r\n                <th style="text-align:right; padding-right: 10px;" class="formlabel">\r\n                        Name:\r\n                    </th>\r\n            <td class="homeparg" style="border-style:none; padding-top:24px;">\r\n                    ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.first_name))
         __M_writer(' ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.last_name))
-        __M_writer(' \r\n            </td>\r\n        </tr>\r\n       <tr><td><hr></td><td><hr></td></tr>\r\n<tr>\r\n        <td></td>\r\n        <th style="text-align:right; padding-right: 10px;", class="formlabel">\r\n                Username:\r\n            </th>\r\n    <td class="forminput" style="border-style:none">\r\n        \r\n            ')
+        __M_writer(' \r\n            </td>\r\n        </tr>\r\n       <tr><td><hr></td><td><hr></td></tr>\r\n<tr>\r\n        <td></td>\r\n        <th style="text-align:right; padding-right: 10px;", class="formlabel">\r\n                Username:\r\n            </th>\r\n    <td class="homeparg" style="border-style:none; padding-top:24px;">\r\n        \r\n            ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-        __M_writer(' \r\n        \r\n    </td>\r\n</tr>\r\n<tr>\r\n        <td></td>\r\n        <th style="text-align:right; padding-right: 10px;" class="formlabel">\r\n                Email:\r\n            </th>\r\n    <td class="forminput" style="border-style:none">')
+        __M_writer(' \r\n        \r\n    </td>\r\n</tr>\r\n<tr>\r\n        <td></td>\r\n        <th style="text-align:right; padding-right: 10px;" class="formlabel">\r\n                Email:\r\n            </th>\r\n    <td class="homeparg" style="border-style:none; padding-top:24px;">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.email))
         __M_writer(' \r\n    </td>\r\n</tr>\r\n      \r\n<tr>\r\n        <td></td>\r\n                <th style="text-align:right; padding-right: 10px;" class="formlabel">\r\n                        \r\n                    </th>\r\n            <td class="forminput" style="border-style:none"><a href="/account/index/">Change Password</a>\r\n            </td>\r\n        </tr>\r\n</table>\r\n</div>\r\n<br><br>\r\n')
         return ''
