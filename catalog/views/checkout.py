@@ -3,7 +3,6 @@ from django_mako_plus import view_function, jscontext
 from datetime import datetime
 from django.http import HttpResponseRedirect
 from catalog import models as cmod
-import stripe
 @view_function
 def process_request(request, sale:cmod.Sale):
 
@@ -34,10 +33,4 @@ class CheckoutForm(forms.Form):
     city = forms.CharField(label='Shipping City')
     state = forms.CharField(label='Shipping State')
     zipcode = forms.CharField(label='Shipping Zip Code')
-    stripeToken = forms.CharField(widget=forms.HiddenInput)
     
-    def clean(self):       
-        try:
-            self.sale.finalize(self.cleaned_data['stripeToken'])
-        except Exception as e:
-            raise forms.ValidationError('Error processing payment: {}'.format(e))
