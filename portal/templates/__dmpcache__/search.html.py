@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554842985.2584536
+_modified_time = 1554856051.05276
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/search.html'
 _template_uri = 'search.html'
@@ -30,17 +30,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        form = context.get('form', UNDEFINED)
         def left_content():
             return render_left_content(context._locals(__M_locals))
+        msg = context.get('msg', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        form2 = context.get('form2', UNDEFINED)
         request = context.get('request', UNDEFINED)
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -94,17 +96,23 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        msg = context.get('msg', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        form2 = context.get('form2', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def site_content():
             return render_site_content(context)
-        self = context.get('self', UNDEFINED)
         request = context.get('request', UNDEFINED)
-        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
-        if request.user.is_authenticated:
-            __M_writer('   <div class="content">\r\n      <p class="portaltitle">Search</p>\r\n\r\n      <form action="" method="post">\r\n            <table class="formlabel">\r\n            ')
+        if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
+            __M_writer('   <div class="content">\r\n      <p class="portaltitle">Search</p>\r\n      <p class="message">')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(msg))
+            __M_writer('</p>\r\n      <form action="" method="post">\r\n            <table >\r\n               <tr>\r\n                  <td style="width:2%"></td>\r\n                  <td style="width:50%" >\r\n                     <table class="formlabel">\r\n                           ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form ))
-            __M_writer('\r\n            </table>\r\n            <p style="margin-left:80%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>\r\n          </form>\r\n   </div>\r\n')
+            __M_writer('\r\n                     </table>\r\n                  </td>\r\n                  <td style="border-left-color:grey;border-left-style:solid;border-width:1px; width: 10px"></td>\r\n                  <td style="width:5%"></td>\r\n                  <td style="width:50%">\r\n                     <table class="formlabel"style="vertical-align:top; margin-bottom:165px;">\r\n                         ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(form2))
+            __M_writer('\r\n                     </table>\r\n                  </td>\r\n                  <td style="width:3px"></td>\r\n               </tr>\r\n            \r\n            </table>\r\n            <hr>\r\n            \r\n            <p style="margin-left:45%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Search"/></p>\r\n          </form>\r\n   </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -124,6 +132,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/search.html", "uri": "search.html", "source_encoding": "utf-8", "line_map": {"29": 0, "45": 1, "50": 3, "55": 6, "60": 21, "70": 3, "76": 3, "82": 4, "88": 4, "94": 8, "103": 8, "104": 9, "105": 10, "106": 15, "107": 15, "113": 23, "119": 23, "125": 119}}
+{"filename": "C:/Users/Isaac/intexsite/portal/templates/search.html", "uri": "search.html", "source_encoding": "utf-8", "line_map": {"29": 0, "47": 1, "52": 3, "57": 6, "62": 39, "72": 3, "78": 3, "84": 4, "90": 4, "96": 8, "107": 8, "108": 9, "109": 10, "110": 12, "111": 12, "112": 19, "113": 19, "114": 26, "115": 26, "121": 41, "127": 41, "133": 127}}
 __M_END_METADATA
 """

@@ -6,22 +6,91 @@
 </%block>
 
 <%block name="site_content">
-%if request.user.is_authenticated:
-   <div class="content">
-      <p class="portaltitle">Results</p>
-    <table>
-        
-    </table>
-%for item in providers:
-    <tr>
-        <td>
-            <p>${item.username}</p>
-        </td>        
-    </tr>
-%endfor
-%endif
-</div>
 
+<div class="content">
+    <p class="portaltitle">Results</p>
+    <hr>
+    <table style="width:100%;">
+        <tr>
+            %if hasprov:
+                <td  class="bigtab">
+                    <p class="tabhead">Providers</p>
+                    <table class="provtab">
+                    <th>
+                        <p>Name</p>
+                    </th>
+                    <th>
+                        <p>Gender</p>
+                    </th>
+                    <th>
+                        <p>Location</p>
+                    </th>
+                    <th>
+                        <p>Certifications</p>
+                    </th>
+                    <th>
+                        <p>Specialty</p>
+                    </th>
+                %for item in providers:
+                    <tr>
+                        <td>
+                            <a href="/portal/details/${item.id}" class="link2"><p>${item.first_name}  ${item.last_name}</p></a>
+                        </td>        
+                        <td>
+                            <p>M</p>
+                        </td>        
+                        <td>
+                            <p>UT</p>
+                        </td>
+                        <td>
+                            <p>DDS</p>
+                        </td> 
+                        <td>
+                            <p>Dentist</p>
+                        </td>         
+                    </tr>
+                    
+                %endfor
+                </table>
+                    %if len(providers) == 0:
+                    <p>No Results</p>
+                    %endif
+                </td>
+            %endif 
+            %if hasprov and hasdrug:
+                <td style="border-left-color:rgb(218, 218, 218);border-left-style:solid;border-width:1px; width:40px"></td>
+            %endif
+            %if hasdrug:
+                <td  class="bigtab">
+                    <p class="tabhead">Prescriptions</p>
+                    <table class="provtab">
+                    <th>
+                        <p>Name</p>
+                    </th>
+                    <th>
+                        <p>Type</p>
+                    </th>
+                %for item in prescripts:
+                    <tr>
+                        <td>
+                            <p>${item.username}</p>
+                        </td>        
+                        <td>
+                            <p>Opiod</p>
+                        </td>        
+                %endfor
+                </table>
+                    %if len(prescripts) == 0:
+                    <p>No Results</p>
+                    %endif
+            </td>        
+            %endif
+
+                
+        </tr>
+    </table>
+    <a href="/portal/search/" style="color:#273B7A; font-family: 'Century Gothic';font-weight: bold;">Back to Search</a>
+</div>
 </%block>
 
 <%block name="right_content">

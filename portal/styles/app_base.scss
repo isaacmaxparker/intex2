@@ -4,7 +4,8 @@ $hhayellow:	#EFC849;
 $providerblue:#71E3EE;
 $sidecolwidth:200px;
 $darkteal:	rgb(9, 167, 179);
-
+$headerfont:'Century Gothic', sans-serif;
+$bodyfont:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 .portaltitle{
     color:grey;
     font-family: 'Century Gothic';
@@ -12,8 +13,6 @@ $darkteal:	rgb(9, 167, 179);
     text-align: left;
     padding-left:10px;
 }
-
-
 .doccontent{
     background-color:white;
         border-color: rgba(39, 58, 122, 0.644);
@@ -23,7 +22,6 @@ $darkteal:	rgb(9, 167, 179);
         margin-right:$sidecolwidth;
         min-width: 700px;
     }
-
 .doctitle {
     color : $govblue !important;
     font-size: 40px;
@@ -47,6 +45,9 @@ $darkteal:	rgb(9, 167, 179);
 
 .offtitle {
     color : $darkteal !important;
+    font-size: 40px;
+    padding:0;
+    margin:0;
 }
 .offbod{
     background-image: url("/static/homepage/media/backgrounds/offback.png");
@@ -65,7 +66,9 @@ $darkteal:	rgb(9, 167, 179);
 
 .hhstitle {
     color : $darkteal !important;
-    
+    font-size: 40px;
+    padding:0;
+    margin:0;
 }
 .hhsbod{
     background-image: url("/static/homepage/media/backgrounds/hhaback.png");
@@ -73,4 +76,134 @@ $darkteal:	rgb(9, 167, 179);
 }
 .copy{
     color:$darkteal;
+}
+#id_gender, #id_state,#id_specialty,#id_drugtype{
+        font-weight: lighter;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        padding:5px 10px;
+        color:gray;
+        border-radius: 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: lightgrey;
+        font-size: 24px; 
+        background-color: white;
+        width:250px;
+        margin:10px 0px 0px 20px;
+    }
+.provtab{
+    width:100%;
+    font-family: $bodyfont;
+}
+.provtab th{
+    font-family: $headerfont
+}
+.tabhead{
+    font-weight: bold;
+    font-family: $headerfont;
+    color:rgb(68, 68, 68);
+    font-size:30px;
+}
+.formlabel input{
+ 
+    width:250px;
+}
+.mybtn{
+    background-color:#00000000;
+    border-color: rgba(1, 36, 90, 0.575);
+    color:$govblue;
+}
+
+.mybtn:hover{
+    background-color:rgba(1, 36, 90, 0.575);
+    color:white;
+
+}
+.message{
+    color:#FF314F;
+    font-family: $bodyfont;
+    font-size:24px;
+    padding:10px;
+    width:100%;
+    text-align: center;
+}
+.bigtab{
+    vertical-align: top;
+}
+.link2{
+    font-family: $bodyfont;
+    color:rgb(9, 112, 119);
+}
+.link2:hover{
+    color:rgb(9, 112, 119);
+}
+
+
+.tophalf{
+    margin:10px;
+    display: block;
+    border-style: solid;
+    border-color: rgb(180, 180, 180);
+    border-width: 1px;
+}
+.detstab{
+    width:100%;
+}
+.detstab img{
+    width:180px;
+    border: rgb(216, 216, 216) 10px solid;
+    margin-bottom: 20px;
+}
+.detstab td{
+   font-family: $headerfont;
+}
+.bothalf{
+    margin:10px;
+    display: block;
+    border-style: solid;
+    border-color: rgb(180, 180, 180);
+    border-width: 1px;
+}
+.sidehalf{
+    display: inline-block;
+    width: 40%;
+    margin:10px;
+    display: block;
+    border-right-style: solid;
+    border-color: rgb(180, 180, 180);
+    border-width: 1px;
+}
+.bio{
+    margin-left:60px;
+    padding-left:40px;
+}
+.info{
+    font-size: 26px;
+    line-height: 26px;
+}
+.spec{
+    font-size: 26px;
+}
+.name{
+    padding-top:10px;
+    font-weight: bold;
+    font-size: 56px;
+    color:$govblue;
+    line-height: 40px;
+}
+.red{
+    color:red;
+    font-weight: bold;
+}
+.stat{
+    color:#71E3EE;
+}
+.botinfo{
+    text-align: center;
+    vertical-align: top;
+}
+.head{
+    font-weight: bold;
+    font-size:32px;
+    color:rgb(179, 179, 179);
 }

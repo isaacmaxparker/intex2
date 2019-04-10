@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Josefin";
+  src: url("fonts/JosefinSans-Regular.ttf") format("truetype");
+  src: local("fonts/JosefinSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -52,7 +59,7 @@ header {
 
 .mynav-item a {
   color: grey;
-  font-family: "Century Gothic";
+  font-family: "Josefin";
   font-size: 20px;
   text-shadow: 1px 0px rgba(0, 0, 0, 0.062);
 }
@@ -61,7 +68,7 @@ header > .title {
   display: inline-block;
   color: #09a7b3;
   background-color: none;
-  font-family: "Century Gothic";
+  font-family: "Josefin";
   font-weight: 800;
   text-transform: uppercase;
   font-size: 100px;
@@ -82,7 +89,7 @@ header img {
   color: #09a7b3;
   font-weight: lighter;
   font-size: 28px;
-  font-family: "Century Gothic";
+  font-family: "Josefin";
 }
 
 .formlabel input {
@@ -125,7 +132,7 @@ header img {
   font-size: 25px;
   font-weight: 50;
   border-radius: 10px;
-  font-family: "Century Gothic";
+  font-family: "Josefin";
   background-color: #00000000;
   border-color: rgba(75, 147, 255, 0.575);
   color: #4B93FF;
@@ -279,7 +286,7 @@ footer a {
 
 .linkbox > p {
   display: inline-block;
-  font-family: "Century Gothic";
+  font-family: "Josefin";
   font-size: 60px;
   vertical-align: middle;
   text-align: center;
@@ -306,7 +313,7 @@ footer a {
 }
 
 .homeparg {
-  font-family: "Helvetica", "Arial", "sans-serif";
+  font-family: "Century Gothic";
   font-size: 24px;
   color: #525252;
   padding-bottom: 20px;
@@ -353,7 +360,8 @@ footer a {
 
 .offnav {
   color: #750818 !important;
-  background-color: rgba(255, 49, 80, 0.603) !important;
+  background-color: rgba(255, 49, 80, 0.403) !important;
+  border-color: rgba(255, 49, 80, 0.603) !important;
   opacity: 80%;
   border-top-left-radius: 10px !important;
   border-top-right-radius: 10px !important;

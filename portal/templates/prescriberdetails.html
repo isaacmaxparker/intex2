@@ -7,10 +7,67 @@
 </%block>
 
 <%block name="site_content">
-%if request.user.is_authenticated:
    <div class="content">
-</div>
-%endif
+      <table class="detstab">
+         <tr>
+            <td>
+                  <img src="/static/homepage/media/UserImages/${gender}.png">
+            </td>
+            <td class="bio">
+                  <p class="name">${fullname}<span class="info" style="margin-left:40px; font-weight:100;">${gender}</span></p>
+                  <p class="spec">${specialty} <span style="margin-left:40px; font-weight:100; font-weight: bold;">${state}</span></p>
+                  <p class="info"><span class="${'red' if sellsOpiod else ''}">${'Opiate Prescriber' if sellsOpiod else 'Non-Opiate Prescriber' }</span></p>
+                  
+            </td>
+            <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>
+            <td style="vertical-align:middle; padding-left:40px;">
+               <p class="stat" style="font-size:60px;line-height: 30px;">
+                  567,600
+               </p>
+               <p style="font-size:20px;">
+                  deaths in ${state}
+               </p>
+            </td>
+         </tr>
+      </table>
+      <table class="detstab" style="border-top-style:solid;border-color:rgb(189, 189, 189);border-width:1px;">
+         <tr>
+            %if sellsOpiod:
+            <td class="botinfo">
+                 <p class="head">Opiates Prescribed</p>
+                 <p>Druggedy Drug</p>
+                 <p>Druggedy Drug</p>
+                 <p>Druggedy Drug</p>
+                 <p>Druggedy Drug</p>
+                 <p>Druggedy Drug</p>
+                 <p>Druggedy Drug</p>
+            </td>
+            %else:
+            <td class="botinfo">
+                  <p class="head">Opiate-Related Rx</p>
+                  <p>Druggedy Drug</p>
+                  <p>Druggedy Drug</p>
+                  <p>Druggedy Drug</p>
+                  <p class="red" style="font-size:50px;">At Risk</p>
+             </td>
+            %endif
+            <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>
+            <td class="botinfo">
+                  <p class="head">Similar Prescribers</p>
+                  <a href="/portal/details/1/" class="link2" ><p>Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
+
+            </td>
+         </tr>
+      </table>
+            
+         
+         
+   </div>
 </%block>
 
 <%block name="right_content">

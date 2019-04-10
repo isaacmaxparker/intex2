@@ -6,15 +6,33 @@
 </%block>
 
 <%block name="site_content">
-%if request.user.is_authenticated:
+%if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
    <div class="content">
       <p class="portaltitle">Search</p>
-
+      <p class="message">${msg}</p>
       <form action="" method="post">
-            <table class="formlabel">
-            ${ form }
+            <table >
+               <tr>
+                  <td style="width:2%"></td>
+                  <td style="width:50%" >
+                     <table class="formlabel">
+                           ${ form }
+                     </table>
+                  </td>
+                  <td style="border-left-color:grey;border-left-style:solid;border-width:1px; width: 10px"></td>
+                  <td style="width:5%"></td>
+                  <td style="width:50%">
+                     <table class="formlabel"style="vertical-align:top; margin-bottom:165px;">
+                         ${form2}
+                     </table>
+                  </td>
+                  <td style="width:3px"></td>
+               </tr>
+            
             </table>
-            <p style="margin-left:80%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>
+            <hr>
+            
+            <p style="margin-left:45%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Search"/></p>
           </form>
    </div>
 %endif

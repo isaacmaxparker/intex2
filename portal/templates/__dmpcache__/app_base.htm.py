@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554837619.6535091
+_modified_time = 1554855988.5691235
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -32,19 +32,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
-        def middleclass():
-            return render_middleclass(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        def bodyclass():
-            return render_bodyclass(context._locals(__M_locals))
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        def middleclass():
+            return render_middleclass(context._locals(__M_locals))
+        def bodyclass():
+            return render_bodyclass(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n\r\n')
@@ -98,9 +98,9 @@ def render_page_title(context,**pageargs):
 def render_page_header_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        user = context.get('user', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if user.groups.filter(name='Prescribers').exists():
@@ -121,9 +121,9 @@ def render_page_header_title(context,**pageargs):
 def render_bodyclass(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        user = context.get('user', UNDEFINED)
         def bodyclass():
             return render_bodyclass(context)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if user.groups.filter(name='Prescribers').exists():
@@ -156,9 +156,9 @@ def render_left_content(context,**pageargs):
 def render_middleclass(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        user = context.get('user', UNDEFINED)
         def middleclass():
             return render_middleclass(context)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if user.groups.filter(name='Prescribers').exists():
@@ -171,7 +171,6 @@ def render_middleclass(context,**pageargs):
                     __M_writer('        <div class="hhscontent">\r\n')
                 else:
                     __M_writer('        <div class="site_middle">\r\n')
-        __M_writer('\r\n\r\n\r\n<div class="">')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -191,6 +190,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "49": 1, "50": 2, "55": 5, "60": 23, "65": 39, "70": 43, "75": 62, "80": 65, "86": 5, "92": 5, "98": 8, "105": 8, "106": 10, "107": 11, "108": 12, "109": 13, "110": 14, "111": 15, "112": 16, "113": 17, "114": 18, "115": 19, "121": 25, "128": 25, "129": 26, "130": 27, "131": 28, "132": 29, "133": 30, "134": 31, "135": 32, "136": 33, "137": 34, "138": 35, "144": 42, "150": 42, "156": 45, "163": 45, "164": 46, "165": 47, "166": 48, "167": 49, "168": 50, "169": 51, "170": 52, "171": 53, "172": 54, "173": 55, "174": 59, "180": 64, "186": 64, "192": 186}}
+{"filename": "C:/Users/Isaac/intexsite/portal/templates/app_base.htm", "uri": "app_base.htm", "source_encoding": "utf-8", "line_map": {"18": 2, "31": 0, "49": 1, "50": 2, "55": 5, "60": 23, "65": 39, "70": 43, "75": 59, "80": 62, "86": 5, "92": 5, "98": 8, "105": 8, "106": 10, "107": 11, "108": 12, "109": 13, "110": 14, "111": 15, "112": 16, "113": 17, "114": 18, "115": 19, "121": 25, "128": 25, "129": 26, "130": 27, "131": 28, "132": 29, "133": 30, "134": 31, "135": 32, "136": 33, "137": 34, "138": 35, "144": 42, "150": 42, "156": 45, "163": 45, "164": 46, "165": 47, "166": 48, "167": 49, "168": 50, "169": 51, "170": 52, "171": 53, "172": 54, "173": 55, "179": 61, "185": 61, "191": 185}}
 __M_END_METADATA
 """
