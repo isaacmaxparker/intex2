@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554860376.2252393
+_modified_time = 1554932019.7301626
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
@@ -21,28 +21,28 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def middleclass():
             return render_middleclass(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        def bodyclass():
-            return render_bodyclass(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        user = context.get('user', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
         def site_content():
             return render_site_content(context._locals(__M_locals))
+        def bodyclass():
+            return render_bodyclass(context._locals(__M_locals))
         def logo():
             return render_logo(context._locals(__M_locals))
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        STOP.GOV\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -84,19 +84,21 @@ def render_body(context,**pageargs):
             if user.groups.filter(name='Prescribers').exists():
                 __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle prestext">Prescriber Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
-                __M_writer(' presnav"  href="/portal/search/">Search</a>\r\n                                </li>    \r\n')
+                __M_writer(' presnav"  href="/portal/search/">Search</a>\r\n                                </li>   \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='analytics' else ' '))
+                __M_writer(' presnav" href="/portal/analytics/">Analytics</a>\r\n                                </li>  \r\n')
             if user.groups.filter(name='HealthOfficials').exists():
                 __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle offtext">Health Official Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
-                __M_writer(' offnav" data-toggle="tab" href="/portal/search/">Search</a>\r\n                                </li>  \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(' offnav" href="/portal/search/">Search</a>\r\n                                </li>  \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='analytics' else ' '))
-                __M_writer(' offnav" data-toggle="tab" href="/portal/analytics/">Analytics</a>\r\n                                </li> \r\n')
+                __M_writer(' offnav" href="/portal/analytics/">Analytics</a>\r\n                                </li> \r\n')
             if user.groups.filter(name='HHS').exists():
                 __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle hhatext">Data Clerk Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
-                __M_writer(' hhanav" data-toggle="tab" href="/portal/search/">Search</a>\r\n                                </li> \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(' hhanav" href="/portal/search/">Search</a>\r\n                                </li> \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
-                __M_writer(' hhanav" data-toggle="tab" href="/portal/edit/">Edit Listings</a>\r\n                                </li>   \r\n')
+                __M_writer(' hhanav" href="/portal/edit/">Edit Listings</a>\r\n                                </li>   \r\n')
         __M_writer('                           \r\n                            ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_items'):
             context['self'].navbar_items(**pageargs)
@@ -167,7 +169,7 @@ def render_body(context,**pageargs):
             context['self'].right_content(**pageargs)
         
 
-        __M_writer('\r\n</div>\r\n        </main>\r\n\r\n        <footer>\r\n            \r\n            ')
+        __M_writer('\r\n</div>\r\n        </main>\r\n\r\n        <footer>\r\n            ')
         __M_writer('\r\n\r\n           <p class="copy"> &copy; ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(datetime.now().strftime("%Y")))
         __M_writer(' Group 2-9</p>\r\n\r\n        </footer>\r\n\r\n        </body>\r\n\r\n</html>')
@@ -204,10 +206,10 @@ def render_logo(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         self = context.get('self', UNDEFINED)
-        user = context.get('user', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def logo():
             return render_logo(context)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if user.groups.filter(name='Prescribers').exists():
@@ -309,6 +311,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 185, "20": 0, "47": 2, "52": 12, "53": 17, "54": 17, "55": 17, "56": 19, "57": 19, "58": 20, "59": 20, "60": 25, "61": 25, "62": 27, "63": 28, "64": 28, "65": 29, "66": 29, "71": 34, "76": 54, "77": 59, "78": 59, "79": 62, "80": 62, "81": 65, "82": 65, "83": 67, "84": 68, "85": 69, "86": 73, "87": 73, "88": 76, "89": 77, "90": 81, "91": 81, "92": 84, "93": 84, "94": 87, "95": 88, "96": 92, "97": 92, "98": 95, "99": 95, "100": 99, "105": 102, "106": 104, "107": 105, "108": 106, "109": 107, "110": 107, "111": 107, "112": 107, "113": 109, "114": 109, "115": 116, "116": 117, "117": 118, "118": 119, "119": 119, "120": 119, "121": 119, "122": 121, "123": 121, "124": 128, "125": 129, "126": 130, "127": 131, "128": 131, "129": 131, "130": 131, "131": 133, "132": 133, "133": 140, "134": 141, "135": 142, "136": 142, "137": 142, "138": 142, "139": 144, "140": 144, "141": 154, "142": 155, "143": 155, "144": 155, "145": 157, "150": 167, "155": 171, "160": 174, "165": 175, "170": 179, "171": 185, "172": 187, "173": 187, "179": 10, "185": 10, "191": 32, "197": 32, "203": 37, "212": 37, "213": 38, "214": 39, "215": 39, "216": 39, "217": 40, "218": 41, "219": 42, "220": 42, "221": 42, "222": 43, "223": 44, "224": 45, "225": 45, "226": 45, "227": 46, "228": 47, "229": 47, "230": 47, "231": 49, "232": 52, "238": 100, "244": 100, "250": 165, "256": 165, "262": 171, "268": 171, "274": 173, "280": 173, "286": 175, "292": 175, "298": 179, "304": 179, "310": 304}}
+{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 187, "20": 0, "47": 2, "52": 12, "53": 17, "54": 17, "55": 17, "56": 19, "57": 19, "58": 20, "59": 20, "60": 25, "61": 25, "62": 27, "63": 28, "64": 28, "65": 29, "66": 29, "71": 34, "76": 54, "77": 59, "78": 59, "79": 62, "80": 62, "81": 65, "82": 65, "83": 67, "84": 68, "85": 69, "86": 73, "87": 73, "88": 76, "89": 76, "90": 79, "91": 80, "92": 84, "93": 84, "94": 87, "95": 87, "96": 90, "97": 91, "98": 95, "99": 95, "100": 98, "101": 98, "102": 102, "107": 105, "108": 107, "109": 108, "110": 109, "111": 110, "112": 110, "113": 110, "114": 110, "115": 112, "116": 112, "117": 119, "118": 120, "119": 121, "120": 122, "121": 122, "122": 122, "123": 122, "124": 124, "125": 124, "126": 131, "127": 132, "128": 133, "129": 134, "130": 134, "131": 134, "132": 134, "133": 136, "134": 136, "135": 143, "136": 144, "137": 145, "138": 145, "139": 145, "140": 145, "141": 147, "142": 147, "143": 157, "144": 158, "145": 158, "146": 158, "147": 160, "152": 170, "157": 174, "162": 177, "167": 178, "172": 182, "173": 187, "174": 189, "175": 189, "181": 10, "187": 10, "193": 32, "199": 32, "205": 37, "214": 37, "215": 38, "216": 39, "217": 39, "218": 39, "219": 40, "220": 41, "221": 42, "222": 42, "223": 42, "224": 43, "225": 44, "226": 45, "227": 45, "228": 45, "229": 46, "230": 47, "231": 47, "232": 47, "233": 49, "234": 52, "240": 103, "246": 103, "252": 168, "258": 168, "264": 174, "270": 174, "276": 176, "282": 176, "288": 178, "294": 178, "300": 182, "306": 182, "312": 306}}
 __M_END_METADATA
 """

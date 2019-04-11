@@ -1,0 +1,24 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_title">&mdash; Home</%block>
+
+<%block name="left_content">
+
+</%block>
+
+<%block name="site_content">
+%if request.user.is_authenticated:
+   <div class="content">
+      <form action="" method="POST">
+        <table class="formlabel">
+            ${form}
+        </table>
+        <p style="margin-left:45%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Search"/></p>
+      </form>
+</div>
+%endif
+</%block>
+
+<%block name="right_content">
+
+</%block>

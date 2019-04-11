@@ -11,7 +11,7 @@
       <table class="detstab">
          <tr>
             <td>
-                  <img src="/static/homepage/media/UserImages/${gender}.png">
+                  <img src="/static/homepage/media/UserImages/${'Male' if gender == 'M' else 'Female'}.png">
             </td>
             <td class="bio">
                   <p class="name">${fullname}<span class="info" style="margin-left:40px; font-weight:100;">${gender}</span></p>
@@ -30,6 +30,7 @@
             </td>
          </tr>
       </table>
+      %if request.user.has_perm('account.search'):
       <table class="detstab" style="border-top-style:solid;border-color:rgb(189, 189, 189);border-width:1px;">
          <tr>
             %if sellsOpiod:
@@ -64,7 +65,7 @@
             </td>
          </tr>
       </table>
-            
+      %endif     
          
          
    </div>

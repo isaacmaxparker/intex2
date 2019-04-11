@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554834804.1723566
+_modified_time = 1554926425.9026606
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/account/templates/login.html'
 _template_uri = 'login.html'
@@ -30,17 +30,17 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        form = context.get('form', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        type = context.get('type', UNDEFINED)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        type = context.get('type', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -77,9 +77,9 @@ def render_body(context,**pageargs):
 def render_page_header_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        type = context.get('type', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context)
+        type = context.get('type', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if type == '1':

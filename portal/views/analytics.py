@@ -4,5 +4,7 @@ from datetime import datetime, timezone
 
 @view_function
 def process_request(request):
-
-    return request.dmp.render('analytics.html')
+    if request.user.has_perm('account.analytics'):
+        return request.dmp.render('analytics.html')
+    else:
+        return request.dmp.render('error.html')

@@ -85,14 +85,14 @@ AUTH_USER_MODEL = 'account.User'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'intex2',
+        'NAME': 'intexsite',
         'USER': 'postgres',
-        'PASSWORD': 'imcd4017',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
+        'PASSWORD': 'kettles19!',
+        'HOST': '35.203.130.32',
+        'PORT': '5432',
+    },
 }
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'

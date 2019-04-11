@@ -71,17 +71,20 @@
                                 </li>
                                 <li class="nav-item mynav-item">
                                         <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} presnav"  href="/portal/search/">Search</a>
-                                </li>    
+                                </li>   
+                                <li class="nav-item mynav-item">
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='analytics' else ' '} presnav" href="/portal/analytics/">Analytics</a>
+                                </li>  
                                 %endif
                                 %if user.groups.filter(name='HealthOfficials').exists():
                                 <li class="mynav-item">
                                         <a class="navtitle offtext">Health Official Tools:</a>
                                 </li>
                                 <li class="nav-item mynav-item">
-                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} offnav" data-toggle="tab" href="/portal/search/">Search</a>
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} offnav" href="/portal/search/">Search</a>
                                 </li>  
                                 <li class="nav-item mynav-item">
-                                        <a class="nav-link ${ 'active' if request.dmp.page =='analytics' else ' '} offnav" data-toggle="tab" href="/portal/analytics/">Analytics</a>
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='analytics' else ' '} offnav" href="/portal/analytics/">Analytics</a>
                                 </li> 
                                 %endif
                                 %if user.groups.filter(name='HHS').exists():
@@ -89,10 +92,10 @@
                                         <a class="navtitle hhatext">Data Clerk Tools:</a>
                                 </li>
                                 <li class="nav-item mynav-item">
-                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} hhanav" data-toggle="tab" href="/portal/search/">Search</a>
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} hhanav" href="/portal/search/">Search</a>
                                 </li> 
                                 <li class="nav-item mynav-item">
-                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} hhanav" data-toggle="tab" href="/portal/edit/">Edit Listings</a>
+                                        <a class="nav-link ${ 'active' if request.dmp.page =='search' else ' '} hhanav" href="/portal/edit/">Edit Listings</a>
                                 </li>   
                                 %endif
                             %endif
@@ -181,7 +184,6 @@
         </main>
 
         <footer>
-            
             <%! from datetime import datetime %>
 
            <p class="copy"> &copy; ${datetime.now().strftime("%Y")} Group 2-9</p>

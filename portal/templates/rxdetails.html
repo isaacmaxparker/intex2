@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <%inherit file="app_base.htm" />
 
 <%block name="page_title">&mdash; Home</%block>
@@ -7,10 +14,80 @@
 </%block>
 
 <%block name="site_content">
-%if request.user.is_authenticated:
    <div class="content">
-</div>
-%endif
+            %if request.user.has_perm('account.search'):
+            <table class="detstab" style="width:100%;">
+                  <tr style="border-bottom-style:solid;border-color:rgb(189, 189, 189);border-width:1px;">\
+                     <td>
+                           <img src="/static/homepage/media/DrugImages/${rxImage}.png">
+                     </td>
+                     <td class="bio" style="padding-left:10px;">
+                           <p class="name" style="${'font-size:46px;' if len(rxName) >= 26 else ''}">${rxName}</p>
+                           <p class="info"><span class="${'red' if sellsOpiod else ''}">${'Opiate' if isOpiod else 'Non-Opiate' }</span></p>     
+                     </td>
+                  </tr>
+               </table>  
+            <table style="width:100%;max-width:100%;display: inline-block;">
+            <tr style="width:100%;">
+                  <td style="vertical-align:middle; text-align: center;">
+                        <p class="stat" style="font-size:90px;line-height: 90px; display: inline;">
+                                          ${rxPercent}
+                                       </p>
+                                    <p style="font-size:20px; padding-left:20px;">
+                                          of doctors overprescribe <br><em>${rxName}</em>
+                                    </p>  
+                  </td>
+                  <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>
+               %if isOpiod:
+               <td class="botinfo" style="padding-left:20px;text-align: center;">
+                  <p class="head">Top Overprescribers</p>
+                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
+                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
+               </td>
+               %else:
+               <td class="botinfo" style="padding-left:20px;text-align:left;">
+                     <p class="head">Related Prescriptions</p>
+                     <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Drug</p></a>
+                     <a href="/portal/details/1/" class="link2 red" ><p style="font-size:20px;">Opiate</p></a>
+                     <a href="/portal/details/1/" class="link2 red" ><p style="font-size:20px;">Opiod</p></a>
+                     <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Drug</p></a>
+               </td>
+               %endif
+            </tr>
+         </table>   
+            %else:
+            <div class="detstab" style="width:100%;">
+                     <div style="display:inline-block; width:100px;">
+                           <img src="/static/homepage/media/DrugImages/${rxImage}.png">
+                     </div>
+                     <div class="bio" style="display: inline-block;">
+                        %if len(rxName) <= 20:
+                        <p class="name" style="font-size:46px;">${rxName}</p>
+                        %else:
+                           %if len(rxName) <= 25:
+                           <p class="name" style="font-size:36px;">${rxName}</p>
+                           %else:
+                           <p class="name" style="font-size:26px;">${rxName}</p>
+                           %endif
+                        %endif
+                           
+                           <p class="info"><span class="${'red' if sellsOpiod else ''}">${'Opiate' if isOpiod else 'Non-Opiate' }</span></p>     
+                     </div>
+                     <div class="bio percent" style="display:inline-block">
+                           <p class="stat" style="font-size:90px;line-height: 90px;">
+                                 ${rxPercent}
+                           </p>
+                           <p style="font-size:16px;">
+                                 of doctors overprescribe <br><em>${rxName}</em>
+                           </p>  
+                     </div>
+            </div>  
+            %endif
+               
+   </div>
 </%block>
 
 <%block name="right_content">

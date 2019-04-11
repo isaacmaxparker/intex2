@@ -62,32 +62,80 @@ class="back2"
          <br><hr><br>
    </div>
 %else:
-    <div class="content">
+<div class="content">
      <p class="homeparg"><span style="font-size:40px; font-weight: bold;">Welcome to STOP.gov! </span>This online portal will help government agencies and providers work together to decrease America's opiod epidemic. Login to start today!</p>
      <br><hr><br>
-     <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>
-     <a href="/account/login/1/" class="alinkbox">
-     <div class="linkbox prov">
-        <img src="${STATIC_URL}homepage/media/avatar.png">
-        <p class="prov">Prescriber</p>
-     </div>
-    </a>
-    <a href="/account/login/2/" class="alinkbox">
-     <div class="linkbox gov">
-        <img src="${STATIC_URL}homepage/media/heart.png">
-        <p class="gov">Health Official</p>
-     </div>
-    </a>
-     <a href="/account/login/3/" class="alinkbox">
-     <div class="linkbox hha">
-        <img src="${STATIC_URL}homepage/media/HHA.png">
-        <p class="hha">HHA Clerk</p>
-     </div>
-    </a>
-   
-<br>
-<hr>
+     <input class="log-btn doc-btn" type="checkbox" id="doclogbtn" />
+     <input class="log-btn off-btn" type="checkbox" id="offlogbtn" />
+     <input class="log-btn hha-btn" type="checkbox" id="hhalogbtn" />
 
+         <div id="logoptions">
+            <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>
+               <label class="alinkbox" for="doclogbtn">
+               <div class="linkbox prov " style="margin-left:200px;">
+                  <img src="${STATIC_URL}homepage/media/avatar.png">
+                  <p class="prov">Prescriber</p>
+               </div>
+               </label>
+            <label class="alinkbox" for="offlogbtn">
+               <div class="linkbox gov" style="margin-left:200px;">
+                  <img src="${STATIC_URL}homepage/media/heart.png">
+                  <p class="gov">Health Official</p>
+               </div>
+            </label>
+            <label class="alinkbox" for="hhalogbtn">
+               <div class="linkbox hha" style="margin-left:200px;">
+                  <img src="${STATIC_URL}homepage/media/HHA.png">
+                  <p class="hha">HHA Clerk</p>
+               </div>
+            </label>
+         </div>
+         <div class="doclog"style="align-content:center;">
+               <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>
+               <div class="linkbox doc" style="padding-left: 80px;">
+                  <img src="${STATIC_URL}homepage/media/avatar.png">
+                  <p class="prov">Prescriber</p>
+                  <form action="" method="post">
+                        <table class="formlabel">
+                        ${ form }
+                        </table>
+                        <p style="margin-left:40%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>
+                  </form>
+                  <label for="doclogbtn"><p>I'm not a prescriber</p></label>
+               </div>
+         </div>
+         <div class="offlog" style="align-content:center;">
+               <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>
+               <div class="linkbox off" style="padding-left: 50px;">
+                  <img src="${STATIC_URL}homepage/media/heart.png">
+                  <p class="gov" style="font-size:52px;">Health Official</p>
+                  <br><br>
+                  <form action="" method="post">
+                        <table class="formlabel">
+                        ${ form }
+                        </table>
+                        <p style="margin-left:40%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>
+                  </form>
+                  <label for="offlogbtn"><p>I'm not a health official</p></label>
+               </div>
+         </div>
+         <div class="hhalog" style="align-content:center;">
+               <p style="text-align:center;font-family:century gothic; font-size:36px;">I am a:</p>
+               <div class="linkbox off" style="padding-left: 50px;">
+                  <img src="${STATIC_URL}homepage/media/HHA.png">
+                  <p class="hha" style="font-size:52px;">HHA Clerk</p>
+                  <br><br>
+                  <form action="" method="post">
+                        <table class="formlabel">
+                        ${ form }
+                        </table>
+                        <p style="margin-left:40%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Login"/></p>
+                  </form>
+                  <label for="hhalogbtn"><p>I'm not a HHA data clerk</p></label>
+               </div>
+         </div>
+      <br>
+      <hr>
     </div>
 %endif
 </%block>

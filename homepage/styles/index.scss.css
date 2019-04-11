@@ -2,4 +2,54 @@
   text-decoration: none;
 }
 
+.body .log-btn:checked ~ #logoptions {
+  display: none;
+  opacity: 0;
+}
+
+.body .doc-btn:checked ~ .doclog {
+  height: 600px;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.body .off-btn:checked ~ .offlog {
+  height: 600px;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.body .hha-btn:checked ~ .hhalog {
+  height: 600px;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#logoptions {
+  height: 600px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.doclog {
+  display: none;
+  height: 0px;
+  opacity: 0;
+}
+
+.offlog {
+  display: none;
+  height: 0px;
+  opacity: 0;
+}
+
+.hhalog {
+  display: none;
+  height: 0px;
+  opacity: 0;
+}
+
 /*# sourceMappingURL=index.scss.css.map */

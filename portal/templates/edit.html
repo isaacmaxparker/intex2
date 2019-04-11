@@ -9,6 +9,9 @@
 <%block name="site_content">
 %if request.user.is_authenticated:
    <div class="content">
+      <table class="formlabel">
+         ${form}
+      </table>
 </div>
 %endif
 </%block>

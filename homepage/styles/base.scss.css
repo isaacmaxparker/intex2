@@ -386,5 +386,8 @@ footer a {
     margin-right: 20%;
   }
 }
+.log-btn {
+  display: none;
+}
 
 /*# sourceMappingURL=base.scss.css.map */

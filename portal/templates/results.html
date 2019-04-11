@@ -34,7 +34,7 @@
                 %for item in providers:
                     <tr>
                         <td>
-                            <a href="/portal/details/${item.id}" class="link2"><p>${item.first_name}  ${item.last_name}</p></a>
+                            <a href="/portal/details/${item.doctorid}" class="link2"><p>${item.fname}  ${item.lname}</p></a>
                         </td>        
                         <td>
                             <p>M</p>
@@ -73,7 +73,7 @@
                 %for item in prescripts:
                     <tr>
                         <td>
-                            <p>${item.username}</p>
+                                <a href="/portal/rxdetails/${item.doctorid}" class="link2"><p>${item.username}</p></a>
                         </td>        
                         <td>
                             <p>Opiod</p>

@@ -9,11 +9,6 @@ $govred:#FF314F;
 $hhayellow:	#EFC849;
 $providerblue:#71E3EE;
 
-
-
-
-
-
 @font-face {
     font-family: 'Josefin';
     src: url('fonts/JosefinSans-Regular.ttf') format('truetype');
@@ -21,11 +16,6 @@ $providerblue:#71E3EE;
     font-weight: normal;
     font-style: normal;
 }
-
-
-
-
-
 
 html, body {
     margin: 0;
@@ -365,4 +355,9 @@ footer a {
         margin-left:20%;
         margin-right:20%;
     }
+}
+
+
+.log-btn{
+    display:none;
 }
