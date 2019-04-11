@@ -23,13 +23,13 @@
                      </td>
                      <td class="bio" style="padding-left:10px;">
                            <p class="name" style="${'font-size:46px;' if len(rxName) >= 26 else ''}">${rxName}</p>
-                           <p class="info"><span class="${'red' if sellsOpiod else ''}">${'Opiate' if isOpiod else 'Non-Opiate' }</span></p>     
+                           <p class="info"><span class="${'red' if sellsOpiod else ''}">${'Opioid' if isOpiod else 'Non-Opiate' }</span></p>     
                      </td>
                   </tr>
                </table>  
             <table style="width:100%;max-width:100%;display: inline-block;">
             <tr style="width:100%;">
-                  <td style="vertical-align:middle; text-align: center;">
+                  <td style="vertical-align:middle; text-align: center; margin-left:20px;">
                         <p class="stat" style="font-size:90px;line-height: 90px; display: inline;">
                                           ${rxPercent}
                                        </p>
@@ -41,19 +41,16 @@
                %if isOpiod:
                <td class="botinfo" style="padding-left:20px;text-align: center;">
                   <p class="head">Top Overprescribers</p>
-                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>
+                  %for guy in topguys:
+                  <a href="/portal/details/${guy.doctorid}/" class="link2" ><p style="font-size:20px;">${guy.fname} ${guy.lname}</p></a>
+                  %endfor
                </td>
-               %else:
-               <td class="botinfo" style="padding-left:20px;text-align:left;">
-                     <p class="head">Related Prescriptions</p>
-                     <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Drug</p></a>
-                     <a href="/portal/details/1/" class="link2 red" ><p style="font-size:20px;">Opiate</p></a>
-                     <a href="/portal/details/1/" class="link2 red" ><p style="font-size:20px;">Opiod</p></a>
-                     <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Drug</p></a>
+               <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>
+               <td class="botinfo" style="padding-left:20px;text-align:center;">
+                     <p class="head">Sole Prescribers</p>
+                     %for guy in onlyguys:
+                     <a href="/portal/details/${guy.doctorid}/" class="link2" ><p style="font-size:20px;">${guy.fname} ${guy.lname}</p></a>
+                     %endfor
                </td>
                %endif
             </tr>

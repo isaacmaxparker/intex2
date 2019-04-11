@@ -76,7 +76,7 @@
   color: #09a7b3;
 }
 
-#id_gender, #id_state, #id_specialty, #id_drugtype, #id_isOpiodPres {
+#id_gender, #id_state, #id_specialty, #id_drugtype, #id_isOpiodPres, #id_sellsOpiod {
   font-weight: lighter;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   padding: 5px 10px;
@@ -239,6 +239,50 @@
   border: lightgray 1px none;
   border-left-style: solid;
   text-align: left;
+}
+
+.rxOver {
+  color: Red;
+}
+
+.rxOn {
+  color: grey;
+}
+
+.rxUnder {
+  color: #00c200;
+}
+
+.greyback {
+  background-color: rgba(173, 173, 173, 0.12);
+}
+
+.darkgreyback {
+  background-color: rgba(173, 173, 173, 0.308);
+}
+
+.rxName {
+  padding: 10px;
+  margin-top: 2px;
+}
+
+.botbord {
+  margin-left: 10%;
+}
+
+.green {
+  color: green;
+  font-weight: bold;
+}
+
+.yellow {
+  color: #838302;
+  font-weight: bold;
+}
+
+.redRisk {
+  color: red;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=app_base.scss.css.map */

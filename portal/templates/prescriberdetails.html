@@ -14,18 +14,18 @@
                   <img src="/static/homepage/media/UserImages/${'Male' if gender == 'M' else 'Female'}.png">
             </td>
             <td class="bio">
-                  <p class="name">${fullname}<span class="info" style="margin-left:40px; font-weight:100;">${gender}</span></p>
-                  <p class="spec">${specialty} <span style="margin-left:40px; font-weight:100; font-weight: bold;">${state}</span></p>
+                  <p class="name">${fullname}<span class="info" style="margin-left:40px; font-weight:100;">${'Female' if gender == 'F' else 'Male'}</span></p>
+                  <p class="spec" style="font-weight: bold;">${specialty} <span style="margin-left:60px; font-weight:100; ">${statename}</span></p>
                   <p class="info"><span class="${'red' if sellsOpiod else ''}">${'Opiate Prescriber' if sellsOpiod else 'Non-Opiate Prescriber' }</span></p>
                   
             </td>
             <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>
             <td style="vertical-align:middle; padding-left:40px;">
                <p class="stat" style="font-size:60px;line-height: 30px;">
-                  567,600
+                  ${deaths}
                </p>
                <p style="font-size:20px;">
-                  deaths in ${state}
+                  opiod-related <br>deaths in <b>${state}</b>
                </p>
             </td>
          </tr>
@@ -36,32 +36,284 @@
             %if sellsOpiod:
             <td class="botinfo">
                  <p class="head">Opiates Prescribed</p>
-                 <p>Druggedy Drug</p>
-                 <p>Druggedy Drug</p>
-                 <p>Druggedy Drug</p>
-                 <p>Druggedy Drug</p>
-                 <p>Druggedy Drug</p>
-                 <p>Druggedy Drug</p>
+                 <table width="100%" style="text-align:left;line-height: 1rem;">
+                    <tr class="darkgreyback">
+                       <th class="rxName">
+                          Name
+                       </th>
+                       <th>
+                          Total Prescriptions
+                       </th>
+                       <th>
+                          Specialty Average
+                       </th>
+                    </tr>
+                    <tr class="greyback">
+                       <td class="rxName">
+                          <a href="/portal/rxdetails/" class="link2">Acetaminophen Codeine</a>
+                       </td>
+                       <td>
+                          ${opiates.acetaminophen_codeine}
+                       </td>
+                       %if opiates.dif_acetmin_p > 0: 
+                       <td class="rxOver">
+                           ${opiates.dif_acetmin_p}% &#x1f845;
+                       </td>
+                       %elif opiates.dif_acetmin_p == 0: 
+                       <td class="rxOn">
+                           &mdash;
+                       </td>
+                       %else:
+                       <td class="rxUnder">
+                           ${opiates.dif_acetmin_p}% 	 &#x1f847;
+                       </td>
+                       %endif
+                    </tr>
+                    <tr>
+                        <td class="rxName">
+                           <a href="/portal/rxdetails/" class="link2">Fentanyl</a>
+                        </td>
+                        <td>
+                           ${opiates.fentanyl}
+                        </td>
+                        %if opiates.dif_fenty_p > 0: 
+                        <td class="rxOver">
+                            ${opiates.dif_fenty_p}% &#8593;
+                        </td>
+                        %elif opiates.dif_fenty_p == 0: 
+                        <td class="rxOn">
+                            &mdash;
+                        </td>
+                        %else:
+                        <td class="rxUnder">
+                            ${opiates.dif_fenty_p}% &#x1f847;
+                        </td>
+                        %endif
+                     </tr>
+                     <tr class="greyback">
+                           <td class="rxName">
+                              <a href="/portal/rxdetails/" class="link2">Hydrocodone Acetaminophen</a>
+                           </td>
+                           <td>
+                              ${opiates.hydrocodone_acetaminophen}
+                           </td>
+                           %if opiates.dif_hydro_aceta_p > 0: 
+                           <td class="rxOver">
+                               ${opiates.dif_hydro_aceta_p}%  &#x1f845;
+                           </td>
+                           %elif opiates.dif_hydro_aceta_p == 0: 
+                           <td class="rxOn">
+                              &mdash;
+                           </td>
+                           %else:
+                           <td class="rxUnder">
+                               ${opiates.dif_hydro_aceta_p}% 	 &#x1f847;
+                           </td>
+                           %endif
+                        </tr>
+                        <tr>
+                              <td class="rxName">
+                                 <a href="/portal/rxdetails/" class="link2">Hydromorphone HCL</a>
+                              </td>
+                              <td>
+                                 ${opiates.hydromorphone_hcl}
+                              </td>
+                              %if opiates.dif_hydromorphone_p > 0: 
+                              <td class="rxOver">
+                                  ${opiates.dif_hydromorphone_p}%  &#x1f845;
+                              </td>
+                              %elif opiates.dif_hydromorphone_p == 0: 
+                              <td class="rxOn">
+                                  &mdash;
+                              </td>
+                              %else:
+                              <td class="rxUnder">
+                                  ${opiates.dif_hydromorphone_p}% &#x1f847;
+                              </td>
+                              %endif
+                           </tr>
+                           <tr class="greyback">
+                                 <td class="rxName">
+                                    <a href="/portal/rxdetails/" class="link2">Methadone HCL</a>
+                                 </td>
+                                 <td>
+                                    ${opiates.methadone_hcl}
+                                 </td>
+                                 %if opiates.dif_methadone_p > 0: 
+                                 <td class="rxOver">
+                                     ${opiates.dif_methadone_p}% &#x1f845;
+                                 </td>
+                                 %elif opiates.dif_methadone_p == 0: 
+                                 <td class="rxOn">
+                                     &mdash;
+                                 </td>
+                                 %else:
+                                 <td class="rxUnder">
+                                     ${opiates.dif_methadone_p}% &#x1f847;
+                                 </td>
+                                 %endif
+                              </tr>
+                              <tr>
+                                    <td class="rxName">
+                                       <a href="/portal/rxdetails/" class="link2">Morphine Sulfate</a>
+                                    </td>
+                                    <td>
+                                       ${opiates.morphine_sulfate}
+                                    </td>
+                                    %if opiates.dif_morphine_p > 0: 
+                                    <td class="rxOver">
+                                        ${opiates.dif_morphine_p}% &#x1f845;
+                                    </td>
+                                    %elif opiates.dif_morphine_p == 0: 
+                                    <td class="rxOn">
+                                        &mdash;
+                                    </td>
+                                    %else:
+                                    <td class="rxUnder">
+                                        ${opiates.dif_morphine_p}% &#x1f847;
+                                    </td>
+                                    %endif
+                                 </tr>
+                                 <tr class="greyback">
+                       <td class="rxName">
+                          <a href="/portal/rxdetails/" class="link2">Morphine Extended Release</a>
+                       </td>
+                       <td>
+                          ${opiates.morphine_sulfate_er}
+                       </td>
+                       %if opiates.dif_morphine_ext_p > 0: 
+                       <td class="rxOver">
+                           ${opiates.dif_morphine_ext_p}% &#x1f845;
+                       </td>
+                       %elif opiates.dif_morphine_ext_p == 0: 
+                       <td class="rxOn">
+                           &mdash;
+                       </td>
+                       %else:
+                       <td class="rxUnder">
+                           ${opiates.dif_morphine_ext_p}% &#x1f847;
+                       </td>
+                       %endif
+                    </tr>
+                    <tr>
+                       <td class="rxName">
+                          <a href="/portal/rxdetails/" class="link2">Oxycodone Acetaminophen</a>
+                       </td>
+                       <td>
+                          ${opiates.oxycodone_acetaminophen}
+                       </td>
+                       %if opiates.dif_oxy_aceta_p > 0: 
+                       <td class="rxOver">
+                           ${opiates.dif_oxy_aceta_p}% &#x1f845;
+                       </td>
+                       %elif opiates.dif_oxy_aceta_p == 0: 
+                       <td class="rxOn">
+                           &mdash;
+                       </td>
+                       %else:
+                       <td class="rxUnder">
+                           ${opiates.dif_oxy_aceta_p}% &#x1f847;
+                       </td>
+                       %endif
+                    </tr>
+                    <tr class="greyback">
+                        <td class="rxName">
+                           <a href="/portal/rxdetails/" class="link2">Oxycodone HCL</a>
+                        </td>
+                        <td>
+                           ${opiates.oxycodone_hcl}
+                        </td>
+                        %if opiates.dif_oxy_hcl_p > 0: 
+                        <td class="rxOver">
+                            ${opiates.dif_oxy_hcl_p}% &#x1f845;
+                        </td>
+                        %elif opiates.dif_oxy_hcl_p == 0: 
+                        <td class="rxOn">
+                            &mdash;
+                        </td>
+                        %else:
+                        <td class="rxUnder">
+                            ${opiates.dif_oxy_hcl_p}% &#x1f847;
+                        </td>
+                        %endif
+                     </tr>
+                     <tr>
+                           <td class="rxName">
+                              <a href="/portal/rxdetails/" class="link2">Oxycontin</a>
+                           </td>
+                           <td>
+                              ${opiates.oxycontin}
+                           </td>
+                           %if opiates.dif_oxycotin_p > 0: 
+                           <td class="rxOver">
+                               ${opiates.dif_oxycotin_p}% &#x1f845;
+                           </td>
+                           %elif opiates.dif_oxycotin_p == 0: 
+                           <td class="rxOn">
+                               &mdash;
+                           </td>
+                           %else:
+                           <td class="rxUnder">
+                               ${opiates.dif_oxycotin_p}% &#x1f847;
+                           </td>
+                           %endif
+                        </tr>
+                     <tr class="greyback">
+                           <td class="rxName">
+                              <a href="/portal/rxdetails/" class="link2">Tramadol HCL</a>
+                           </td>
+                           <td>
+                              ${opiates.tramadol_hcl}
+                           </td>
+                           %if opiates.dif_tramadol_p > 0: 
+                           <td class="rxOver">
+                               ${opiates.dif_tramadol_p}% &#x1f845;
+                           </td>
+                           %elif opiates.dif_tramadol_p == 0: 
+                           <td class="rxOn">
+                               &mdash;
+                           </td>
+                           %else:
+                           <td class="rxUnder">
+                               ${opiates.dif_tramadol_p}% &#x1f847;
+                           </td>
+                           %endif
+                        </tr>
+                 </table>
+
             </td>
             %else:
             <td class="botinfo">
-                  <p class="head">Opiate-Related Rx</p>
-                  <p>Druggedy Drug</p>
-                  <p>Druggedy Drug</p>
-                  <p>Druggedy Drug</p>
-                  <p class="red" style="font-size:50px;">At Risk</p>
+                  <p class="head">Likelihood of future<br> opiod-prescriptions</p>
+                  %if risk == 'High':
+                  <p class="redRisk" style="font-size:50px;">${risk}</p>
+                  %elif risk == 'Medium':
+                  <p class="yellow" style="font-size:50px;">${risk}</p>
+                  %elif risk == 'Low':
+                  <p class="green" style="font-size:50px;">${risk}</p>
+                  %else:
+                  <p class="" style="font-size:50px;">${risk}</p>
+                  %endif
              </td>
             %endif
             <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>
             <td class="botinfo">
                   <p class="head">Similar Prescribers</p>
-                  <a href="/portal/details/1/" class="link2" ><p>Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
-                  <a href="/portal/details/1/" class="link2" style="font-family:trebuchet MS"><p>Other Dude</p></a>
-
+                  <table width="100%" style="text-align:left;line-height: 1rem;">
+                        
+                  %for human in relatives:
+                  
+                  <tr class="botbord">
+                        <td class="rxName">
+                              <a href="/portal/details/${human.doctorid}/" class="link2" ><p style="font-size:20px;">${human.fname} ${human.lname}</p></a>
+                        </td>
+                        <td style="line-height:20px">
+                           ${human.specialty}
+                        </td>
+                     </tr>
+                  
+                  %endfor
+                     </table>
             </td>
          </tr>
       </table>

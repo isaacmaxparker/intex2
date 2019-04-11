@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555001487.0477998
+_modified_time = 1555023574.2866788
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/results.html'
 _template_uri = 'results.html'
@@ -30,20 +30,22 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        hasdrug = context.get('hasdrug', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
         providers = context.get('providers', UNDEFINED)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
         def left_content():
             return render_left_content(context._locals(__M_locals))
         prescripts = context.get('prescripts', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        hasprov = context.get('hasprov', UNDEFINED)
+        hasdrug = context.get('hasdrug', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        num = context.get('num', UNDEFINED)
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
         len = context.get('len', UNDEFINED)
-        hasprov = context.get('hasprov', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -97,26 +99,50 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
-        hasdrug = context.get('hasdrug', UNDEFINED)
         providers = context.get('providers', UNDEFINED)
+        prescripts = context.get('prescripts', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        hasprov = context.get('hasprov', UNDEFINED)
+        hasdrug = context.get('hasdrug', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        num = context.get('num', UNDEFINED)
         def site_content():
             return render_site_content(context)
-        prescripts = context.get('prescripts', UNDEFINED)
         len = context.get('len', UNDEFINED)
-        hasprov = context.get('hasprov', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="content">\r\n    <p class="portaltitle">Results</p>\r\n    <hr>\r\n    <table style="width:100%;">\r\n        <tr>\r\n')
         if hasprov:
-            __M_writer('                <td  class="bigtab">\r\n                    <p class="tabhead">Providers</p>\r\n                    <table class="provtab">\r\n                    <th>\r\n                        <p>Name</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Gender</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Location</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Certifications</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Specialty</p>\r\n                    </th>\r\n')
+            __M_writer('                <td  class="bigtab">\r\n                    <p class="tabhead">Providers</p>\r\n                    <table class="provtab">\r\n                    <th>\r\n')
+            if request.user.has_perm('account.search'):
+                __M_writer('                            <p>Name</p>\r\n')
+            elif request.user.has_perm('account.safesearch'):
+                __M_writer('                            <p>Doctor ID</p>\r\n')
+            __M_writer('                        \r\n                    </th>\r\n                    <th>\r\n                        <p>Gender</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Location</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Credentials</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Specialty</p>\r\n                    </th>\r\n')
             for item in providers:
-                __M_writer('                    <tr>\r\n                        <td>\r\n                            <a href="/portal/details/')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
-                __M_writer('" class="link2"><p>')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.fname))
-                __M_writer('  ')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.lname))
-                __M_writer('</p></a>\r\n                        </td>        \r\n                        <td>\r\n                            <p>M</p>\r\n                        </td>        \r\n                        <td>\r\n                            <p>UT</p>\r\n                        </td>\r\n                        <td>\r\n                            <p>DDS</p>\r\n                        </td> \r\n                        <td>\r\n                            <p>Dentist</p>\r\n                        </td>         \r\n                    </tr>\r\n                    \r\n')
+                __M_writer('                    <tr>\r\n                        <td>\r\n')
+                if request.user.has_perm('account.search'):
+                    __M_writer('                            <a href="/portal/details/')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
+                    __M_writer('" class="link2"><p>')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.fname))
+                    __M_writer('  ')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.lname))
+                    __M_writer('</p></a>\r\n')
+                elif request.user.has_perm('account.safesearch'):
+                    __M_writer('                            <a href="/portal/details/')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
+                    __M_writer('" class="link2"><p>')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
+                    __M_writer('</p></a>\r\n')
+                __M_writer('                        </td>        \r\n                        <td>\r\n                            <p>')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.gender))
+                __M_writer('</p>\r\n                        </td>        \r\n                        <td>\r\n                            <p>')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.state))
+                __M_writer('</p>\r\n                        </td>\r\n                        <td>\r\n                            <p>')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.credentials))
+                __M_writer('</p>\r\n                        </td> \r\n                        <td>\r\n                            <p>')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.specialty))
+                __M_writer('</p>\r\n                        </td>         \r\n                    </tr>\r\n                    \r\n')
             __M_writer('                </table>\r\n')
             if len(providers) == 0:
                 __M_writer('                    <p>No Results</p>\r\n')
@@ -127,15 +153,22 @@ def render_site_content(context,**pageargs):
             __M_writer('                <td  class="bigtab">\r\n                    <p class="tabhead">Prescriptions</p>\r\n                    <table class="provtab">\r\n                    <th>\r\n                        <p>Name</p>\r\n                    </th>\r\n                    <th>\r\n                        <p>Type</p>\r\n                    </th>\r\n')
             for item in prescripts:
                 __M_writer('                    <tr>\r\n                        <td>\r\n                                <a href="/portal/rxdetails/')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.id))
                 __M_writer('" class="link2"><p>')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.username))
-                __M_writer('</p></a>\r\n                        </td>        \r\n                        <td>\r\n                            <p>Opiod</p>\r\n                        </td>        \r\n')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.drugName))
+                __M_writer('</p></a>\r\n                        </td>        \r\n                        <td>\r\n                            <p>')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)('Opioid' if item.isOpioid else 'Non-Opioid'))
+                __M_writer('</p>\r\n                        </td>        \r\n')
             __M_writer('                </table>\r\n')
             if len(prescripts) == 0:
                 __M_writer('                    <p>No Results</p>\r\n')
             __M_writer('            </td>        \r\n')
-        __M_writer('\r\n                \r\n        </tr>\r\n    </table>\r\n    <a href="/portal/search/" style="color:#273B7A; font-family: \'Century Gothic\';font-weight: bold;">Back to Search</a>\r\n</div>\r\n')
+        __M_writer('\r\n                \r\n        </tr>\r\n    </table>\r\n    <table class="nextprev" width=100%>\r\n                <td width=50%>       \r\n')
+        if num > 20:
+            __M_writer('                    <p style="text-align:center;font-family: century gothic">Showing top 20 out of ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(num))
+            __M_writer(' results. Refine your search <a class="link2" href="/portal/search/">here.</a></p>\r\n')
+        __M_writer('                </td>\r\n            </tr>\r\n        </table>\r\n    <a href="/portal/search/" style="color:#273B7A; font-family: \'Century Gothic\';font-weight: bold;">Back to Search</a>\r\n    \r\n</div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -155,6 +188,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/results.html", "uri": "results.html", "source_encoding": "utf-8", "line_map": {"29": 0, "48": 1, "53": 3, "58": 6, "63": 94, "73": 3, "79": 3, "85": 4, "91": 4, "97": 8, "109": 8, "110": 15, "111": 16, "112": 34, "113": 35, "114": 37, "115": 37, "116": 37, "117": 37, "118": 37, "119": 37, "120": 54, "121": 55, "122": 56, "123": 58, "124": 60, "125": 61, "126": 63, "127": 64, "128": 73, "129": 74, "130": 76, "131": 76, "132": 76, "133": 76, "134": 82, "135": 83, "136": 84, "137": 86, "138": 88, "144": 96, "150": 96, "156": 150}}
+{"filename": "C:/Users/Isaac/intexsite/portal/templates/results.html", "uri": "results.html", "source_encoding": "utf-8", "line_map": {"29": 0, "50": 1, "55": 3, "60": 6, "65": 112, "75": 3, "81": 3, "87": 4, "93": 4, "99": 8, "113": 8, "114": 15, "115": 16, "116": 20, "117": 21, "118": 22, "119": 23, "120": 25, "121": 39, "122": 40, "123": 42, "124": 43, "125": 43, "126": 43, "127": 43, "128": 43, "129": 43, "130": 43, "131": 44, "132": 45, "133": 45, "134": 45, "135": 45, "136": 45, "137": 47, "138": 49, "139": 49, "140": 52, "141": 52, "142": 55, "143": 55, "144": 58, "145": 58, "146": 63, "147": 64, "148": 65, "149": 67, "150": 69, "151": 70, "152": 72, "153": 73, "154": 82, "155": 83, "156": 85, "157": 85, "158": 85, "159": 85, "160": 88, "161": 88, "162": 91, "163": 92, "164": 93, "165": 95, "166": 97, "167": 103, "168": 104, "169": 104, "170": 104, "171": 106, "177": 114, "183": 114, "189": 183}}
 __M_END_METADATA
 """

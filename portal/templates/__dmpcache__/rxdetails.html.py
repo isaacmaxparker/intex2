@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554922665.008868
+_modified_time = 1555018236.9155817
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/rxdetails.html'
 _template_uri = 'rxdetails.html'
@@ -30,22 +30,24 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
+        topguys = context.get('topguys', UNDEFINED)
         isOpiod = context.get('isOpiod', UNDEFINED)
-        rxPercent = context.get('rxPercent', UNDEFINED)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        len = context.get('len', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
         rxName = context.get('rxName', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        rxImage = context.get('rxImage', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
+        rxImage = context.get('rxImage', UNDEFINED)
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        rxPercent = context.get('rxPercent', UNDEFINED)
+        onlyguys = context.get('onlyguys', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n\r\n\r\n\r\n\r\n\r\n')
         __M_writer('\r\n\r\n')
@@ -100,16 +102,18 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
-        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
+        topguys = context.get('topguys', UNDEFINED)
         isOpiod = context.get('isOpiod', UNDEFINED)
-        rxPercent = context.get('rxPercent', UNDEFINED)
-        len = context.get('len', UNDEFINED)
         def site_content():
             return render_site_content(context)
         rxName = context.get('rxName', UNDEFINED)
-        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
         rxImage = context.get('rxImage', UNDEFINED)
+        rxPercent = context.get('rxPercent', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        onlyguys = context.get('onlyguys', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n   <div class="content">\r\n')
         if request.user.has_perm('account.search'):
@@ -123,16 +127,32 @@ def render_site_content(context,**pageargs):
             __M_writer('</p>\r\n                           <p class="info"><span class="')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)('red' if sellsOpiod else ''))
             __M_writer('">')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)('Opiate' if isOpiod else 'Non-Opiate' ))
-            __M_writer('</span></p>     \r\n                     </td>\r\n                  </tr>\r\n               </table>  \r\n            <table style="width:100%;max-width:100%;display: inline-block;">\r\n            <tr style="width:100%;">\r\n                  <td style="vertical-align:middle; text-align: center;">\r\n                        <p class="stat" style="font-size:90px;line-height: 90px; display: inline;">\r\n                                          ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)('Opioid' if isOpiod else 'Non-Opiate' ))
+            __M_writer('</span></p>     \r\n                     </td>\r\n                  </tr>\r\n               </table>  \r\n            <table style="width:100%;max-width:100%;display: inline-block;">\r\n            <tr style="width:100%;">\r\n                  <td style="vertical-align:middle; text-align: center; margin-left:20px;">\r\n                        <p class="stat" style="font-size:90px;line-height: 90px; display: inline;">\r\n                                          ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(rxPercent))
             __M_writer('\r\n                                       </p>\r\n                                    <p style="font-size:20px; padding-left:20px;">\r\n                                          of doctors overprescribe <br><em>')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(rxName))
             __M_writer('</em>\r\n                                    </p>  \r\n                  </td>\r\n                  <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>\r\n')
             if isOpiod:
-                __M_writer('               <td class="botinfo" style="padding-left:20px;text-align: center;">\r\n                  <p class="head">Top Overprescribers</p>\r\n                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>\r\n                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>\r\n                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>\r\n                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>\r\n                  <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Dude</p></a>\r\n               </td>\r\n')
-            else:
-                __M_writer('               <td class="botinfo" style="padding-left:20px;text-align:left;">\r\n                     <p class="head">Related Prescriptions</p>\r\n                     <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Drug</p></a>\r\n                     <a href="/portal/details/1/" class="link2 red" ><p style="font-size:20px;">Opiate</p></a>\r\n                     <a href="/portal/details/1/" class="link2 red" ><p style="font-size:20px;">Opiod</p></a>\r\n                     <a href="/portal/details/1/" class="link2" ><p style="font-size:20px;">Other Drug</p></a>\r\n               </td>\r\n')
+                __M_writer('               <td class="botinfo" style="padding-left:20px;text-align: center;">\r\n                  <p class="head">Top Overprescribers</p>\r\n')
+                for guy in topguys:
+                    __M_writer('                  <a href="/portal/details/')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(guy.doctorid))
+                    __M_writer('/" class="link2" ><p style="font-size:20px;">')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(guy.fname))
+                    __M_writer(' ')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(guy.lname))
+                    __M_writer('</p></a>\r\n')
+                __M_writer('               </td>\r\n               <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>\r\n               <td class="botinfo" style="padding-left:20px;text-align:center;">\r\n                     <p class="head">Sole Prescribers</p>\r\n')
+                for guy in onlyguys:
+                    __M_writer('                     <a href="/portal/details/')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(guy.doctorid))
+                    __M_writer('/" class="link2" ><p style="font-size:20px;">')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(guy.fname))
+                    __M_writer(' ')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(guy.lname))
+                    __M_writer('</p></a>\r\n')
+                __M_writer('               </td>\r\n')
             __M_writer('            </tr>\r\n         </table>   \r\n')
         else:
             __M_writer('            <div class="detstab" style="width:100%;">\r\n                     <div style="display:inline-block; width:100px;">\r\n                           <img src="/static/homepage/media/DrugImages/')
@@ -180,6 +200,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/rxdetails.html", "uri": "rxdetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "50": 1, "51": 8, "56": 10, "61": 14, "66": 91, "76": 10, "82": 10, "88": 12, "94": 12, "100": 16, "114": 16, "115": 18, "116": 19, "117": 21, "118": 22, "119": 22, "120": 25, "121": 25, "122": 25, "123": 25, "124": 26, "125": 26, "126": 26, "127": 26, "128": 34, "129": 34, "130": 37, "131": 37, "132": 41, "133": 42, "134": 50, "135": 51, "136": 59, "137": 61, "138": 62, "139": 64, "140": 64, "141": 67, "142": 68, "143": 68, "144": 68, "145": 69, "146": 70, "147": 71, "148": 71, "149": 71, "150": 72, "151": 73, "152": 73, "153": 73, "154": 76, "155": 77, "156": 77, "157": 77, "158": 77, "159": 81, "160": 81, "161": 84, "162": 84, "163": 89, "169": 93, "175": 93, "181": 175}}
+{"filename": "C:/Users/Isaac/intexsite/portal/templates/rxdetails.html", "uri": "rxdetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "52": 1, "53": 8, "58": 10, "63": 14, "68": 88, "78": 10, "84": 10, "90": 12, "96": 12, "102": 16, "118": 16, "119": 18, "120": 19, "121": 21, "122": 22, "123": 22, "124": 25, "125": 25, "126": 25, "127": 25, "128": 26, "129": 26, "130": 26, "131": 26, "132": 34, "133": 34, "134": 37, "135": 37, "136": 41, "137": 42, "138": 44, "139": 45, "140": 45, "141": 45, "142": 45, "143": 45, "144": 45, "145": 45, "146": 47, "147": 51, "148": 52, "149": 52, "150": 52, "151": 52, "152": 52, "153": 52, "154": 52, "155": 54, "156": 56, "157": 58, "158": 59, "159": 61, "160": 61, "161": 64, "162": 65, "163": 65, "164": 65, "165": 66, "166": 67, "167": 68, "168": 68, "169": 68, "170": 69, "171": 70, "172": 70, "173": 70, "174": 73, "175": 74, "176": 74, "177": 74, "178": 74, "179": 78, "180": 78, "181": 81, "182": 81, "183": 86, "189": 90, "195": 90, "201": 195}}
 __M_END_METADATA
 """

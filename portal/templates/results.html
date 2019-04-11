@@ -17,7 +17,12 @@
                     <p class="tabhead">Providers</p>
                     <table class="provtab">
                     <th>
-                        <p>Name</p>
+                            %if request.user.has_perm('account.search'):
+                            <p>Name</p>
+                            %elif request.user.has_perm('account.safesearch'):
+                            <p>Doctor ID</p>
+                            %endif
+                        
                     </th>
                     <th>
                         <p>Gender</p>
@@ -26,7 +31,7 @@
                         <p>Location</p>
                     </th>
                     <th>
-                        <p>Certifications</p>
+                        <p>Credentials</p>
                     </th>
                     <th>
                         <p>Specialty</p>
@@ -34,19 +39,23 @@
                 %for item in providers:
                     <tr>
                         <td>
+                            %if request.user.has_perm('account.search'):
                             <a href="/portal/details/${item.doctorid}" class="link2"><p>${item.fname}  ${item.lname}</p></a>
+                            %elif request.user.has_perm('account.safesearch'):
+                            <a href="/portal/details/${item.doctorid}" class="link2"><p>${item.doctorid}</p></a>
+                            %endif
                         </td>        
                         <td>
-                            <p>M</p>
+                            <p>${item.gender}</p>
                         </td>        
                         <td>
-                            <p>UT</p>
+                            <p>${item.state}</p>
                         </td>
                         <td>
-                            <p>DDS</p>
+                            <p>${item.credentials}</p>
                         </td> 
                         <td>
-                            <p>Dentist</p>
+                            <p>${item.specialty}</p>
                         </td>         
                     </tr>
                     
@@ -73,10 +82,10 @@
                 %for item in prescripts:
                     <tr>
                         <td>
-                                <a href="/portal/rxdetails/${item.doctorid}" class="link2"><p>${item.username}</p></a>
+                                <a href="/portal/rxdetails/${item.id}" class="link2"><p>${item.drugName}</p></a>
                         </td>        
                         <td>
-                            <p>Opiod</p>
+                            <p>${'Opioid' if item.isOpioid else 'Non-Opioid'}</p>
                         </td>        
                 %endfor
                 </table>
@@ -89,7 +98,16 @@
                 
         </tr>
     </table>
+    <table class="nextprev" width=100%>
+                <td width=50%>       
+                    %if num > 20:
+                    <p style="text-align:center;font-family: century gothic">Showing top 20 out of ${num} results. Refine your search <a class="link2" href="/portal/search/">here.</a></p>
+                    %endif
+                </td>
+            </tr>
+        </table>
     <a href="/portal/search/" style="color:#273B7A; font-family: 'Century Gothic';font-weight: bold;">Back to Search</a>
+    
 </div>
 </%block>
 
