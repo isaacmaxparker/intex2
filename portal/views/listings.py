@@ -7,6 +7,6 @@ from django.http import HttpResponseRedirect
 def process_request(request):
 
     if request.user.has_perm('account.CRUD') or request.user.has_perm('account.CRUD'):
-            return request.dmp.render('listing.html')
+            return request.dmp.render('listings.html')
     else:
             return request.dmp.render('error.html') 

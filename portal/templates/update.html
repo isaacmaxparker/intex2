@@ -9,13 +9,14 @@
 <%block name="site_content">
 %if request.user.is_authenticated:
    <div class="content">
-     <div style="width:60%;margin-left:28%">
+     <div style="width:100%;margin-left:18%">
       <form action="" method="POST">
-
+        <p class="name">Prescriber# ${doctorid}</p>
+        <br>
         <table class="formlabel">
             ${form}
         </table>
-        <p style="margin-left:20%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Create"/></p>
+        <p style="margin-left:20%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Update"/></p>
       </form>
     </div>
 </div>

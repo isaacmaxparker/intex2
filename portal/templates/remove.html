@@ -1,0 +1,34 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_title">&mdash; Home</%block>
+
+<%block name="left_content">
+
+</%block>
+
+<%block name="site_content">
+%if request.user.is_authenticated:
+<div class="content">
+      <div style="width:100%;margin-left:23%">
+       <form action="" method="POST">
+        <p class="homeparg">${msg}</p>
+        %if exists:
+        <p class="link2" style="margin-left:13%;font-style:italic">Type "Delete" below to confirm</p>
+        <div class="linkbox hha" style="margin-left:-150px;width:auto;max-width: 800px">
+                <img src="${STATIC_URL}homepage/media/UserImages/${gender}.png">
+                <p class="hha">${name}</p> 
+        </div>
+         <table class="formlabel" style="width:100%;margin-left:10%">
+             ${form}
+         </table>
+         <p style="margin-left:20%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Update"/></p>
+        %endif
+       </form>
+     </div>
+ </div>
+%endif
+</%block>
+
+<%block name="right_content">
+
+</%block>

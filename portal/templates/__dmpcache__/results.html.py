@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555023574.2866788
+_modified_time = 1555031226.3260462
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/results.html'
 _template_uri = 'results.html'
@@ -30,22 +30,22 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        providers = context.get('providers', UNDEFINED)
         def left_content():
             return render_left_content(context._locals(__M_locals))
-        prescripts = context.get('prescripts', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        hasprov = context.get('hasprov', UNDEFINED)
-        hasdrug = context.get('hasdrug', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         num = context.get('num', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        hasprov = context.get('hasprov', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        providers = context.get('providers', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        prescripts = context.get('prescripts', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
         len = context.get('len', UNDEFINED)
+        hasdrug = context.get('hasdrug', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -99,16 +99,16 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        num = context.get('num', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        hasprov = context.get('hasprov', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         providers = context.get('providers', UNDEFINED)
         prescripts = context.get('prescripts', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        hasprov = context.get('hasprov', UNDEFINED)
-        hasdrug = context.get('hasdrug', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        num = context.get('num', UNDEFINED)
         def site_content():
             return render_site_content(context)
         len = context.get('len', UNDEFINED)
+        hasdrug = context.get('hasdrug', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<div class="content">\r\n    <p class="portaltitle">Results</p>\r\n    <hr>\r\n    <table style="width:100%;">\r\n        <tr>\r\n')
         if hasprov:
@@ -142,7 +142,16 @@ def render_site_content(context,**pageargs):
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.credentials))
                 __M_writer('</p>\r\n                        </td> \r\n                        <td>\r\n                            <p>')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.specialty))
-                __M_writer('</p>\r\n                        </td>         \r\n                    </tr>\r\n                    \r\n')
+                __M_writer('</p>\r\n                        </td> \r\n')
+                if request.user.has_perm('account.CRUD'):
+                    __M_writer('                        <td>\r\n                                <a href="/portal/edit/')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
+                    __M_writer('">Edit</p>\r\n                        </td> \r\n                        <td>\r\n                                <a href="/portal/remove/')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
+                    __M_writer('">Remove</p>\r\n                        </td>\r\n                        <td>\r\n                                <a href="/portal/update/')
+                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item.doctorid))
+                    __M_writer('">Rx Quantity</p>\r\n                        </td>\r\n')
+                __M_writer('\r\n\r\n                    </tr>\r\n                    \r\n')
             __M_writer('                </table>\r\n')
             if len(providers) == 0:
                 __M_writer('                    <p>No Results</p>\r\n')
@@ -188,6 +197,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/results.html", "uri": "results.html", "source_encoding": "utf-8", "line_map": {"29": 0, "50": 1, "55": 3, "60": 6, "65": 112, "75": 3, "81": 3, "87": 4, "93": 4, "99": 8, "113": 8, "114": 15, "115": 16, "116": 20, "117": 21, "118": 22, "119": 23, "120": 25, "121": 39, "122": 40, "123": 42, "124": 43, "125": 43, "126": 43, "127": 43, "128": 43, "129": 43, "130": 43, "131": 44, "132": 45, "133": 45, "134": 45, "135": 45, "136": 45, "137": 47, "138": 49, "139": 49, "140": 52, "141": 52, "142": 55, "143": 55, "144": 58, "145": 58, "146": 63, "147": 64, "148": 65, "149": 67, "150": 69, "151": 70, "152": 72, "153": 73, "154": 82, "155": 83, "156": 85, "157": 85, "158": 85, "159": 85, "160": 88, "161": 88, "162": 91, "163": 92, "164": 93, "165": 95, "166": 97, "167": 103, "168": 104, "169": 104, "170": 104, "171": 106, "177": 114, "183": 114, "189": 183}}
+{"filename": "C:/Users/Isaac/intexsite/portal/templates/results.html", "uri": "results.html", "source_encoding": "utf-8", "line_map": {"29": 0, "50": 1, "55": 3, "60": 6, "65": 125, "75": 3, "81": 3, "87": 4, "93": 4, "99": 8, "113": 8, "114": 15, "115": 16, "116": 20, "117": 21, "118": 22, "119": 23, "120": 25, "121": 39, "122": 40, "123": 42, "124": 43, "125": 43, "126": 43, "127": 43, "128": 43, "129": 43, "130": 43, "131": 44, "132": 45, "133": 45, "134": 45, "135": 45, "136": 45, "137": 47, "138": 49, "139": 49, "140": 52, "141": 52, "142": 55, "143": 55, "144": 58, "145": 58, "146": 60, "147": 61, "148": 62, "149": 62, "150": 65, "151": 65, "152": 68, "153": 68, "154": 71, "155": 76, "156": 77, "157": 78, "158": 80, "159": 82, "160": 83, "161": 85, "162": 86, "163": 95, "164": 96, "165": 98, "166": 98, "167": 98, "168": 98, "169": 101, "170": 101, "171": 104, "172": 105, "173": 106, "174": 108, "175": 110, "176": 116, "177": 117, "178": 117, "179": 117, "180": 119, "186": 127, "192": 127, "198": 192}}
 __M_END_METADATA
 """

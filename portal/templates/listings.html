@@ -1,0 +1,19 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_title">&mdash; Home</%block>
+
+<%block name="site_content">
+   <div class="content">
+    <div class="homeparg" style="width:50%;margin-left:25%">
+        <span style="font-size:40px; font-weight: bold;">Hello ${request.user.first_name}! </span>
+         <br>What are you trying to do? <br>
+         <br>
+         <p><a class="link2" href="/portal/create/">Create a new prescriber</a></p>
+             <p>Edit an existing prescriber</p>
+             <p style="font-size:18px; padding-left:10%">Search for an existing prescriber <a href="/portal/search/" class="link2">here</a> first</p>
+             <p>Delete an existing prescriber</p>
+             <p style="font-size:18px; padding-left:10%">Search for an existing prescriber <a href="/portal/search/" class="link2">here</a> first</p>
+         <p><a class="link2" href="/portal/create/">Update prescription quantities</a></p>
+</div>
+</div>
+</%block>

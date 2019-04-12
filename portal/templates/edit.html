@@ -8,11 +8,17 @@
 
 <%block name="site_content">
 %if request.user.is_authenticated:
-   <div class="content">
-      <table class="formlabel">
-         ${form}
-      </table>
-</div>
+<div class="content">
+      <div style="width:60%;margin-left:28%">
+       <form action="" method="POST">
+ 
+         <table class="formlabel">
+             ${form}
+         </table>
+         <p style="margin-left:20%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Update"/></p>
+       </form>
+     </div>
+ </div>
 %endif
 </%block>
 

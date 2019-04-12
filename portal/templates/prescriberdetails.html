@@ -30,7 +30,7 @@
             </td>
          </tr>
       </table>
-      %if request.user.has_perm('account.search'):
+      %if request.user.has_perm('account.search') and risk != 'NONE':
       <table class="detstab" style="border-top-style:solid;border-color:rgb(189, 189, 189);border-width:1px;">
          <tr>
             %if sellsOpiod:

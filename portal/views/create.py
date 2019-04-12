@@ -5,44 +5,46 @@ from datetime import datetime
 from django.http import HttpResponseRedirect
 import psycopg2
 from django.core.validators import RegexValidator
-from portal import models as rmod
+from homepage import models as rmod
 from django.http import HttpResponseRedirect
 
 @view_function
 def process_request(request):
-    print('dasfasdfadfsbcngdsfxgbcnhfhgcn')
- 
-    # If this is a POST request then process the Form data
-    if request.method == 'POST':
-        form = CreateForm(request.POST)
-                  
-        # Check if the form is valid:
-        if form.is_valid():
+    if request.user.has_perm('account.CRUD'):
+        # If this is a POST request then process the Form data
+        if request.method == 'POST':
+            form = CreateForm(request.POST)
+                    
+            # Check if the form is valid:
+            if form.is_valid():
 
-            doc = rmod.Prescribers()
-            doc.id = form.cleaned_data.get('doctorid')
-            doc.fname = form.cleaned_data.get('firstname')
-            doc.lname = form.cleaned_data.get('lastname')
-            doc.gender = form.cleaned_data.get('gender')
-            doc.state = form.cleaned_data.get('state')
-            doc.credentials = form.cleaned_data.get('credentials')
-            doc.specialty = form.cleaned_data.get('specialty')
-            doc.opioid_prescriber2 = form.cleaned_data.get('isOpiodPres')
-            print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-            doc.save()
-            print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-            doco = rmod.Prescribers.objects.get(doctorid=doc.doctorid )        
-            return HttpResponseRedirect('/portal/details/' + str(doco.doctorid))
-            
-    # If this is a GET (or any other method) create the default form.
-    else:
-        form = CreateForm()
-
-        if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
-            return request.dmp.render('create.html', {'form': form})
+                doc = rmod.Prescribers()
+                doc.doctorid = form.cleaned_data.get('doctorid')
+                doc.fname = form.cleaned_data.get('firstname')
+                doc.lname = form.cleaned_data.get('lastname')
+                doc.gender = form.cleaned_data.get('gender')
+                doc.state = form.cleaned_data.get('state')
+                doc.credentials = form.cleaned_data.get('credentials')
+                doc.specialty = form.cleaned_data.get('specialty')
+                doc.opioid_prescriber2 = form.cleaned_data.get('isOpiodPres')
+                print('---------------------- ABOUT TO SAVE ----------------')
+                doc.save()
+                print('---------------------- SAVED ----------------')
+                doco = rmod.Prescribers.objects.get(doctorid=doc.doctorid )  
+                print(doco.doctorid)
+                
+                return HttpResponseRedirect('/portal/details/' + str(doc.doctorid)+ '/')
+                
+        # If this is a GET (or any other method) create the default form.
         else:
-            return request.dmp.render('error.html') 
+            form = CreateForm()
 
+            if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
+                return request.dmp.render('create.html', {'form': form})
+            else:
+                return request.dmp.render('error.html') 
+    else:
+        return request.dmp.render('error.html')
  
 class CreateForm (forms.Form):
     GENDERS = (('M', 'Male',), ('F', 'Female',))

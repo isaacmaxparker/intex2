@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555023076.2452633
+_modified_time = 1555026102.1763387
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/prescriberdetails.html'
 _template_uri = 'prescriberdetails.html'
@@ -30,26 +30,26 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        opiates = context.get('opiates', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        risk = context.get('risk', UNDEFINED)
-        relatives = context.get('relatives', UNDEFINED)
-        specialty = context.get('specialty', UNDEFINED)
+        fullname = context.get('fullname', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
+        relatives = context.get('relatives', UNDEFINED)
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        specialty = context.get('specialty', UNDEFINED)
+        gender = context.get('gender', UNDEFINED)
+        opiates = context.get('opiates', UNDEFINED)
         state = context.get('state', UNDEFINED)
-        deaths = context.get('deaths', UNDEFINED)
         def site_content():
             return render_site_content(context._locals(__M_locals))
         statename = context.get('statename', UNDEFINED)
+        deaths = context.get('deaths', UNDEFINED)
+        risk = context.get('risk', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
         def page_title():
             return render_page_title(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
-        gender = context.get('gender', UNDEFINED)
-        fullname = context.get('fullname', UNDEFINED)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -103,20 +103,20 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        opiates = context.get('opiates', UNDEFINED)
-        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
-        state = context.get('state', UNDEFINED)
-        deaths = context.get('deaths', UNDEFINED)
         def site_content():
             return render_site_content(context)
+        fullname = context.get('fullname', UNDEFINED)
         statename = context.get('statename', UNDEFINED)
-        request = context.get('request', UNDEFINED)
+        deaths = context.get('deaths', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        relatives = context.get('relatives', UNDEFINED)
+        state = context.get('state', UNDEFINED)
+        specialty = context.get('specialty', UNDEFINED)
         risk = context.get('risk', UNDEFINED)
         gender = context.get('gender', UNDEFINED)
-        fullname = context.get('fullname', UNDEFINED)
-        relatives = context.get('relatives', UNDEFINED)
-        specialty = context.get('specialty', UNDEFINED)
-        self = context.get('self', UNDEFINED)
+        opiates = context.get('opiates', UNDEFINED)
+        sellsOpiod = context.get('sellsOpiod', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n   <div class="content">\r\n      <table class="detstab">\r\n         <tr>\r\n            <td>\r\n                  <img src="/static/homepage/media/UserImages/')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('Male' if gender == 'M' else 'Female'))
@@ -137,7 +137,7 @@ def render_site_content(context,**pageargs):
         __M_writer('\r\n               </p>\r\n               <p style="font-size:20px;">\r\n                  opiod-related <br>deaths in <b>')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(state))
         __M_writer('</b>\r\n               </p>\r\n            </td>\r\n         </tr>\r\n      </table>\r\n')
-        if request.user.has_perm('account.search'):
+        if request.user.has_perm('account.search') and risk != 'NONE':
             __M_writer('      <table class="detstab" style="border-top-style:solid;border-color:rgb(189, 189, 189);border-width:1px;">\r\n         <tr>\r\n')
             if sellsOpiod:
                 __M_writer('            <td class="botinfo">\r\n                 <p class="head">Opiates Prescribed</p>\r\n                 <table width="100%" style="text-align:left;line-height: 1rem;">\r\n                    <tr class="darkgreyback">\r\n                       <th class="rxName">\r\n                          Name\r\n                       </th>\r\n                       <th>\r\n                          Total Prescriptions\r\n                       </th>\r\n                       <th>\r\n                          Specialty Average\r\n                       </th>\r\n                    </tr>\r\n                    <tr class="greyback">\r\n                       <td class="rxName">\r\n                          <a href="/portal/rxdetails/" class="link2">Acetaminophen Codeine</a>\r\n                       </td>\r\n                       <td>\r\n                          ')

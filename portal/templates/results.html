@@ -56,7 +56,20 @@
                         </td> 
                         <td>
                             <p>${item.specialty}</p>
-                        </td>         
+                        </td> 
+                        %if request.user.has_perm('account.CRUD'):
+                        <td>
+                                <a href="/portal/edit/${item.doctorid}">Edit</p>
+                        </td> 
+                        <td>
+                                <a href="/portal/remove/${item.doctorid}">Remove</p>
+                        </td>
+                        <td>
+                                <a href="/portal/update/${item.doctorid}">Rx Quantity</p>
+                        </td>
+                        %endif
+
+
                     </tr>
                     
                 %endfor

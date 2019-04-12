@@ -16,6 +16,29 @@ $providerblue:#71E3EE;
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('fonts/CenuryGothic.ttf') format('truetype');
+    src: local('fonts/CenturyGothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('fonts/GOTHICB0.ttf') format('truetype');
+    src: local('fonts/GOTHICB0.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('fonts/GOTHICB0.ttf') format('truetype');
+    src: local('fonts/GOTHICB0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
 
 html, body {
     margin: 0;

@@ -8,11 +8,18 @@ import json
 @view_function
 def process_request(request, docid ):
     if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
-        #state=rmod.Overdoses.objects.get(abbrev=doc.state)
+        
         doc = rmod.Prescribers.objects.get(doctorid = docid)
         state = rmod.Overdoses.objects.get(abbrev = doc.state)
-        opiates = rmod.Prescriptions.objects.get(doctorid = docid)
-        risk = rmod.Prescription_Risk.objects.get(doctorid = docid)
+        print('-------------------------------')
+        try:
+            opiates = rmod.Prescriptions.objects.get(doctorid = docid)
+        except:
+            opiates = 'NONE'
+        try:
+            risk = rmod.Prescription_Risk.objects.get(doctorid = docid)
+        except:
+            risk= 'NONE'
 
         if request.user.has_perm('account.search'):
             fullname = doc.fname + ' ' +  doc.lname
@@ -45,10 +52,13 @@ def process_request(request, docid ):
         while len(prediction) > 0:
             docid = prediction[:10]
             prediction = prediction[10:]
-            doc = rmod.Prescribers.objects.get(doctorid=docid)
-            relatives.append(doc)
+            try:
+                doco = rmod.Prescribers.objects.get(doctorid=docid)
+            except:
+                doco = 'NONE'
+            relatives.append(doco)
         
-    
+        relatives=relatives[:5]
         statename = rmod.Overdoses.objects.get(abbrev=doc.state)
 
         context={
@@ -62,7 +72,7 @@ def process_request(request, docid ):
             'deaths':state.deaths,
             'opiates':opiates,
             'relatives':relatives, 
-            'risk': risk.rating 
+            'risk': risk.rating if risk != 'NONE' else 'NONE'
         }
         return request.dmp.render('prescriberdetails.html',context)
     else:
