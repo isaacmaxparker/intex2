@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555046161.2367814
+_modified_time = 1555053520.9415965
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/app_base.htm'
 _template_uri = 'app_base.htm'
@@ -32,19 +32,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        user = context.get('user', UNDEFINED)
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
         def bodyclass():
             return render_bodyclass(context._locals(__M_locals))
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
         def page_title():
             return render_page_title(context._locals(__M_locals))
         def middleclass():
             return render_middleclass(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n\r\n\r\n')
@@ -98,9 +98,9 @@ def render_page_title(context,**pageargs):
 def render_page_header_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        user = context.get('user', UNDEFINED)
         def page_header_title():
             return render_page_header_title(context)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if user.groups.filter(name='Prescribers').exists():
@@ -129,11 +129,11 @@ def render_bodyclass(context,**pageargs):
         if user.groups.filter(name='Prescribers').exists():
             __M_writer('<body class="docbod">\r\n')
         else:
-            if user.groups.filter(name='HealthOfficials').exists() or user.groups.filter(name='Officials').exists:
-                __M_writer('    <body class="offbod">\r\n')
+            if user.groups.filter(name='HHS').exists():
+                __M_writer('        <body class="hhsbod">\r\n')
             else:
-                if user.groups.filter(name='HHS').exists():
-                    __M_writer('        <body class="hhsbod">\r\n')
+                if user.groups.filter(name='HealthOfficials').exists() or user.groups.filter(name='Officials').exists:
+                    __M_writer('        <body class="offbod">\r\n')
                 else:
                     __M_writer('        <body class="site_middle">\r\n')
         return ''
@@ -156,9 +156,9 @@ def render_left_content(context,**pageargs):
 def render_middleclass(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        user = context.get('user', UNDEFINED)
         def middleclass():
             return render_middleclass(context)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if user.groups.filter(name='Prescribers').exists():

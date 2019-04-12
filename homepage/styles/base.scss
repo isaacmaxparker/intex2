@@ -1,6 +1,6 @@
 $bodyfont: 'Trebuchet MS';
 $headerfont:'Josefin';
-$bodyfont2:'Century Gothic';
+$bodyfont2:'Century Gothic','Josefin','Sans-Serif';
 $lightblue: #4B93FF;
 $darkteal:	rgb(9, 167, 179);
 $greenteal:#38E1D0;
@@ -148,7 +148,7 @@ header img {
     color:red;
     list-style: none;
     font-style: italic;
-    font-family: 'Century Gothic';
+    font-family: 'Century Gothic','Josefin','Sans-Serif';
 }
 .mybtn{
     font-size: 25px;
