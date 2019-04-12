@@ -5,7 +5,7 @@ from datetime import datetime
 from django.http import HttpResponseRedirect
 from django.core.validators import RegexValidator
 from homepage import models as rmod
-
+from decimal import Decimal
 @view_function
 def process_request(request, docid):
     if request.user.has_perm('account.CRUD'):
@@ -18,8 +18,10 @@ def process_request(request, docid):
             # Check if the form is valid:
             if form.is_valid():
                 print('--------------------- ONE')
+
+                
                 prescription = rmod.Prescriptions.objects.get(doctorid=docid)
-                prescription.acetaminophen_codeine=form.cleaned_data.get('acetaminophen_codeine')
+                prescription.acetaminophen_codeine=Decimal(form.cleaned_data.get('acetaminophen_codeine'))
                 prescription.fentanyl=form.cleaned_data.get('fentanyl')
                 prescription.hydrocodone_acetaminophen=form.cleaned_data.get('hydrocodone_acetaminophen')
                 prescription.hydromorphone_hcl=form.cleaned_data.get('hydromorphone_hcl')
@@ -30,10 +32,7 @@ def process_request(request, docid):
                 prescription.fentanyl=form.cleaned_data.get('fentanyl')
                 prescription.fentanyl=form.cleaned_data.get('fentanyl')
                 prescription.fentanyl=form.cleaned_data.get('fentanyl')
-                print('--------------------- ONE')
-                print(prescription2.acetaminophen_codeiene)
-                print('--------------------- TWO')
-                print(form.cleaned_data.get('acetaminophen_codeine'))
+
 
                 prescription.save()
 
@@ -47,6 +46,8 @@ def process_request(request, docid):
                     ,'doctorid':prescription.doctorid
                 }
                 return request.dmp.render('update.html', context)
+
+            return HttpResponseRedirect("/portal/details/" +docid)
 
         form = UpdateForm(initial={'acetaminophen_codeine': prescription.acetaminophen_codeine,'fentanyl':prescription.fentanyl,'hydrocodone_acetaminophen':prescription.hydrocodone_acetaminophen,'hydromorphone_hcl':prescription.hydromorphone_hcl,'methadone_hcl':prescription.methadone_hcl,'morphine_sulfate':prescription.morphine_sulfate, 'morphine_sulfate_er':prescription.morphine_sulfate_er, 'oxycodone_acetaminophen':prescription.oxycodone_acetaminophen,'oxycodone_hcl':prescription.oxycodone_hcl, 'oxycontin':prescription.oxycontin,'tramadol_hcl':prescription.tramadol_hcl})
 
