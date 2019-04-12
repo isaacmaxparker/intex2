@@ -53,9 +53,6 @@ def process_request(request, page=1):
                 drugs = drugs.filter(isOpioid=form2.cleaned_data.get('drugtype'))
             
             pgproviders= providers[(page - 1) * ITEMS_PAGE_PAGE: page * ITEMS_PAGE_PAGE]
-            print('-------------')
-            print(len(providers))
-
             context = {
                 'providers':pgproviders,
                 'prescripts':drugs,
@@ -91,8 +88,10 @@ class SearchForm(forms.Form):
     sellsOpiod = forms.ChoiceField(choices=OPTIONS, required=False,label='Opiod Prescriber')
     hasprov = forms.HiddenInput()
     def clean(self):
-        if self.cleaned_data.get('firstname') != '' or self.cleaned_data.get('lastname') != '' or self.cleaned_data.get('gender') != '' or self.cleaned_data.get('state') != '' or self.cleaned_data.get('specialty') != '' or self.cleaned_data.get('isOpioid') != '':
+        if self.cleaned_data.get('firstname') != '' or self.cleaned_data.get('lastname') != '' or self.cleaned_data.get('gender') != '' or self.cleaned_data.get('state') != '' or self.cleaned_data.get('specialty') != '' or self.cleaned_data.get('sellsOpiod') != '':
             self.cleaned_data.__setitem__('hasprov',True)
+        else:
+            self.cleaned_data.__setitem__('hasprov',False)
         return self.cleaned_data
 
 class DrugForm (forms.Form):

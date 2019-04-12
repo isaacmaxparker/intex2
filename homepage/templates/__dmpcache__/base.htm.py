@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555029859.326096
+_modified_time = 1555049567.0716093
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -22,27 +22,27 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         user = context.get('user', UNDEFINED)
-        def navbar_items():
-            return render_navbar_items(context._locals(__M_locals))
-        def page_title():
-            return render_page_title(context._locals(__M_locals))
-        def page_header_title():
-            return render_page_header_title(context._locals(__M_locals))
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def logo():
-            return render_logo(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def bodyclass():
-            return render_bodyclass(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         def right_content():
             return render_right_content(context._locals(__M_locals))
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
         def middleclass():
             return render_middleclass(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        def navbar_items():
+            return render_navbar_items(context._locals(__M_locals))
+        def logo():
+            return render_logo(context._locals(__M_locals))
+        def page_header_title():
+            return render_page_header_title(context._locals(__M_locals))
+        def bodyclass():
+            return render_bodyclass(context._locals(__M_locals))
+        def page_title():
+            return render_page_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('<!DOCTYPE html>\r\n<html>\r\n<meta charset="UTF-8">\r\n\r\n<head>\r\n\r\n    <title>\r\n        STOP.GOV\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
@@ -86,65 +86,47 @@ def render_body(context,**pageargs):
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
                 __M_writer(' presnav"  href="/portal/search/">Search</a>\r\n                                </li>   \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='analytics' else ' '))
-                __M_writer(' presnav" href="/portal/analytics/">Analytics</a>\r\n                                </li>  \r\n')
-            if user.groups.filter(name='HealthOfficials').exists():
+                __M_writer(' presnav" href="/portal/analytics/">Analytics</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='account' else ' '))
+                __M_writer(' presnav" href="/account//">My Account</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                    <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='logout' else ' '))
+                __M_writer(' presnav" href="/account/logout/">Log Out</a>  \r\n')
+            if user.groups.filter(name='HealthOfficials').exists() or user.groups.filter(name='Officials').exists():
                 __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle offtext">Health Official Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
                 __M_writer(' offnav" href="/portal/search/">Search</a>\r\n                                </li>  \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='analytics' else ' '))
-                __M_writer(' offnav" href="/portal/analytics/">Analytics</a>\r\n                                </li> \r\n')
+                __M_writer(' offnav" href="/portal/analytics/">Analytics</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='account' else ' '))
+                __M_writer(' offnav" href="/account/index/">My Account</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                    <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='logout' else ' '))
+                __M_writer(' offnav" href="/account/logout/">Log Out</a>\r\n                                </li>\r\n')
             if user.groups.filter(name='HHS').exists():
                 __M_writer('                                <li class="mynav-item">\r\n                                        <a class="navtitle hhatext">Data Clerk Tools:</a>\r\n                                </li>\r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='search' else ' '))
                 __M_writer(' hhanav" href="/portal/search/">Search</a>\r\n                                </li> \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='listings' else ' '))
-                __M_writer(' hhanav" href="/portal/listings/">Edit Listings</a>\r\n                                </li>   \r\n')
-        __M_writer('                           \r\n                            ')
+                __M_writer(' hhanav" href="/portal/listings/">Edit Listings</a>\r\n                                </li> \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='account' else ' '))
+                __M_writer(' hhanav" href="/account/index/">My Account</a>\r\n                                </li>  \r\n                                <li class="nav-item mynav-item">\r\n                                        <a class="nav-link ')
+                __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='logout' else ' '))
+                __M_writer(' hhanav" href="/account/logout/">Logout</a>\r\n                                </li>    \r\n')
+        if request.user.is_authenticated:
+            __M_writer('                           \r\n                           <p style="position:absolute;right:0;top:40;font-family: \'Trebuchet MS\';font-size: 20px;padding: 10px;color:rgba(128, 128, 128, 0.486);"><img src="/static/homepage/media/UserImages/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
+            __M_writer('.png" style="width:30px;height: 30px; margin-right:200px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
+            __M_writer('!</p>\r\n                           \r\n')
+        else:
+            __M_writer('                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='login' else ' '))
+            __M_writer('"" href="/account/login/4/" style="color:#085c49">Log In</a></li>\r\n                           \r\n')
+        __M_writer('                            ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'navbar_items'):
             context['self'].navbar_items(**pageargs)
         
 
-        __M_writer('\r\n                            \r\n')
-        if request.user.is_authenticated:
-            if user.groups.filter(name='Prescribers').exists():
-                __M_writer('                                <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">\r\n                                    <img src="')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-                __M_writer('homepage/media/UserImages/')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                __M_writer('.png" class="loginimg">\r\n                                    <a class="nav-link dropdown-toggle" style="color:rgb(3, 137, 150);" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello, ')
-                __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                __M_writer(' \r\n                                    </a> \r\n                                    <div class="dropdown-menu docdropdown " aria-labelledby="navbarDropdown">\r\n                                        <a class="dropdown-item" style="color:black;" href="/account/index">Account</a>\r\n                                        <a class="dropdown-item" style="color:black;" href="/account/logout">Logout</a>\r\n                                    </div>\r\n                                </li>\r\n')
-            else:
-                if user.groups.filter(name='HealthOfficials').exists():  
-                    __M_writer('                                        <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">\r\n                                            <img src="')
-                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-                    __M_writer('homepage/media/UserImages/')
-                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                    __M_writer('.png" class="loginimg">\r\n                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello, ')
-                    __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                    __M_writer(' \r\n                                            </a> \r\n                                            <div class="dropdown-menu offdropdown" aria-labelledby="navbarDropdown">\r\n                                                <a class="dropdown-item " style="color:black;"  href="/account/index">Account</a>\r\n                                                <a class="dropdown-item" style="color:black;" href="/account/logout">Logout</a>\r\n                                            </div>\r\n                                        </li>\r\n')
-                else:
-                    if user.groups.filter(name='HHS').exists():
-                        __M_writer('                                            <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10; border-color:#EFC849!important;">\r\n                                                <img src="')
-                        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-                        __M_writer('homepage/media/UserImages/')
-                        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                        __M_writer('.png" class="loginimg">\r\n                                                <a class="nav-link dropdown-toggle" style="color:rgb(145, 112, 5); padding-top:10px;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello, ')
-                        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                        __M_writer(' \r\n                                                </a> \r\n                                                <div class="dropdown-menu hhadropdown " aria-labelledby="navbarDropdown">\r\n                                                    <a class="dropdown-item" style="color:black;" href="/account/index">Account</a>\r\n                                                    <a class="dropdown-item" style="color:black;" href="/account/logout">Logout</a>\r\n                                                </div>\r\n                                            </li>\r\n')
-                    else:
-                        __M_writer('                                            <li class="nav-item dropdown mynav-item" style="float:right; position: absolute; right: 0; margin-right:10;">\r\n                                                <img src="')
-                        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-                        __M_writer('homepage/media/UserImages/')
-                        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                        __M_writer('.png" class="loginimg">\r\n                                                <a class="nav-link dropdown-toggle" style="color:#4B93FF;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello, ')
-                        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
-                        __M_writer(' \r\n                                                </a> \r\n                                                <div class="dropdown-menu mydropdown " aria-labelledby="navbarDropdown">\r\n                                                    <a class="dropdown-item" style="color:black;" href="/account/index">Account</a>\r\n                                                    <a class="dropdown-item" style="color:black;" href="/account/logout">Logout</a>\r\n                                                </div>\r\n                                            </li>\r\n')
-        else:
-            __M_writer('                                <li class="nav-item mynav-item" style="float:right; position: absolute; right: 0;"><a class="nav-link ')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( 'active' if request.dmp.page =='login' else ' '))
-            __M_writer('"" href="/account/login/4/" style="color:#085c49">Log In</a></li>\r\n')
-        __M_writer('\r\n                           \r\n                                \r\n\r\n\r\n                 </ul>\r\n        \r\n            </nav>\r\n            <div class="title">')
+        __M_writer('\r\n                            \r\n                            \r\n\r\n                           \r\n                                \r\n\r\n\r\n                 </ul>\r\n        \r\n            </nav>\r\n            <div class="title">')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_header_title'):
             context['self'].page_header_title(**pageargs)
         
@@ -170,7 +152,7 @@ def render_body(context,**pageargs):
         
 
         __M_writer('\r\n</div>\r\n        </main>\r\n\r\n        <footer>\r\n            ')
-        __M_writer('\r\n\r\n           <p class="copy"> &copy; ')
+        __M_writer('\r\n            \r\n           <p class="copy"> &copy; ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(datetime.now().strftime("%Y")))
         __M_writer(' Group 2-9</p>\r\n\r\n        </footer>\r\n\r\n        </body>\r\n\r\n</html>')
         return ''
@@ -217,10 +199,10 @@ def render_logo(context,**pageargs):
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
             __M_writer('homepage/media/avatar.png" alt="python"  class="logo2"/>\r\n')
         else:
-            if user.groups.filter(name='HealthOfficials').exists():
+            if user.groups.filter(name='HealthOfficials').exists() or user.groups.filter(name='Officials').exists():
                 __M_writer('                    <img src="')
                 __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
-                __M_writer('homepage/media/heart.png" alt="python" class="logo2" />\r\n')
+                __M_writer('homepage/media/heart.png" alt="python" class="logo2" />\r\n                    \r\n')
             else:
                 if user.groups.filter(name='HHS').exists():
                     __M_writer('                        <img src="')
@@ -311,6 +293,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 187, "20": 0, "47": 2, "52": 12, "53": 17, "54": 17, "55": 17, "56": 19, "57": 19, "58": 20, "59": 20, "60": 25, "61": 25, "62": 27, "63": 28, "64": 28, "65": 29, "66": 29, "71": 34, "76": 54, "77": 59, "78": 59, "79": 62, "80": 62, "81": 65, "82": 65, "83": 67, "84": 68, "85": 69, "86": 73, "87": 73, "88": 76, "89": 76, "90": 79, "91": 80, "92": 84, "93": 84, "94": 87, "95": 87, "96": 90, "97": 91, "98": 95, "99": 95, "100": 98, "101": 98, "102": 102, "107": 105, "108": 107, "109": 108, "110": 109, "111": 110, "112": 110, "113": 110, "114": 110, "115": 112, "116": 112, "117": 119, "118": 120, "119": 121, "120": 122, "121": 122, "122": 122, "123": 122, "124": 124, "125": 124, "126": 131, "127": 132, "128": 133, "129": 134, "130": 134, "131": 134, "132": 134, "133": 136, "134": 136, "135": 143, "136": 144, "137": 145, "138": 145, "139": 145, "140": 145, "141": 147, "142": 147, "143": 157, "144": 158, "145": 158, "146": 158, "147": 160, "152": 170, "157": 174, "162": 177, "167": 178, "172": 182, "173": 187, "174": 189, "175": 189, "181": 10, "187": 10, "193": 32, "199": 32, "205": 37, "214": 37, "215": 38, "216": 39, "217": 39, "218": 39, "219": 40, "220": 41, "221": 42, "222": 42, "223": 42, "224": 43, "225": 44, "226": 45, "227": 45, "228": 45, "229": 46, "230": 47, "231": 47, "232": 47, "233": 49, "234": 52, "240": 103, "246": 103, "252": 168, "258": 168, "264": 174, "270": 174, "276": 176, "282": 176, "288": 178, "294": 178, "300": 182, "306": 182, "312": 306}}
+{"filename": "C:/Users/Isaac/intexsite/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 160, "20": 0, "47": 2, "52": 12, "53": 17, "54": 17, "55": 17, "56": 19, "57": 19, "58": 20, "59": 20, "60": 25, "61": 25, "62": 27, "63": 28, "64": 28, "65": 29, "66": 29, "71": 34, "76": 55, "77": 60, "78": 60, "79": 63, "80": 63, "81": 66, "82": 66, "83": 68, "84": 69, "85": 70, "86": 74, "87": 74, "88": 77, "89": 77, "90": 80, "91": 80, "92": 83, "93": 83, "94": 85, "95": 86, "96": 90, "97": 90, "98": 93, "99": 93, "100": 96, "101": 96, "102": 99, "103": 99, "104": 102, "105": 103, "106": 107, "107": 107, "108": 110, "109": 110, "110": 113, "111": 113, "112": 116, "113": 116, "114": 120, "115": 121, "116": 122, "117": 122, "118": 122, "119": 122, "120": 124, "121": 125, "122": 125, "123": 125, "124": 128, "129": 130, "134": 143, "139": 147, "144": 150, "149": 151, "154": 155, "155": 160, "156": 162, "157": 162, "163": 10, "169": 10, "175": 32, "181": 32, "187": 37, "196": 37, "197": 38, "198": 39, "199": 39, "200": 39, "201": 40, "202": 41, "203": 42, "204": 42, "205": 42, "206": 44, "207": 45, "208": 46, "209": 46, "210": 46, "211": 47, "212": 48, "213": 48, "214": 48, "215": 50, "216": 53, "222": 128, "228": 128, "234": 141, "240": 141, "246": 147, "252": 147, "258": 149, "264": 149, "270": 151, "276": 151, "282": 155, "288": 155, "294": 288}}
 __M_END_METADATA
 """

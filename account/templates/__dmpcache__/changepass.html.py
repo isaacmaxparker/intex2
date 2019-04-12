@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555046240.9486177
+_modified_time = 1555045661.358058
 _enable_loop = True
-_template_filename = 'C:/Users/Isaac/intexsite/portal/templates/search.html'
-_template_uri = 'search.html'
+_template_filename = 'C:/Users/Isaac/intexsite/account/templates/changepass.html'
+_template_uri = 'changepass.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
@@ -30,26 +30,25 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        form2 = context.get('form2', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def right_content():
-            return render_right_content(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
-        msg = context.get('msg', UNDEFINED)
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        def right_content():
+            return render_right_content(context._locals(__M_locals))
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
+        msg = context.get('msg', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_title'):
             context['self'].page_title(**pageargs)
         
 
-        __M_writer('\r\n')
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'left_content'):
             context['self'].left_content(**pageargs)
         
@@ -75,7 +74,7 @@ def render_page_title(context,**pageargs):
         def page_title():
             return render_page_title(context)
         __M_writer = context.writer()
-        __M_writer('&mdash; Search')
+        __M_writer('&mdash; Home')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -96,23 +95,22 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        form = context.get('form', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def site_content():
             return render_site_content(context)
-        self = context.get('self', UNDEFINED)
-        form2 = context.get('form2', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        form = context.get('form', UNDEFINED)
         msg = context.get('msg', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
-        if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
-            __M_writer('   <div class="content">\r\n      <p class="portaltitle">Search</p>\r\n      <p class="message">')
+        if request.user.is_authenticated:
+            __M_writer('   <div class="content">\r\n     <div style="width:100%;margin-left:18%">\r\n      <form action="" method="POST">\r\n        <p style="padding-top:10px;font-weight: bold;font-size: 56px;color:grey;line-height: 40px;">')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(request.user.username))
+            __M_writer('</p>\r\n        <br>\r\n        ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(msg))
-            __M_writer('</p>\r\n      <form action="" method="post">\r\n            <table >\r\n               <tr>\r\n                  <td style="width:2%"></td>\r\n                  <td style="width:50%" >\r\n                     <table class="formlabel">\r\n                           ')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form ))
-            __M_writer('\r\n                     </table>\r\n                  </td>\r\n                  <td style="border-right-color:grey;border-right-style:solid;border-width:1px; width: 10px"></td>\r\n                  <td style="width:15px"></td>\r\n                  <td style="width:45%">\r\n                     <table class="formlabel"style="vertical-align:top; margin-bottom:165px;">\r\n                         ')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(form2))
-            __M_writer('\r\n                     </table>\r\n                  </td>\r\n                  <td style="width:3px"></td>\r\n               </tr>\r\n            \r\n            </table>\r\n            <hr>\r\n            \r\n            <p style="margin-left:45%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Search"/></p>\r\n          </form>\r\n   </div>\r\n')
+            __M_writer('\r\n        <table class="formlabel">\r\n            ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(form))
+            __M_writer('\r\n        </table>\r\n        <p style="margin-left:20%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Change Password"/></p>\r\n      </form>\r\n    </div>\r\n</div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -132,6 +130,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/search.html", "uri": "search.html", "source_encoding": "utf-8", "line_map": {"29": 0, "47": 1, "52": 3, "57": 6, "62": 39, "72": 3, "78": 3, "84": 4, "90": 4, "96": 8, "107": 8, "108": 9, "109": 10, "110": 12, "111": 12, "112": 19, "113": 19, "114": 26, "115": 26, "121": 41, "127": 41, "133": 127}}
+{"filename": "C:/Users/Isaac/intexsite/account/templates/changepass.html", "uri": "changepass.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 7, "61": 25, "71": 3, "77": 3, "83": 5, "89": 5, "95": 9, "105": 9, "106": 10, "107": 11, "108": 14, "109": 14, "110": 16, "111": 16, "112": 18, "113": 18, "119": 27, "125": 27, "131": 125}}
 __M_END_METADATA
 """

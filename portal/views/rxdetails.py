@@ -60,22 +60,24 @@ def process_request(request, rx:rmod.Opiods_Related):
                                                             topguys = rmod.High_Presc.objects.all()[:5]
                                                             onlyguys = rmod.High_Presc.objects.all()[:5]
             except:
+        
+                    topguys = rmod.High_Presc.objects.all()[:5]
+                    onlyguys = rmod.High_Presc.objects.all()[:5]
                 
-                topguys = rmod.High_Presc.objects.all()[:5]
-                onlyguys = rmod.High_Presc.objects.all()[:5]
-
 
 
 
 
             guys = list()
             guys2 = list()
-            
-            for item in topguys:
-                guys.append(rmod.Prescribers.objects.get(doctorid=item.doctorid))
-            for item in onlyguys:
-                guys2.append(rmod.Prescribers.objects.get(doctorid=item.doctorid))
-
+            try:
+                for item in topguys:
+                    guys.append(rmod.Prescribers.objects.get(doctorid=item.doctorid))
+                for item in onlyguys:
+                    guys2.append(rmod.Prescribers.objects.get(doctorid=item.doctorid))
+            except:
+                guys = ''
+                guys2 = ''
 
 
             context={

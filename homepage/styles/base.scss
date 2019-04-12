@@ -18,7 +18,7 @@ $providerblue:#71E3EE;
 }
 @font-face {
     font-family: 'Century Gothic';
-    src: url('fonts/CenuryGothic.ttf') format('truetype');
+    src: url('fonts/CenturyGothic.ttf') format('truetype');
     src: local('fonts/CenturyGothic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -256,7 +256,7 @@ footer a {
     border-radius: 50px;
 }
 .loginimg{
-    display: inline-block;
+     display:block;
      height: 35px;
      width:auto;
      border-radius: 20px;

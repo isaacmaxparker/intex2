@@ -26,7 +26,7 @@
 %if user.groups.filter(name='Prescribers').exists():
 <body class="docbod">
 %else:
-    %if user.groups.filter(name='HealthOfficials').exists():
+    %if user.groups.filter(name='HealthOfficials').exists() or user.groups.filter(name='Officials').exists:
     <body class="offbod">
     %else:
         %if user.groups.filter(name='HHS').exists():

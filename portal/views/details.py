@@ -8,10 +8,15 @@ import json
 @view_function
 def process_request(request, docid ):
     if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
-        
+        try:
+            recom = rmod.Drug_Quant_Rec.objects.get(doctorid = docid)
+            prescrecom = True
+        except:
+            recom = rmod.Drug_Quant_Rec.objects.all()[67]
+            prescrecom = False
         doc = rmod.Prescribers.objects.get(doctorid = docid)
         state = rmod.Overdoses.objects.get(abbrev = doc.state)
-        print('-------------------------------')
+        
         try:
             opiates = rmod.Prescriptions.objects.get(doctorid = docid)
         except:
@@ -72,7 +77,10 @@ def process_request(request, docid ):
             'deaths':state.deaths,
             'opiates':opiates,
             'relatives':relatives, 
-            'risk': risk.rating if risk != 'NONE' else 'NONE'
+            'risk': risk.rating if risk != 'NONE' else 'NONE',
+            'prescless':recom.presc_less,
+            'prescmore':recom.presc_more,
+            'prescrecom':prescrecom,
         }
         return request.dmp.render('prescriberdetails.html',context)
     else:

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555026102.1763387
+_modified_time = 1555048283.7464013
 _enable_loop = True
 _template_filename = 'C:/Users/Isaac/intexsite/portal/templates/prescriberdetails.html'
 _template_uri = 'prescriberdetails.html'
@@ -30,25 +30,28 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        fullname = context.get('fullname', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        relatives = context.get('relatives', UNDEFINED)
-        def left_content():
-            return render_left_content(context._locals(__M_locals))
-        specialty = context.get('specialty', UNDEFINED)
-        gender = context.get('gender', UNDEFINED)
-        opiates = context.get('opiates', UNDEFINED)
+        prescrecom = context.get('prescrecom', UNDEFINED)
+        prescless = context.get('prescless', UNDEFINED)
         state = context.get('state', UNDEFINED)
-        def site_content():
-            return render_site_content(context._locals(__M_locals))
-        statename = context.get('statename', UNDEFINED)
-        deaths = context.get('deaths', UNDEFINED)
-        risk = context.get('risk', UNDEFINED)
         def right_content():
             return render_right_content(context._locals(__M_locals))
+        relatives = context.get('relatives', UNDEFINED)
+        specialty = context.get('specialty', UNDEFINED)
+        risk = context.get('risk', UNDEFINED)
+        fullname = context.get('fullname', UNDEFINED)
+        def site_content():
+            return render_site_content(context._locals(__M_locals))
+        deaths = context.get('deaths', UNDEFINED)
+        gender = context.get('gender', UNDEFINED)
+        prescmore = context.get('prescmore', UNDEFINED)
+        def left_content():
+            return render_left_content(context._locals(__M_locals))
         sellsOpiod = context.get('sellsOpiod', UNDEFINED)
         def page_title():
             return render_page_title(context._locals(__M_locals))
+        statename = context.get('statename', UNDEFINED)
+        opiates = context.get('opiates', UNDEFINED)
         request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
@@ -103,24 +106,27 @@ def render_left_content(context,**pageargs):
 def render_site_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def site_content():
-            return render_site_content(context)
-        fullname = context.get('fullname', UNDEFINED)
-        statename = context.get('statename', UNDEFINED)
-        deaths = context.get('deaths', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        relatives = context.get('relatives', UNDEFINED)
+        prescrecom = context.get('prescrecom', UNDEFINED)
+        prescless = context.get('prescless', UNDEFINED)
         state = context.get('state', UNDEFINED)
+        relatives = context.get('relatives', UNDEFINED)
         specialty = context.get('specialty', UNDEFINED)
         risk = context.get('risk', UNDEFINED)
+        fullname = context.get('fullname', UNDEFINED)
+        def site_content():
+            return render_site_content(context)
+        deaths = context.get('deaths', UNDEFINED)
         gender = context.get('gender', UNDEFINED)
-        opiates = context.get('opiates', UNDEFINED)
+        prescmore = context.get('prescmore', UNDEFINED)
         sellsOpiod = context.get('sellsOpiod', UNDEFINED)
+        statename = context.get('statename', UNDEFINED)
+        opiates = context.get('opiates', UNDEFINED)
         request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n   <div class="content">\r\n      <table class="detstab">\r\n         <tr>\r\n            <td>\r\n                  <img src="/static/homepage/media/UserImages/')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('Male' if gender == 'M' else 'Female'))
-        __M_writer('.png">\r\n            </td>\r\n            <td class="bio">\r\n                  <p class="name">')
+        __M_writer('.png">\r\n            </td>\r\n            <td class="bio">\r\n                  <p class="name" style="line-height: 56px;">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(fullname))
         __M_writer('<span class="info" style="margin-left:40px; font-weight:100;">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('Female' if gender == 'F' else 'Male'))
@@ -132,11 +138,24 @@ def render_site_content(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('red' if sellsOpiod else ''))
         __M_writer('">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('Opiate Prescriber' if sellsOpiod else 'Non-Opiate Prescriber' ))
-        __M_writer('</span></p>\r\n                  \r\n            </td>\r\n            <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>\r\n            <td style="vertical-align:middle; padding-left:40px;">\r\n               <p class="stat" style="font-size:60px;line-height: 30px;">\r\n                  ')
+        __M_writer('</span></p>\r\n')
+        if prescrecom:
+            __M_writer('                  <p>We recommend ')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(fullname))
+            __M_writer(' prescribe less of <span style="color:red;font-weight:bold">')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(prescless))
+            __M_writer('</span> and instead prescribe more <span style="color:rgb(15, 173, 15);font-weight:bold">')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(prescmore))
+            __M_writer('</span></p>\r\n')
+        __M_writer('            </td>\r\n            <td style="width:0px;border-right-style:solid;border-color:rgb(189, 189, 189);border-width:1px; padding:10px;"></td>\r\n            <td style="vertical-align:middle; padding-left:40px;">\r\n               <p class="stat" style="font-size:60px;line-height: 30px;">\r\n                  ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(deaths))
-        __M_writer('\r\n               </p>\r\n               <p style="font-size:20px;">\r\n                  opiod-related <br>deaths in <b>')
+        __M_writer('\r\n               </p>\r\n               <p style="font-size:20px;">\r\n                  opiod-related <br>deaths in <span style="font-size:35px;"><b>')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(state))
-        __M_writer('</b>\r\n               </p>\r\n            </td>\r\n         </tr>\r\n      </table>\r\n')
+        __M_writer('</b></span>\r\n               </p>\r\n               <!-- <p>Recommendations:</p>\r\n               <p>Prescribe more of ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(prescmore))
+        __M_writer('</p>\r\n               <p>Prescribe less of ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(prescless))
+        __M_writer('</p> -->\r\n               \r\n            </td>\r\n         </tr>\r\n      </table>\r\n')
         if request.user.has_perm('account.search') and risk != 'NONE':
             __M_writer('      <table class="detstab" style="border-top-style:solid;border-color:rgb(189, 189, 189);border-width:1px;">\r\n         <tr>\r\n')
             if sellsOpiod:
@@ -335,6 +354,6 @@ def render_right_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Isaac/intexsite/portal/templates/prescriberdetails.html", "uri": "prescriberdetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "54": 1, "59": 3, "64": 7, "69": 324, "79": 3, "85": 3, "91": 5, "97": 5, "103": 9, "121": 9, "122": 14, "123": 14, "124": 17, "125": 17, "126": 17, "127": 17, "128": 18, "129": 18, "130": 18, "131": 18, "132": 19, "133": 19, "134": 19, "135": 19, "136": 25, "137": 25, "138": 28, "139": 28, "140": 33, "141": 34, "142": 36, "143": 37, "144": 56, "145": 56, "146": 58, "147": 59, "148": 60, "149": 60, "150": 62, "151": 63, "152": 66, "153": 67, "154": 68, "155": 68, "156": 71, "157": 77, "158": 77, "159": 79, "160": 80, "161": 81, "162": 81, "163": 83, "164": 84, "165": 87, "166": 88, "167": 89, "168": 89, "169": 92, "170": 98, "171": 98, "172": 100, "173": 101, "174": 102, "175": 102, "176": 104, "177": 105, "178": 108, "179": 109, "180": 110, "181": 110, "182": 113, "183": 119, "184": 119, "185": 121, "186": 122, "187": 123, "188": 123, "189": 125, "190": 126, "191": 129, "192": 130, "193": 131, "194": 131, "195": 134, "196": 140, "197": 140, "198": 142, "199": 143, "200": 144, "201": 144, "202": 146, "203": 147, "204": 150, "205": 151, "206": 152, "207": 152, "208": 155, "209": 161, "210": 161, "211": 163, "212": 164, "213": 165, "214": 165, "215": 167, "216": 168, "217": 171, "218": 172, "219": 173, "220": 173, "221": 176, "222": 182, "223": 182, "224": 184, "225": 185, "226": 186, "227": 186, "228": 188, "229": 189, "230": 192, "231": 193, "232": 194, "233": 194, "234": 197, "235": 203, "236": 203, "237": 205, "238": 206, "239": 207, "240": 207, "241": 209, "242": 210, "243": 213, "244": 214, "245": 215, "246": 215, "247": 218, "248": 224, "249": 224, "250": 226, "251": 227, "252": 228, "253": 228, "254": 230, "255": 231, "256": 234, "257": 235, "258": 236, "259": 236, "260": 239, "261": 245, "262": 245, "263": 247, "264": 248, "265": 249, "266": 249, "267": 251, "268": 252, "269": 255, "270": 256, "271": 257, "272": 257, "273": 260, "274": 266, "275": 266, "276": 268, "277": 269, "278": 270, "279": 270, "280": 272, "281": 273, "282": 276, "283": 277, "284": 278, "285": 278, "286": 281, "287": 285, "288": 286, "289": 288, "290": 289, "291": 289, "292": 289, "293": 290, "294": 291, "295": 291, "296": 291, "297": 292, "298": 293, "299": 293, "300": 293, "301": 294, "302": 295, "303": 295, "304": 295, "305": 297, "306": 299, "307": 304, "308": 305, "309": 308, "310": 308, "311": 308, "312": 308, "313": 308, "314": 308, "315": 311, "316": 311, "317": 316, "318": 321, "324": 326, "330": 326, "336": 330}}
+{"filename": "C:/Users/Isaac/intexsite/portal/templates/prescriberdetails.html", "uri": "prescriberdetails.html", "source_encoding": "utf-8", "line_map": {"29": 0, "57": 1, "62": 3, "67": 7, "72": 330, "82": 3, "88": 3, "94": 5, "100": 5, "106": 9, "127": 9, "128": 14, "129": 14, "130": 17, "131": 17, "132": 17, "133": 17, "134": 18, "135": 18, "136": 18, "137": 18, "138": 19, "139": 19, "140": 19, "141": 19, "142": 20, "143": 21, "144": 21, "145": 21, "146": 21, "147": 21, "148": 21, "149": 21, "150": 23, "151": 27, "152": 27, "153": 30, "154": 30, "155": 33, "156": 33, "157": 34, "158": 34, "159": 39, "160": 40, "161": 42, "162": 43, "163": 62, "164": 62, "165": 64, "166": 65, "167": 66, "168": 66, "169": 68, "170": 69, "171": 72, "172": 73, "173": 74, "174": 74, "175": 77, "176": 83, "177": 83, "178": 85, "179": 86, "180": 87, "181": 87, "182": 89, "183": 90, "184": 93, "185": 94, "186": 95, "187": 95, "188": 98, "189": 104, "190": 104, "191": 106, "192": 107, "193": 108, "194": 108, "195": 110, "196": 111, "197": 114, "198": 115, "199": 116, "200": 116, "201": 119, "202": 125, "203": 125, "204": 127, "205": 128, "206": 129, "207": 129, "208": 131, "209": 132, "210": 135, "211": 136, "212": 137, "213": 137, "214": 140, "215": 146, "216": 146, "217": 148, "218": 149, "219": 150, "220": 150, "221": 152, "222": 153, "223": 156, "224": 157, "225": 158, "226": 158, "227": 161, "228": 167, "229": 167, "230": 169, "231": 170, "232": 171, "233": 171, "234": 173, "235": 174, "236": 177, "237": 178, "238": 179, "239": 179, "240": 182, "241": 188, "242": 188, "243": 190, "244": 191, "245": 192, "246": 192, "247": 194, "248": 195, "249": 198, "250": 199, "251": 200, "252": 200, "253": 203, "254": 209, "255": 209, "256": 211, "257": 212, "258": 213, "259": 213, "260": 215, "261": 216, "262": 219, "263": 220, "264": 221, "265": 221, "266": 224, "267": 230, "268": 230, "269": 232, "270": 233, "271": 234, "272": 234, "273": 236, "274": 237, "275": 240, "276": 241, "277": 242, "278": 242, "279": 245, "280": 251, "281": 251, "282": 253, "283": 254, "284": 255, "285": 255, "286": 257, "287": 258, "288": 261, "289": 262, "290": 263, "291": 263, "292": 266, "293": 272, "294": 272, "295": 274, "296": 275, "297": 276, "298": 276, "299": 278, "300": 279, "301": 282, "302": 283, "303": 284, "304": 284, "305": 287, "306": 291, "307": 292, "308": 294, "309": 295, "310": 295, "311": 295, "312": 296, "313": 297, "314": 297, "315": 297, "316": 298, "317": 299, "318": 299, "319": 299, "320": 300, "321": 301, "322": 301, "323": 301, "324": 303, "325": 305, "326": 310, "327": 311, "328": 314, "329": 314, "330": 314, "331": 314, "332": 314, "333": 314, "334": 317, "335": 317, "336": 322, "337": 327, "343": 332, "349": 332, "355": 349}}
 __M_END_METADATA
 """

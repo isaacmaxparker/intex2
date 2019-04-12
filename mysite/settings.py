@@ -25,7 +25,15 @@ SECRET_KEY = 'hv_4y40dd1j)5g+s(h466w4&hbgqznvlz_+o^a01#wqqm+)mdl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# SECURE_SSL_REDIRECT = True
+
+# SESSION_COOKIE_SECURE = True
+
+# CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -42,6 +50,11 @@ INSTALLED_APPS = [
     'account',
     'catalog',
     'portal',
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'two_factor',
+    'otp_yubikey',
 ]
 
 MIDDLEWARE = [
@@ -53,9 +66,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_otp.middleware.OTPMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
+LOGIN_URL = '/account/login/'
+
+# this one is optional
+LOGIN_REDIRECT_URL = '/'
 
 TEMPLATES = [
     {

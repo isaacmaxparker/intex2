@@ -15,21 +15,7 @@ class="back2"
    <div class="content">
          <p class="homeparg"><span style="font-size:40px; font-weight: bold;">Welcome to STOP.gov! </span>This online portal will help government agencies and providers work together to decrease America's opiod epidemic. Let's start fixing today!</p>  
          <br><hr><br>
-         %if request.user.has_perm('account.search'):
-         <a href="/portal/search/" class="alinkbox">
-            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
-               <img src="${STATIC_URL}homepage/media/pill3.png">
-               <p class="hha">Search Drugs</p>
-            </div>
-           </a>
-           <a href="/portal/search/" class="alinkbox">
-            <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
-               <img src="${STATIC_URL}homepage/media/people.png">
-               <p style="color:#33BDA6">Search Providers</p>
-            </div>
-           </a>
-         %endif
-         %if request.user.has_perm('account.safesearch'):
+         %if request.user.has_perm('account.search') or request.user.has_perm('account.safesearch'):
          <a href="/portal/search/" class="alinkbox">
             <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
                <img src="${STATIC_URL}homepage/media/pill3.png">
@@ -52,7 +38,7 @@ class="back2"
            </a>
          %endif
          %if request.user.has_perm('account.CRUD'):
-         <a href="/portal/edit/" class="alinkbox">
+         <a href="/portal/listings/" class="alinkbox">
             <div class="linkbox hha" style="margin-left:10%;width:100vw;max-width: 800px">
                <img src="${STATIC_URL}homepage/media/listing.png">
                <p style="color:#FC5936">Edit Listings</p>

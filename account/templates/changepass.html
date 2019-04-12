@@ -1,0 +1,29 @@
+<%inherit file="app_base.htm" />
+
+<%block name="page_title">&mdash; Home</%block>
+
+<%block name="left_content">
+
+</%block>
+
+<%block name="site_content">
+%if request.user.is_authenticated:
+   <div class="content">
+     <div style="width:100%;margin-left:18%">
+      <form action="" method="POST">
+        <p style="padding-top:10px;font-weight: bold;font-size: 56px;color:grey;line-height: 40px;">${request.user.username}</p>
+        <br>
+        ${msg}
+        <table class="formlabel">
+            ${form}
+        </table>
+        <p style="margin-left:20%; margin-top:15px;"><input type="submit" class="btn mybtn" value="Change Password"/></p>
+      </form>
+    </div>
+</div>
+%endif
+</%block>
+
+<%block name="right_content">
+
+</%block>

@@ -3,7 +3,9 @@ from django import forms
 from django_mako_plus import view_function, jscontext
 from datetime import datetime
 from django.http import HttpResponseRedirect
+from django_otp.decorators import otp_required
 
+# @otp_required
 @view_function
 def process_request(request,kind=4):
 
