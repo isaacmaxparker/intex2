@@ -107,7 +107,7 @@ def render_site_content(context,**pageargs):
         def site_content():
             return render_site_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<div class="content">\r\n<p class="homeparg">\r\n        <span style="font-size:40px; font-weight: bold;">The opioid crisis is devastating America.</span><br> The latest statistics indicate that the total yearly overdose deaths due to opioids reached a new high of 70,237 in 2017. In that same year, President Trump declared the opioid crisis a public health emergency. \r\nThis web portal aims to mitigate the availabilty of opiods by monitoring prescriptions and identifying potential problems before they happen.\r\n</p>\r\n<a href="/account/login/" style="color:grey;font-family:century gothic;text-align:center;width:100%;font-size:34px;padding-left:40%">I want to help</a>\r\n</div>\r\n\r\n\r\n')
+        __M_writer('\r\n\r\n<div class="content">\r\n<p class="homeparg">\r\n        <span style="font-size:40px; font-weight: bold;">The opioid crisis is devastating America.</span><br> The latest statistics indicate that the total yearly overdose deaths due to opioids reached a new high of 70,237 in 2017. In that same year, President Trump declared the opioid crisis a public health emergency. \r\nThis web portal aims to mitigate the availabilty of opiods by monitoring prescriptions and identifying potential problems before they happen.\r\n</p>\r\n<a href="/account/login/" style="color:grey;font-family:'Century Gothic','Josefin','Sans-Serif';text-align:center;width:100%;font-size:34px;padding-left:40%">I want to help</a>\r\n</div>\r\n\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

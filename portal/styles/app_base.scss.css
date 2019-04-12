@@ -1,6 +1,6 @@
 .portaltitle {
   color: grey;
-  font-family: "Century Gothic";
+  font-family: 'Century Gothic','Josefin','Sans-Serif';
   font-size: 50px;
   text-align: left;
   padding-left: 10px;
@@ -97,12 +97,12 @@
 }
 
 .provtab th {
-  font-family: "Century Gothic", sans-serif;
+  font-family: 'Century Gothic','Josefin','Sans-Serif', sans-serif;
 }
 
 .tabhead {
   font-weight: bold;
-  font-family: "Century Gothic", sans-serif;
+  font-family: 'Century Gothic','Josefin','Sans-Serif', sans-serif;
   color: #444444;
   font-size: 30px;
 }
@@ -136,7 +136,7 @@
 }
 
 .link2 {
-  font-family: "Century Gothic";
+  font-family: 'Century Gothic','Josefin','Sans-Serif';
   color: #097077;
 }
 
@@ -167,7 +167,7 @@
 }
 
 .detstab td {
-  font-family: "Century Gothic", sans-serif;
+  font-family: 'Century Gothic','Josefin','Sans-Serif', sans-serif;
 }
 
 .bothalf {
